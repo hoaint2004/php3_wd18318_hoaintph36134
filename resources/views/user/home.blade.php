@@ -520,7 +520,7 @@
                 <h3>This is an optional subtitle for post section</h3>
                 <div class="note">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                    <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                    <p> <i class="fa-solid fa-pen"></i>July 24gg, 2019</p>
                 </div>
             </div>
             <div class="blog_end">
@@ -552,3 +552,10 @@
 </body>
 
 </html>
+
+{{-- git status
+    git add .
+    git commit -m"name"
+
+
+--}}
