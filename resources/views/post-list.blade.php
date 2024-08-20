@@ -10,13 +10,14 @@
     <hr> {{-- Đường kẻ ngang --}}
     @foreach ($posts as $post)
         <div>
-            <a href="#">
+            <a href="{{ route('post.detail', $post->id) }}">
                 <h3>{{ $post->title }}</h3>
             </a>
             <div class="">
                 <img src="{{$post->image}}" alt="" width="100">
             </div>
             <p>{{ $post->description }}</p>
+            <p>View: {{ $post->view }}</p>
             <hr>
         </div>
     @endforeach

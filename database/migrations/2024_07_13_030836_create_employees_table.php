@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('fullname');
-            $table->string('username')->unique(); //unique:k đc trùng nhau
+            $table->string('fullname', 50);
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', ['admin', 'user'])->default('user');
-            $table->rememberToken();
+            $table->date('birthday');
+            $table->string('address', 150);
+            $table->foreignId('department_id')->constrained()->onUpdate('cascade')->cascadeOnDelete();
+            //restrict - cascade(xóa toàn bộ k cần đk): action onupdate - ondelete 
+            
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('employees');
     }
 };
