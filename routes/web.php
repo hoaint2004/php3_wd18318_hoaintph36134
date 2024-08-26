@@ -120,6 +120,10 @@ Route::get('/home', function(){
     return view('user.home');
 });
 
+Route::get('detailpost', function(){
+    return view('user.detailpost');
+});
+
 Route::get('/test', [PostController::class, 'test']);
 Route::middleware(AdminMiddleware::class)->group(function(){
     Route::get('/posts', [PostController::class, 'index'])->name('post.index');
