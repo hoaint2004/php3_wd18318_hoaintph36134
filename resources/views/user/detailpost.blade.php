@@ -101,7 +101,7 @@
                     </p>
 
                     <div class="img-text" style="">
-                        {{-- <img src="{{url('storage/images/a1.jpg')}}" alt="" width="500px"> --}}
+                        <img src="{{ url('storage/images/a1.jpg') }}" alt="">
                         <p>You can work every where with you phone
                         </p>
                     </div>
@@ -131,81 +131,92 @@
                 <button># Tutorial</button>
             </div>
             <hr>
-            <p class="previous"><i class="fa-solid fa-arrow-left"></i>Previous post</p>
+            <p class="previous">
+                <i class="fa-solid fa-arrow-left"></i> Previous post
+            </p>
             <h2 class="text-previous">It's time to look at the best structures of our society
             </h2>
 
-            <div class="rate">
-                <div class="image-cus">
-                    <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="150px" height="150px">
-                </div>
-
-                <div class="content-cus">
-                    <h3>Spraya</h3>
-                    <div class="icon-rate">
-                        <i class="fa-solid fa-link"></i>
-                        <i class="fa-brands fa-linkedin-in"></i>
-                        <i class="fa-solid fa-wifi"></i>
+            <div class="cus-rate">
+                <div class="rate">
+                    <div class="image-cus">
+                        <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="150px" height="150px">
                     </div>
-                    <p>Etiam vitae dapibus rhoncus eget etiam aenean nisi montes felis pretium donec veni pede vidi
-                        condimentum et aenean hendrerit. Quis sem justo nisi varius Phasellus tellus tellus, imperdiet
-                        ut imperdiet eu, iaculis a sem
-                    </p>
+
+                    <div class="content-cus">
+                        <h3>Spraya</h3>
+                        <div class="icon-rate">
+                            <i class="fa-solid fa-link"></i>
+                            <i class="fa-brands fa-linkedin-in"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <p>Etiam vitae dapibus rhoncus eget etiam aenean nisi montes felis pretium donec veni pede vidi
+                            condimentum et aenean hendrerit. Quis sem justo nisi varius Phasellus tellus tellus,
+                            imperdiet
+                            ut imperdiet eu, iaculis a sem
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <h3>Related Articles</h3>
 
-            <div class="blog">
-                <div class="picture">
-                    <img src="{{ url('storage\images\a1.jpg') }}" alt="">
-                </div>
-                <div class="content-blog">
-                    <button class="btn" style="background-color: #eba845">Business</button><br>
-                    <h2><a href="">Nice photo shooting with hand classic style</a></h2>
-                    <div class="note">
-                        <p><i class="fa fa-user"></i>Sparaya</p>
-                        <p><i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                        <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+            <div class="blog-related">
+                <div class="blog">
+                    <div class="picture">
+                        <img src="{{ url('storage\images\a1.jpg') }}" alt="">
                     </div>
-                    <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a sem.
-                        Donec vehicula luctus nunc...
-                    </p>
-                </div>
-            </div>
-            <div class="blog">
-                <div class="picture">
-                    <img src="{{ url('storage\images\a2.jpg') }}" alt="">
-                </div>
-                <div class="content-blog">
-                    <button class="btn" style="background-color: #eba845">Business</button><br>
-                    <h2><a href="">Nice photo shooting with hand classic style</a></h2>
-                    <div class="note">
-                        <p><i class="fa fa-user"></i>Sparaya</p>
-                        <p><i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                        <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+                    <div class="content-blog">
+                        <button class="btn" style="background-color: #eba845">Business</button><br>
+                        <h2><a href="">Nice photo shooting with hand classic style</a></h2>
+                        <div class="note">
+                            <p><i class="fa fa-user"></i>Sparaya</p>
+                            <p><i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                            <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+                        </div>
+                        <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a
+                            sem.
+                            Donec vehicula luctus nunc...
+                        </p>
                     </div>
-                    <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a sem.
-                        Donec vehicula luctus nunc...
-                    </p>
                 </div>
-            </div>
-            <div class="blog">
-                <div class="picture">
-                    <img src="{{ url('storage\images\a10.jpg') }}" alt="">
-                </div>
-                <div class="content-blog">
-                    <button class="btn" style="background-color: #eba845">Business</button> <br>
-                    <h2><a href="">Nice photo shooting with hand classic style</a></h2>
-                    <div class="note">
-                        <p><i class="fa fa-user"></i>Sparaya</p>
-                        <p><i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                        <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+                <div class="blog">
+                    <div class="picture">
+                        <img src="{{ url('storage\images\a2.jpg') }}" alt="">
                     </div>
-                    <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a sem.
-                        Donec vehicula luctus nunc...
-                    </p>
+                    <div class="content-blog">
+                        <button class="btn" style="background-color: #eba845">Business</button><br>
+                        <h2><a href="">Nice photo shooting with hand classic style</a></h2>
+                        <div class="note">
+                            <p><i class="fa fa-user"></i>Sparaya</p>
+                            <p><i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                            <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+                        </div>
+                        <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a
+                            sem.
+                            Donec vehicula luctus nunc...
+                        </p>
+                    </div>
                 </div>
+                <div class="blog">
+                    <div class="picture">
+                        <img src="{{ url('storage\images\a10.jpg') }}" alt="">
+                    </div>
+                    <div class="content-blog">
+                        <button class="btn" style="background-color: #eba845">Business</button> <br>
+                        <h2><a href="">Nice photo shooting with hand classic style</a></h2>
+                        <div class="note">
+                            <p><i class="fa fa-user"></i>Sparaya</p>
+                            <p><i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                            <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+                        </div>
+                        <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a
+                            sem.
+                            Donec vehicula luctus nunc...
+                        </p>
+                    </div>
+                </div>
+
             </div>
 
             <h3 style="margin-top: 40px">Leave a Reply
@@ -220,7 +231,8 @@
                     <input type="text" name="web_url" placeholder="Web URL" class="input">
                 </div>
             </div>
-            <input type="checkbox" name="save"> Save my name, email, and website in this browser for the next time
+            <input type="checkbox" name="save"> Save my name, email, and website in this browser for the next
+            time
             I comment.
             <br>
             <button class="btnsave" type="submit">Post Comment</button>
@@ -328,7 +340,9 @@
 
             <h3>Advertisement</h3>
             <hr>
+            <div class="">
             <img class="image-sidebar" src="{{ url('storage\images\a12.jpg') }}" alt="" width="350px">
+        </div>
         </div>
     </div>
 </body>

@@ -22,10 +22,14 @@ body {
     gap: 40px;
 }
 
-.content4 {
+.text {
     width: 1200px;
-    display: flex;
     margin: auto auto;
+}
+
+.content4 {
+    display: flex;
+    gap: 20px;
     justify-content: center;
 }
 
@@ -66,6 +70,7 @@ body {
 }
 
 .note>p {
+    color: #6f6f6f;
     text-align: left;
     padding: 0 10px;
 }
@@ -88,6 +93,7 @@ img {
     /* width: 100%; */
     border-style: none;
     border-radius: 10px;
+    border: 1px solid #777
 }
 
 .picture>img {
@@ -129,19 +135,23 @@ img {
     left: 25px;
 }
 
-.blog1 .note {
+.blog1 .note1 {
     position: absolute;
-    bottom: 50px;
+    bottom: 30px;
     left: 25px;
+    display: flex;
+    color: #fff;
+}
+
+.note1>p {
+    padding: 0 10px;
+
 }
 
 .blog5 {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 10px;
-    margin-left: 30px;
-    /* justify-content: space-evenly;
-    width: 20%; */
+    gap: 25px;
 }
 
 button {
@@ -153,7 +163,7 @@ button {
     /* width: 1200px; */
     background-color: #fff5f3;
     margin-top: 50px;
-    padding: 45px 0 30px 0;
+    /* padding: 45px 0 30px 0; */
 }
 
 .container2 {
@@ -207,16 +217,6 @@ i {
     margin-right: 10px;
 }
 
-
-.text>h2 {
-    padding-left: 150px;
-}
-
-.text>p {
-    padding-left: 150px;
-
-}
-
 /* Max width 1400px */
 @media (max-width: 1400px) {}
 
@@ -227,15 +227,12 @@ i {
 @media (max-width: 992px) {
     body {
         width: 100%;
-        margin: 0px 20px;
+        margin: 50px 20px;
+        text-align: justify;
     }
 
     .container1 {
         background-color: #fff;
-        /* max-width: 1200px;
-        background-color: #fff5f3;
-        margin-top: 50px;
-        padding: 45px 0 30px 0; */
     }
 
     .blog1 {
@@ -284,7 +281,7 @@ i {
     }
 
     p {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     h3 {
@@ -318,13 +315,30 @@ i {
         height: 30px;
         line-height: 30px;
     }
+
+    .blog4 {
+        width: 70%;
+    }
+
+    .btn1 {
+        width: 120px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .blog5-blog>h3 {
+        min-height: 50px;
+    }
+
+    img {
+        width: 100%;
+    }
 }
 
 /* Max width 768px */
 @media (max-width: 768px) {
     body {
-        padding: 0 15px;
-        margin: 50px 0px;
+        margin: 50px 30px;
     }
 
     .content1 {
@@ -356,12 +370,6 @@ i {
         width: 100%;
     }
 
-    /* .box .picture>img {
-        height: 250px;
-
-        max-width: 100%;
-    } */
-
     .box .desc {
         width: 100%;
     }
@@ -380,7 +388,7 @@ i {
     }
 
     p {
-        font-size: 35px;
+        font-size: 30px;
     }
 
     h3 {
@@ -403,14 +411,6 @@ i {
         line-height: 50px;
     }
 
-    .text>h2 {
-        padding-left: 15px;
-    }
-
-    .text>p {
-        padding-left: 15px;
-    }
-
     .content4 {
         display: block;
     }
@@ -418,23 +418,61 @@ i {
     .desc>h3 {
         white-space: normal;
         width: 100%;
-        /* overflow: hidden;
-        text-overflow: ellipsis; */
-        /* border: 1px solid #000000; */
-    }
-}
-
-/* Max width 576px */
-@media (max-width: 576px) {
-    body {
-        width: 100%;
-        margin: 50px 15px;
     }
 
     .content2 {
         display: grid;
         grid-template-columns: auto;
 
+    }
+
+    .box2 .picture>img {
+        height: 600px;
+    }
+
+    .blog4 {
+        width: 100%;
+    }
+
+    .blog4>img {
+        height: 600px;
+    }
+
+
+    .blog5 {
+        display: grid;
+        grid-template-columns: auto;
+        /* gap: 25px; */
+    }
+
+    .blog5-blog>img {
+        height: 600px;
+    }
+
+    .content5 {
+        display: grid;
+        grid-template-columns: auto;
+        /* gap: 30px; */
+        /* padding: 10px; */
+    }
+
+    .content5 .blog-end>img {
+        width: 100%;
+        height: 600px;
+    }
+
+}
+
+/* Max width 576px */
+@media (max-width: 576px) {
+    body {
+        width: 100%;
+        margin: 50px 50px 30px 30px;
+    }
+
+    .content2 {
+        display: grid;
+        grid-template-columns: auto;
     }
 
     .box2 .picture>img {
@@ -482,6 +520,18 @@ i {
         background: black;
         color: #fff;
         border-radius: 7px;
+    }
+
+    .container1 {
+        width: max-content;
+        margin: 0px;
+    }
+
+
+    .blog1 .note1 {
+        position: absolute;
+        bottom: 15px;
+        left: 25px;
     }
 
 }

@@ -18,7 +18,7 @@
                 style="background-image: url('storage/images/R1BlmLNeySMVhnD0HPM2kCZyvyedUiytuRirxuys.jpg'); max-width:100%">
                 <button class="btn" style="background: #eba845;">Business</button>
                 <h1 style="color: #fff;">It time Rescue restaurant food with these epic saving</h1>
-                <div class="note" style="color: #fff">
+                <div class="note1" style="color: #fff">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
                     <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
                     <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
@@ -196,7 +196,6 @@
         <div class="text">
             <h2>Lifestyle News</h2>
             <p>This is an optional subtitle for post section</p>
-        </div>
 
         <div class="content4">
             <div class="blog4">
@@ -213,7 +212,7 @@
             </div>
 
             <div class="blog5">
-                <div class="">
+                <div class="blog5-blog">
                     <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="200px" height="200px">
                     <h3>The dress style influencers are wearing right now</h3>
                     <div class="note">
@@ -222,7 +221,7 @@
                     </div>
                 </div>
 
-                <div class="">
+                <div class="blog5-blog">
                     <img src="{{ url('storage\images\a11.jpg') }}" alt="" width="200px" height="200px">
                     <h3>It really great holiday and enjoy with the sea</h3>
                     <div class="note">
@@ -231,7 +230,7 @@
                     </div>
                 </div>
             
-                <div class="">
+                <div class="blog5-blog">
                     <img src="{{ url('storage\images\a1.jpg') }}" alt="" width="200px" height="200px">
                     <h3>This is the best camera for short minimal style</h3>
                     <div class="note">
@@ -240,7 +239,7 @@
                     </div>
                 </div>
 
-                <div class="">
+                <div class="blog5-blog">
                     <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="200px" height="200px">
                     <h3>This is my favourite fashion that i watching</h3>
                     <div class="note">
@@ -249,6 +248,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+
         </div>
     </div>
     <div class="container2">
@@ -260,7 +261,7 @@
                 <h3>This is an optional subtitle for post section</h3>
                 <div class="note">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                    <p> <i class="fa-solid fa-pen"></i>July 24gg, 2019</p>
+                    <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
                 </div>
             </div>
             <div class="blog-end">
