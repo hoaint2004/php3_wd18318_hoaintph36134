@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="content-cus">
-                        <h3>Spraya</h3>
+                        <h5>Spraya</h5>
                         <div class="icon-rate">
                             <i class="fa-solid fa-link"></i>
                             <i class="fa-brands fa-linkedin-in"></i>
@@ -231,9 +231,10 @@
                     <input type="text" name="web_url" placeholder="Web URL" class="input">
                 </div>
             </div>
-            <input type="checkbox" name="save"> Save my name, email, and website in this browser for the next
-            time
-            I comment.
+            <input type="checkbox" name="save" class="save"> <label for=""> Save my name, email, and
+                website in this browser for the next
+                time
+                I comment. </label>
             <br>
             <button class="btnsave" type="submit">Post Comment</button>
         </div>
@@ -340,9 +341,9 @@
 
             <h3>Advertisement</h3>
             <hr>
-            <div class="">
-            <img class="image-sidebar" src="{{ url('storage\images\a12.jpg') }}" alt="" width="350px">
-        </div>
+            <div class="image-sidebar">
+                <img id="image-sidebar" src="{{ url('storage\images\a12.jpg') }}" alt="" width="350px">
+            </div>
         </div>
     </div>
 </body>
