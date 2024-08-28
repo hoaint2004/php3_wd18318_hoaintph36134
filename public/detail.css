@@ -226,7 +226,7 @@ h5 {
 }
 
 .text-previous {
-    width: 45%;
+    width: 80%;
     font-size: 20px;
     /* Viết hoa toàn bộ chữ đầu tiên của 1 từ */
     text-transform: capitalize;
@@ -298,15 +298,17 @@ h5 {
 .text-note {
     border: 1px solid #dfdfdf;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 16px;
     /* padding: 10px; */
-    width: 100%;
     color: #555;
 }
 
 .contact-full {
     width: 100%;
+}
 
+textarea{
+    width: 100%;
 }
 
 .contact {
@@ -443,20 +445,23 @@ img {
         width: 100%;
         padding-right: 20px;
     }
+
+
+
 }
 
 /* Max width 576px */
 @media (max-width: 576px) {
     p {
-        font-size: 22px;
+        font-size: 15px;
     }
 
     .note>p>i {
-        font-size: 25px;
+        font-size: 15px;
     }
 
     input {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     label {
@@ -464,7 +469,7 @@ img {
     }
 
     .tag>button {
-        font-size: 20px;
+        font-size: 15px;
 
     }
 
@@ -473,7 +478,7 @@ img {
     }
 
     .content>h1 {
-        font-size: 50px;
+        font-size: 35px;
     }
 
     .section1 {
@@ -509,15 +514,15 @@ img {
     }
 
     .introduce>h2 {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .introduce>p {
-        font-size: 22px;
+        font-size: 15px;
     }
 
     li {
-        font-size: 25px;
+        font-size: 15px;
     }
 
     .rate {
@@ -526,7 +531,7 @@ img {
     }
 
     .icon-rate {
-        font-size: 22px;
+        font-size: 15px;
     }
 
     h5 {
@@ -538,10 +543,10 @@ img {
     }
 
     .btn {
-        font-size: 25px;
-        width: 120px;
-        height: 50px;
-        line-height: 50px;
+        font-size: 16px;
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
         margin-bottom: 15px;
     }
     
@@ -560,7 +565,7 @@ img {
     }
 
     .contact>input{
-        height: 50px;
+        height: 25px;
     }
 
     .save{
@@ -582,10 +587,10 @@ img {
     }
 
     .content>button{
-        font-size: 22px;
-        width: 200px;
-        height: 50px;
-        line-height: 50px;
+        font-size: 15px;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
     }
 
     h3{
@@ -598,5 +603,9 @@ img {
 
     .media-slidebar{
         font-size: 22px;
+    }
+    
+    label{
+        font-size: 15px;
     }
 }
