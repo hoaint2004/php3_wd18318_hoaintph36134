@@ -49,6 +49,7 @@ body {
 .blog1 {
     width: 65%;
     position: relative;
+    background-size: 100% 100%;
 
 }
 
@@ -56,6 +57,7 @@ body {
     max-width: 100%;
     width: 60%;
     height: auto;
+    background-size: 100% 100%;
 }
 
 .blog2 {

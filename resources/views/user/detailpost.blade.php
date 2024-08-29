@@ -36,9 +36,15 @@
                     </div>
                     <div class="icon-media-linkedin"><i class="fa-brands fa-linkedin-in"></i>
                     </div>
-                    <div class="icon-media-heart"><i class="fa-regular fa-heart"></i>
+                    <div class="icon-media-heart">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="badge">3</span>
+
                     </div>
-                    <div class="icon-media-eye"><i class="fa-regular fa-eye"></i></div>
+                    <div class="icon-media-eye">
+                        <i class="fa-regular fa-eye"></i>
+                        <span class="badge">5.5k</span>
+                    </div>
                 </div>
                 <div class="text">
                     <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a sem

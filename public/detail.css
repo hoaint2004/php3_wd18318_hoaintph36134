@@ -116,6 +116,42 @@ i {
     border: 1px solid black;
 }
 
+.icon-media-heart{
+    position: relative;
+}
+.icon-media-heart .badge{
+    width: 17px;
+    height: 15px;
+    line-height: 15px;
+    background-color: black;
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    border-radius: 10px;
+    font-size: 10px;
+    color: white;
+}
+
+.icon-media-eye{
+    position: relative;
+}
+
+.icon-media-eye .badge{
+    width: 30px;
+    height: 15px;
+    line-height: 15px;
+    background-color: black;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    border-radius: 10px;
+    font-size: 10px;
+    /* padding: 5px 10px; */
+    /* border-radius: 50%; */
+    /* background-color: red; */
+    color: white;
+}
+
 .media1 {
     padding: 15px 0;
     color: #fff;
