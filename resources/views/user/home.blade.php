@@ -42,7 +42,7 @@
 
                 <div class="box">
                     <div class="picture">
-                        <img src="{{ url('storage\images\a2.jpg') }}" alt="">
+                        <img src="{{ url('storage\images\a3.jpg') }}" alt="">
                     </div>
                     <div class="desc">
                         <button class="btn" style="background-color: #4dcf8f">Active</button>
@@ -66,7 +66,7 @@
                             <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
                             <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
                         </div>
-                    </div>  
+                    </div>
 
                 </div>
 
@@ -92,8 +92,8 @@
         <div class="content2">
             <div class="box2">
                 <div class="picture">
-                    <img src="{{ url('storage\images\a1.jpg') }}" alt="" >
-                    {{--<div class="icon">
+                    <img src="{{ url('storage\images\a1.jpg') }}" alt="">
+                    {{-- <div class="icon">
                         <button class="btn" style="background-color:#62ce5c ">Sports</button>
                         <span><i class="fa-regular fa-image"></i></span>
                     </div>  --}}
@@ -111,8 +111,8 @@
 
             <div class="box2">
                 <div class="picture">
-                    <img src="{{ url('storage\images\a12.jpg') }}" alt="" >
-                    
+                    <img src="{{ url('storage\images\a12.jpg') }}" alt="">
+
                 </div>
                 <h3>This is how much people have made selling</h3>
                 <div class="note">
@@ -127,8 +127,8 @@
 
             <div class="box2">
                 <div class="picture">
-                    <img src="{{ url('storage\images\a1.jpg') }}" alt="" >
-                    
+                    <img src="{{ url('storage\images\a1.jpg') }}" alt="">
+
                 </div>
                 <h3>This is how the pandemic has changed our</h3>
                 <div class="note">
@@ -143,7 +143,7 @@
 
             <div class="box2">
                 <div class="picture">
-                    <img src="{{ url('storage\images\a11.jpg') }}" alt="" >
+                    <img src="{{ url('storage\images\a11.jpg') }}" alt="">
                 </div>
                 <h3>Nice photo shooting with hand classic style</h3>
                 <div class="note">
@@ -157,7 +157,7 @@
             </div>
             <div class="box2">
                 <div class="picture">
-                    <img src="{{ url('storage\images\a2.jpg') }}" alt="" >
+                    <img src="{{ url('storage\images\a2.jpg') }}" alt="">
                 </div>
                 <h3>It’s always fun time and smile in the summer</h3>
                 <div class="note">
@@ -171,8 +171,8 @@
             </div>
             <div class="box2">
                 <div class="picture">
-                    <img src="{{ url('storage\images\a10.jpg') }}" alt="" >
-                    
+                    <img src="{{ url('storage\images\a10.jpg') }}" alt="">
+
                 </div>
                 <h3>Great time for enjoy your coffee with
                 </h3>
@@ -191,68 +191,71 @@
             <button class="btn1">Load More</button>
         </div>
 
-    </div>
-    <div class="container1">
         <div class="text">
             <h2>Lifestyle News</h2>
             <p>This is an optional subtitle for post section</p>
 
-        <div class="content4">
-            <div class="blog4">
-                <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="700px" height="500px">
-                <h3>Your phone can take the best quality photo & Style</h3>
-                <div class="note">
-                    <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                    <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                    <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+            <div class="content4">
+                <div class="blog4">
+                    <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="700px" height="500px">
+                    <h3>Your phone can take the best quality photo & Style</h3>
+                    <div class="note">
+                        <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
+                        <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                        <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
+                    </div>
+                    <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a sem.
+                        Donec
+                        vehicula luctus nunc in laoreet. Aliquam erat volutpat. Suspendisse vulputate porttitor
+                        condimentum.
+                        Proin viverra orci...</p>
                 </div>
-                <p>Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu, iaculis a sem. Donec
-                    vehicula luctus nunc in laoreet. Aliquam erat volutpat. Suspendisse vulputate porttitor condimentum.
-                    Proin viverra orci...</p>
+
+                <div class="blog5">
+                    <div class="blog5-blog">
+                        <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="200px"
+                            height="200px">
+                        <h3>The dress style influencers are wearing right now</h3>
+                        <div class="note">
+                            <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
+                            <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                        </div>
+                    </div>
+
+                    <div class="blog5-blog">
+                        <img src="{{ url('storage\images\a11.jpg') }}" alt="" width="200px"
+                            height="200px">
+                        <h3>It really great holiday and enjoy with the sea</h3>
+                        <div class="note">
+                            <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
+                            <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                        </div>
+                    </div>
+
+                    <div class="blog5-blog">
+                        <img src="{{ url('storage\images\a1.jpg') }}" alt="" width="200px" height="200px">
+                        <h3>This is the best camera for short minimal style</h3>
+                        <div class="note">
+                            <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
+                            <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                        </div>
+                    </div>
+
+                    <div class="blog5-blog">
+                        <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="200px"
+                            height="200px">
+                        <h3>This is my favourite fashion that i watching</h3>
+                        <div class="note">
+                            <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
+                            <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="blog5">
-                <div class="blog5-blog">
-                    <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="200px" height="200px">
-                    <h3>The dress style influencers are wearing right now</h3>
-                    <div class="note">
-                        <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                        <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                    </div>
-                </div>
-
-                <div class="blog5-blog">
-                    <img src="{{ url('storage\images\a11.jpg') }}" alt="" width="200px" height="200px">
-                    <h3>It really great holiday and enjoy with the sea</h3>
-                    <div class="note">
-                        <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                        <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                    </div>
-                </div>
-            
-                <div class="blog5-blog">
-                    <img src="{{ url('storage\images\a1.jpg') }}" alt="" width="200px" height="200px">
-                    <h3>This is the best camera for short minimal style</h3>
-                    <div class="note">
-                        <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                        <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                    </div>
-                </div>
-
-                <div class="blog5-blog">
-                    <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="200px" height="200px">
-                    <h3>This is my favourite fashion that i watching</h3>
-                    <div class="note">
-                        <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                        <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        </div>
-    </div>
-    <div class="container2">
+        {{-- </div> --}}
+        {{-- <div class="container2"> --}}
         <h2>Health & Fitness</h2>
         <p>This is an optional subtitle for post section</p>
         <div class="content5">
@@ -290,5 +293,8 @@
             </div>
         </div>
     </div>
+
+    </div>
 </body>
+
 </html>
