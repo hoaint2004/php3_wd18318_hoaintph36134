@@ -1,8 +1,7 @@
 body {
     line-height: 1.5;
     margin: 50px;
-    text-align: justify;
-
+    /* text-align: justify; */
 }
 
 .content1 {
@@ -198,6 +197,9 @@ i {
 
 /* Max width 1200px */
 @media (max-width: 1200px) {
+    body{
+        margin: 40px;
+    }
     .content1 {
         display: grid;
         grid-template-columns: 55% 40%;
@@ -239,6 +241,9 @@ i {
 
 /* Max width 992px */
 @media (max-width: 992px) {
+    body{
+        margin: 30px;
+    }
     .content1 {
         display: grid;
         grid-template-columns: 60% 40%;
@@ -395,6 +400,9 @@ i {
 
 /* Max width 768px */
 @media (max-width: 768px) {
+    body{
+        margin: 25px;
+    }
     .content1 {
         display: grid;
         grid-template-columns: auto;
@@ -552,6 +560,10 @@ i {
 }
 
 @media (max-width: 576px){
+    body{
+        margin: 15px;
+
+    }
     .content1 .box {
         display: grid;
         grid-template-columns: 30% 65%;
@@ -562,15 +574,20 @@ i {
     .blog1 {
         height: 300px;
     }
+    
+    .content1 .blog1>button {
+        position: absolute;
+        bottom: 155px;
+        left: 25px;
 
-    .blog1>button {
-        font-size: 20px;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
+        font-size: 15px;
+        width: 70px;
+        height: 25px;
+        line-height: 25px;
     }
+
     .blog1>h1{
-        font-size: 30px
+        font-size: 22px
     }
 
     .blog2 {
@@ -579,7 +596,7 @@ i {
 
     .blog2 .box .note>p {
         padding: 0px 5px;
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .blog2 .box .desc >h3{
@@ -646,7 +663,6 @@ i {
     .content2 {
         display: grid;
         grid-template-columns: auto;
-
     }
 
     .box2 .picture>img {
@@ -706,4 +722,10 @@ i {
     .note>p {
         font-size: 15px;
     }
+
+    .note1>p {
+        font-size: 14px;
+    }
+
+
 }
