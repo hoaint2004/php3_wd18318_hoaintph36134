@@ -1,14 +1,20 @@
-body{
+body {
     line-height: 1.5;
     font-family: Arial;
-    text-align: justify;
-    margin: 0 50px;
+    margin: 50px;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 60% 35%;
-    gap: 56px;
+    display: flex;
+    gap: 40px;
+}
+
+.content {
+    width: 60%;
+}
+
+.sidebar {
+    width: 40%;
 }
 
 .content>button {
@@ -30,7 +36,7 @@ body{
 }
 
 .sidebar>h3 {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 #image-sidebar {
@@ -38,7 +44,7 @@ body{
 }
 
 p {
-    text-align: justify;
+    /* text-align: justify; */
     line-height: 1.5;
     font-size: 15px;
 }
@@ -46,11 +52,12 @@ p {
 .content>img {
     width: 100%;
     height: 400px;
+    object-fit: fill;
 }
 
 .note {
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     color: #6f6f6f;
 
 }
@@ -116,10 +123,11 @@ i {
     border: 1px solid black;
 }
 
-.icon-media-heart{
+.icon-media-heart {
     position: relative;
 }
-.icon-media-heart .badge{
+
+.icon-media-heart .badge {
     width: 17px;
     height: 15px;
     line-height: 15px;
@@ -132,11 +140,11 @@ i {
     color: white;
 }
 
-.icon-media-eye{
+.icon-media-eye {
     position: relative;
 }
 
-.icon-media-eye .badge{
+.icon-media-eye .badge {
     width: 30px;
     height: 15px;
     line-height: 15px;
@@ -238,7 +246,6 @@ h5 {
 .img-text>p {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
-    /* max-height: 100%; */
     position: absolute;
     bottom: 0px;
     color: #fff;
@@ -246,9 +253,8 @@ h5 {
 }
 
 .tag>button {
-    /* font-weight: bold; */
     border-radius: 10px;
-    border: 1px solid #777;
+    /* border: 1px solid #777; */
     margin: 20px 0px;
     background-color: #fff;
 }
@@ -276,10 +282,6 @@ h5 {
     padding: 10px;
 }
 
-.content-cus {
-    padding-right: 30px;
-}
-
 .image-cus>img {
     height: auto;
     border-radius: 600px;
@@ -295,7 +297,8 @@ h5 {
     gap: 30px;
 }
 
-.picture, .content-blog{
+.picture,
+.content-blog {
     width: 100%;
     height: 100%;
 }
@@ -308,17 +311,15 @@ h5 {
 
 .blog-related .blog .picture>img {
     width: 100%;
-    /* height: 200px; */
+    min-height: 100%;
 }
 
 .blog .content-blog {
     width: 100%;
-    /* margin: auto auto; */
 }
 
 .content-blog>h2 {
     margin: 0;
-
 }
 
 .content-blog>h2>a {
@@ -336,7 +337,6 @@ h5 {
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     font-size: 16px;
-    /* padding: 10px; */
     color: #555;
 }
 
@@ -344,7 +344,7 @@ h5 {
     width: 100%;
 }
 
-textarea{
+textarea {
     width: 100%;
 }
 
@@ -352,7 +352,7 @@ textarea{
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 30px;
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 
 .contact>input {
@@ -394,28 +394,98 @@ textarea{
 }
 
 img {
-    border: 1px solid #777;
     border-radius: 10px;
+    object-fit: fill;
 }
 
 /* Max width 1400px */
 /* Max width 1200px */
 @media (max-width: 1200px) {
+    body {
+        margin: 40px;
+    }
+
+    .rate {
+        display: flex;
+        gap: 20px;
+    }
+
+    .image-cus {
+        width: 30%;
+    }
+
+    .content-cus {
+        width: 70%;
+    }
+
+    .text-note {
+        padding: 0;
+    }
+
+    .contact {
+        display: flex;
+    }
+
+    .contact>input {
+        width: 33.333%;
+    }
+
+    .content>h1 {
+        font-size: 30px;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    .section1 {
+        gap: 15px;
+    }
+
+    .blog-related .blog {
+        display: flex;
+        gap: 20px;
+    }
+
+    .blog-related .blog .picture {
+        width: 35%;
+    }
+
+    .blog-related .blog .content-blog {
+        width: 65%;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
 }
 
 /* Max width 992px */
 @media (max-width: 992px) {
-    .container {
-        display: block;
+    body {
+        margin: 30px;
     }
-    
-    .section1{
-        .media{
+
+    .container {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .section1 {
+        .media {
             width: 10%;
         }
 
-        .text{
-            width: 95%;
+        .text {
+            width: 90%;
         }
 
         .introduce>h2 {
@@ -425,95 +495,172 @@ img {
         .img-text>img {
             height: 350px;
         }
-
-
     }
+
     .content>h1 {
         font-size: 30px;
     }
-    
 
-
-    .blog{
+    .blog {
         display: flex;
     }
 
-    .blog-related .blog .picture{
+    .blog-related .blog .picture {
         width: 35%;
     }
 
-    .blog-related .blog .content-blog{
+    .blog-related .blog .content-blog {
         width: 65%;
     }
 
-    .contact>input {
-        height: 30px;
-    }
-
-    p{
+    p {
         font-size: 16px;
     }
 
     .content-blog>h2>a {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    input, label{
+    input,
+    label {
         font-size: 16px;
     }
-    
-    .art-fashion .blog .picture>img{
-        height: 100px;
+
+    .art-fashion .blog .picture>img {
+        max-height: 110px;
     }
 
-    .art-fashion .blog{
+    .art-fashion .blog {
         display: flex;
-        float: left;
     }
 
-    .art-fashion .picture{
+    .art-fashion .picture {
         width: 15%;
     }
 
-    .art-fashion .content-blog{
+    .art-fashion .content-blog {
         width: 55%;
     }
 
-    .image-sidebar{
+    .image-sidebar {
         text-align: center;
     }
-    #image-sidebar{
-        width: 60%;
+
+    #image-sidebar {
+        width: 50%;
     }
+
+    .image-cus {
+        width: 25%;
+    }
+
+    .content-cus {
+        width: 75%;
+    }
+
+    .blog-related .blog .picture {
+        width: 25%;
+    }
+
+    .blog-related .blog .content-blog {
+        width: 75%;
+    }
+
+    .media1 {
+        padding: 10px 0;
+    }
+
+    .contact>input {
+        height: 20px;
+    }
+
 }
 
 
 /* Max width 768px */
 @media (max-width: 768px) {
-    .blog {
+    body {
+        margin: 15px;
+    }
+
+    .section1 {
         display: grid;
-        grid-template-columns: 35% 60%;
-        gap: 30px;
+        grid-template-columns: auto;
+        gap: 0;
+
+        .media {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
+            gap: 10px;
+        }
+
+        .text {
+            width: 100%;
+        }
     }
 
-    .blog-related .blog .picture{
-        width: 100%;
+    .blog-related {
+        .blog {
+            display: flex;
+        }
+
+        .blog .picture {
+            width: 30%;
+        }
+
+        .blog .content-blog {
+            width: 70%;
+        }
+
     }
 
-    .blog-related .blog .content-blog {
+    .contact {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 15px;
         width: 100%;
-        padding-right: 20px;
-    }   
+
+        >input {
+            width: auto;
+        }
+    }
+
+    .art-fashion .content-blog {
+        width: 80%;
+    }
+
+    .art-fashion .picture {
+        width: 20%;
+    }
+
+    .text-note {
+        padding: 0;
+    }
+
+    .rate {
+        display: block;
+        text-align: center;
+
+        .image-cus,
+        .content-cus {
+            width: 100%;
+        }
+    }
 }
 
 /* Max width 576px */
 @media (max-width: 576px) {
     p {
-        font-size: 15px;
+        font-size: 13px;
+    }
+
+    .note {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
     }
 
     .note>p>i {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     input {
@@ -530,11 +677,11 @@ img {
     }
 
     .text-previous {
-        font-size: 30px;
+        font-size: 22px;
     }
 
     .content>h1 {
-        font-size: 35px;
+        font-size: 30px;
     }
 
     .section1 {
@@ -546,7 +693,7 @@ img {
         display: grid;
         grid-template-columns: auto auto auto auto auto auto;
         gap: 10px;
-        margin: 15px 0;
+        /* margin: 15px 0; */
     }
 
 
@@ -556,12 +703,11 @@ img {
     .icon-media-linkedin,
     .icon-media-heart,
     .icon-media-eye {
-        width: 60px;
-        height: 60px;
-        margin: 10px 0;
+        width: 40px;
+        /* height: 40px; */
         border-radius: 30px;
         text-align: center;
-        line-height: 60px;
+        line-height: 40px;
         font-size: 20px;
     }
 
@@ -591,77 +737,98 @@ img {
     }
 
     h5 {
-        font-size: 30px;
+        font-size: 22px;
     }
 
     .content-blog>h2>a {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     .btn {
-        font-size: 16px;
-        width: 80px;
-        height: 40px;
-        line-height: 40px;
+        font-size: 13px;
+        width: 65px;
+        height: 30px;
+        line-height: 30px;
         margin-bottom: 15px;
     }
-    
-    .blog{
+
+    .blog {
         display: grid;
         grid-template-columns: auto;
     }
 
-    .blog .picture>img{
-        height: 500px;
-    }
-
-    .contact{
+    .contact {
         display: grid;
         grid-template-columns: auto;
     }
 
-    .contact>input{
+    .contact>input {
         height: 25px;
     }
 
-    .save{
+    .save {
         width: 20px;
         height: 20px;
     }
 
-    .art-fashion .blog{
+    .art-fashion .blog {
         display: flex;
-        float: left;
     }
 
-    .art-fashion .picture{
-        width: 15%;
+    .art-fashion .picture {
+        width: 25%;
     }
 
-    .art-fashion .content-blog{
-        width: 85%;
+    .art-fashion .content-blog {
+        width: 75%;
     }
 
-    .content>button{
+    .content>button {
         font-size: 15px;
         width: 120px;
         height: 40px;
         line-height: 40px;
     }
 
-    h3{
-        font-size: 30px;
-    }
-
-    .sidebar >h3{
-        font-size: 30px;
-    }
-
-    .media-slidebar{
+    h3 {
         font-size: 22px;
     }
-    
-    label{
+
+    .sidebar>h3 {
+        font-size: 30px;
+    }
+
+    .media-slidebar {
+        font-size: 22px;
+    }
+
+    label {
         font-size: 15px;
     }
+
+    .tag>button {
+        font-size: 13px;
+    }
+
+    .blog-related {
+        .blog {
+            display: grid;
+            grid-template-columns: auto;
+        }
+
+        .blog .picture {
+            width: 100%;
+        }
+
+        .blog .content-blog {
+            width: 100%;
+        }
+
+        .blog-related .blog .picture>img {
+            width: 100%;
+            height: 250px;
+        }
+
+    }
+
 }
