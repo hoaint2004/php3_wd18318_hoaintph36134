@@ -25,7 +25,7 @@
                 <p><i class="fa-regular fa-clock"></i>2 Mins read</p>
                 <p><i class="fa-regular fa-comment"></i>0 Comment</p>
             </div>
-            <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="1200px">
+            <img src="{{ url('storage\images\image1.jpg') }}" alt="" width="1200px">
             <div class="section1">
                 <div class="media">
                     <div class="icon-media-facebook"><i class="fa-brands fa-facebook-f"></i>

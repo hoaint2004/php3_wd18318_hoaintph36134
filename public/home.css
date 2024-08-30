@@ -1,7 +1,6 @@
 body {
     line-height: 1.5;
     margin: 50px;
-    /* text-align: justify; */
 }
 
 .content1 {
@@ -14,7 +13,6 @@ body {
         grid-template-columns: 30% 70%;
         gap: 20px;
         margin-bottom: 15px;
-        /* height: 150px; */
     }
 
     .desc {
@@ -80,18 +78,36 @@ body {
     gap: 30px;
     margin-bottom: 20px;
 
-    .box2 .picture img {
+    .box2 .picture{
+        position: relative;
+    }
+    .box2 .picture >img {
         width: 100%;
         height: 250px;
         background-size: 100% 100%;
     }
 
+    .box2 .picture .icon-image >i{
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #777;
+        text-align: center;
+    }
+
+    .box2 .picture .btn-iamge >button{
+        position: absolute;
+        top: 100px;
+        left: 20px;
+    }
     .box2 h3 {
         min-height: 50px;
         margin-top: 15px;
         margin-bottom: 0px;
     }
-
 }
 
 .content4 {
@@ -180,13 +196,13 @@ button {
     color: #fff;
 }
 
-span {
+/* span {
     width: 30px;
     height: 30px;
     line-height: 30px;
     background-color: #777;
     text-align: center;
-}
+} */
 
 i {
     margin-right: 10px;

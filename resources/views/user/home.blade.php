@@ -92,11 +92,13 @@
         <div class="content2">
             <div class="box2">
                 <div class="picture">
+                    <span class="icon-image">
+                        <i class="fa-regular fa-image"></i>
+                    </span>
                     <img src="{{ url('storage\images\a1.jpg') }}" alt="">
-                    {{-- <div class="icon">
+                    <span class="btn-image">
                         <button class="btn" style="background-color:#62ce5c ">Sports</button>
-                        <span><i class="fa-regular fa-image"></i></span>
-                    </div>  --}}
+                    </span>
                 </div>
                 <h3>Wedding guest dresses for every shape, style</h3>
                 <div class="note">
@@ -111,8 +113,13 @@
 
             <div class="box2">
                 <div class="picture">
+                    <span class="icon-image">
+                        <i class="fa-regular fa-image"></i>
+                    </span>
                     <img src="{{ url('storage\images\a12.jpg') }}" alt="">
-
+                    <span class="btn-image">
+                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                    </span>
                 </div>
                 <h3>This is how much people have made selling</h3>
                 <div class="note">
@@ -127,8 +134,13 @@
 
             <div class="box2">
                 <div class="picture">
+                    <span class="icon-image">
+                        <i class="fa-regular fa-image"></i>
+                    </span>
                     <img src="{{ url('storage\images\a1.jpg') }}" alt="">
-
+                    <span class="btn-image">
+                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                    </span>
                 </div>
                 <h3>This is how the pandemic has changed our</h3>
                 <div class="note">
@@ -143,7 +155,13 @@
 
             <div class="box2">
                 <div class="picture">
+                    <span class="icon-image">
+                        <i class="fa-regular fa-image"></i>
+                    </span>
                     <img src="{{ url('storage\images\a11.jpg') }}" alt="">
+                    <span class="btn-image">
+                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                    </span>
                 </div>
                 <h3>Nice photo shooting with hand classic style</h3>
                 <div class="note">
@@ -157,7 +175,13 @@
             </div>
             <div class="box2">
                 <div class="picture">
+                    <span class="icon-image">
+                        <i class="fa-regular fa-image"></i>
+                    </span>
                     <img src="{{ url('storage\images\a2.jpg') }}" alt="">
+                    <span class="btn-image">
+                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                    </span>
                 </div>
                 <h3>It’s always fun time and smile in the summer</h3>
                 <div class="note">
@@ -171,8 +195,13 @@
             </div>
             <div class="box2">
                 <div class="picture">
+                    <span class="icon-image">
+                        <i class="fa-regular fa-image"></i>
+                    </span>
                     <img src="{{ url('storage\images\a10.jpg') }}" alt="">
-
+                    <span class="btn-image">
+                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                    </span>
                 </div>
                 <h3>Great time for enjoy your coffee with
                 </h3>
