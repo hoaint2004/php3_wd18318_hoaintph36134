@@ -16,7 +16,7 @@
         <div class="content1">
             <div class="blog1"
                 style="background-image: url('storage/images/R1BlmLNeySMVhnD0HPM2kCZyvyedUiytuRirxuys.jpg'); max-width:100%">
-                <button class="btn" style="background: #eba845;">Business</button>
+
                 <h1 style="color: #fff;">It time Rescue restaurant food with these epic saving</h1>
                 <div class="note1" style="color: #fff">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -97,7 +97,7 @@
                     </span>
                     <img src="{{ url('storage\images\a1.jpg') }}" alt="">
                     <span class="btn-image">
-                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                        <a href="" style="background-color: #62ce5c" class="btn">Sports</a>
                     </span>
                 </div>
                 <h3>Wedding guest dresses for every shape, style</h3>
@@ -118,7 +118,7 @@
                     </span>
                     <img src="{{ url('storage\images\a12.jpg') }}" alt="">
                     <span class="btn-image">
-                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                        <a href="" style="background-color:#91bd3a" class="btn">Inspiration</a>
                     </span>
                 </div>
                 <h3>This is how much people have made selling</h3>
@@ -139,7 +139,7 @@
                     </span>
                     <img src="{{ url('storage\images\a1.jpg') }}" alt="">
                     <span class="btn-image">
-                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                        <a href="" style="background-color:#4dcf8f" class="btn">Active</a>
                     </span>
                 </div>
                 <h3>This is how the pandemic has changed our</h3>
@@ -160,7 +160,7 @@
                     </span>
                     <img src="{{ url('storage\images\a11.jpg') }}" alt="">
                     <span class="btn-image">
-                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                        <a href="" style="background-color:#eba845" class="btn">Business</a>
                     </span>
                 </div>
                 <h3>Nice photo shooting with hand classic style</h3>
@@ -180,7 +180,7 @@
                     </span>
                     <img src="{{ url('storage\images\a2.jpg') }}" alt="">
                     <span class="btn-image">
-                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                        <a href="" style="background-color:#eba845" class="btn">Business</a>
                     </span>
                 </div>
                 <h3>It’s always fun time and smile in the summer</h3>
@@ -200,7 +200,7 @@
                     </span>
                     <img src="{{ url('storage\images\a10.jpg') }}" alt="">
                     <span class="btn-image">
-                        <button class="btn" style="background-color:#62ce5c ">Sports</button>
+                        <a href="" style="background-color:#7ebdb4" class="btn">Crazy</a>
                     </span>
                 </div>
                 <h3>Great time for enjoy your coffee with
@@ -223,10 +223,15 @@
         <div class="text">
             <h2>Lifestyle News</h2>
             <p>This is an optional subtitle for post section</p>
-
             <div class="content4">
                 <div class="blog4">
-                    <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="700px" height="500px">
+                    <div class="picture">
+                        <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="700px"
+                            height="500px">
+                        <span class="btn-image">
+                            <a href="" style="background-color:#4dcf8f" class="btn">Active</a>
+                        </span>
+                    </div>
                     <h3>Your phone can take the best quality photo & Style</h3>
                     <div class="note">
                         <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -242,8 +247,13 @@
 
                 <div class="blog5">
                     <div class="blog5-blog">
-                        <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="200px"
-                            height="200px">
+                        <div class="picture">
+                            <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="200px"
+                                height="200px">
+                            <span class="btn-image">
+                                <a href="" style="background-color:#91bd3a" class="btn">Inspiration</a>
+                            </span>
+                        </div>
                         <h3>The dress style influencers are wearing right now</h3>
                         <div class="note">
                             <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -252,8 +262,13 @@
                     </div>
 
                     <div class="blog5-blog">
-                        <img src="{{ url('storage\images\a11.jpg') }}" alt="" width="200px"
-                            height="200px">
+                        <div class="picture">
+                            <img src="{{ url('storage\images\a11.jpg') }}" alt="" width="200px"
+                                height="200px">
+                            <span class="btn-image">
+                                <a href="" style="background-color:#d66300" class="btn">Science</a>
+                            </span>
+                        </div>
                         <h3>It really great holiday and enjoy with the sea</h3>
                         <div class="note">
                             <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -262,7 +277,13 @@
                     </div>
 
                     <div class="blog5-blog">
-                        <img src="{{ url('storage\images\a1.jpg') }}" alt="" width="200px" height="200px">
+                        <div class="picture">
+                            <img src="{{ url('storage\images\a1.jpg') }}" alt="" width="200px"
+                                height="200px">
+                            <span class="btn-image">
+                                <a href="" style="background-color:#d63447;" class="btn">Health</a>
+                            </span>
+                        </div>
                         <h3>This is the best camera for short minimal style</h3>
                         <div class="note">
                             <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -271,8 +292,13 @@
                     </div>
 
                     <div class="blog5-blog">
-                        <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="200px"
-                            height="200px">
+                        <div class="picture">
+                            <img src="{{ url('storage\images\a12.jpg') }}" alt="" width="200px"
+                                height="200px">
+                            <span class="btn-image">
+                                <a href="" style="background-color:#4dcf8f" class="btn">Active</a>
+                            </span>
+                        </div>
                         <h3>This is my favourite fashion that i watching</h3>
                         <div class="note">
                             <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -289,7 +315,12 @@
         <p>This is an optional subtitle for post section</p>
         <div class="content5">
             <div class="blog-end">
-                <img src="{{ url('storage\images\a10.jpg') }}" alt="">
+                <div class="picture">
+                    <img src="{{ url('storage\images\a10.jpg') }}" alt="">
+                    <span class="btn-image">
+                        <a href="" style="background-color:#379e63" class="btn">Techno</a>
+                    </span>
+                </div>
                 <h3>This is an optional subtitle for post section</h3>
                 <div class="note">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -297,7 +328,12 @@
                 </div>
             </div>
             <div class="blog-end">
-                <img src="{{ url('storage\images\a11.jpg') }}" alt="">
+                <div class="picture">
+                    <img src="{{ url('storage\images\a11.jpg') }}" alt="">
+                    <span class="btn-image">
+                        <a href="" style="background-color:#379e63" class="btn">Techno</a>
+                    </span>
+                </div>
                 <h3>Relaxing with nice view after enjoy with your food</h3>
                 <div class="note">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -305,7 +341,12 @@
                 </div>
             </div>
             <div class="blog-end">
-                <img src="{{ url('storage\images\a12.jpg') }}" alt="">
+                <div class="picture">
+                    <img src="{{ url('storage\images\a12.jpg') }}" alt="">
+                    <span class="btn-image">
+                        <a href="" style="background-color:#eba845" class="btn">Business</a>
+                    </span>
+                </div>
                 <h3>Best Lighting For Outdoor Photo Shoot Style</h3>
                 <div class="note">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
@@ -313,7 +354,12 @@
                 </div>
             </div>
             <div class="blog-end">
-                <img src="{{ url('storage\images\a1.jpg') }}" alt="">
+                <div class="picture">
+                    <img src="{{ url('storage\images\a1.jpg') }}" alt="">
+                    <span class="btn-image">
+                        <a href="" style="background-color:#d63447;" class="btn">Health</a>
+                    </span>
+                </div>
                 <h3>New skill with the height quality camera lens</h3>
                 <div class="note">
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>

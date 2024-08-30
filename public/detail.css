@@ -741,7 +741,7 @@ img {
     }
 
     .content-blog>h2>a {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .btn {
@@ -795,11 +795,11 @@ img {
     }
 
     .sidebar>h3 {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .media-slidebar {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     label {

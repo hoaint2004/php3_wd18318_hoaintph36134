@@ -78,16 +78,17 @@ body {
     gap: 30px;
     margin-bottom: 20px;
 
-    .box2 .picture{
+    .picture {
         position: relative;
     }
-    .box2 .picture >img {
+
+    .box2 .picture>img {
         width: 100%;
         height: 250px;
-        background-size: 100% 100%;
+        object-fit: cover;
     }
 
-    .box2 .picture .icon-image >i{
+    .icon-image>i {
         position: absolute;
         top: 30px;
         right: 20px;
@@ -98,11 +99,14 @@ body {
         text-align: center;
     }
 
-    .box2 .picture .btn-iamge >button{
+    .btn-image>a {
+        padding: 1px 3px;
         position: absolute;
-        top: 100px;
+        top: 30px;
         left: 20px;
+        font-size: 15px;
     }
+
     .box2 h3 {
         min-height: 50px;
         margin-top: 15px;
@@ -116,14 +120,37 @@ body {
     gap: 50px;
 
     .blog4 {
-        /* width: 60%; */
         text-align: left;
+
+        .picture {
+            position: relative;
+
+            .btn-image>a {
+                padding: 5px 6px;
+                position: absolute;
+                top: 30px;
+                left: 20px;
+                font-size: 15px;
+            }
+        }
     }
 
     .blog5 {
         display: grid;
         grid-template-columns: auto auto;
         gap: 20px;
+
+        .picture {
+            position: relative;
+
+            .btn-image>a {
+                padding: 1px 3px;
+                position: absolute;
+                top: 30px;
+                left: 20px;
+                font-size: 15px;
+            }
+        }
     }
 
     .blog5-blog h3 {
@@ -136,13 +163,30 @@ body {
     grid-template-columns: auto auto auto auto;
     gap: 30px;
     padding: 10px;
+
+    .blog-end {
+        .picture {
+            position: relative;
+
+            .btn-image>a {
+                padding: 1px 3px;
+                position: absolute;
+                top: 30px;
+                left: 20px;
+                font-size: 15px;
+            }
+
+            >img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+        }
+    }
 }
 
-.blog-end>img {
-    width: 100%;
-    height: 250px;
-    background-size: 100% 100%;
-
+.icon-image>i{
+    color: #fff;
 }
 
 .note {
@@ -190,19 +234,13 @@ button {
     border: 5px;
 }
 
+
 .btn {
+    text-decoration: none;
     line-height: 20px;
     border-radius: 5px;
     color: #fff;
 }
-
-/* span {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    background-color: #777;
-    text-align: center;
-} */
 
 i {
     margin-right: 10px;
@@ -213,9 +251,10 @@ i {
 
 /* Max width 1200px */
 @media (max-width: 1200px) {
-    body{
+    body {
         margin: 40px;
     }
+
     .content1 {
         display: grid;
         grid-template-columns: 55% 40%;
@@ -257,9 +296,10 @@ i {
 
 /* Max width 992px */
 @media (max-width: 992px) {
-    body{
+    body {
         margin: 30px;
     }
+
     .content1 {
         display: grid;
         grid-template-columns: 60% 40%;
@@ -390,13 +430,14 @@ i {
         width: 70%;
     }
 
+
     .btn1 {
         width: 120px;
         height: 50px;
         line-height: 50px;
     }
 
-   .content4 .blog5 {
+    .content4 .blog5 {
         display: grid;
         grid-template-columns: auto auto;
         gap: 10px;
@@ -416,9 +457,10 @@ i {
 
 /* Max width 768px */
 @media (max-width: 768px) {
-    body{
+    body {
         margin: 25px;
     }
+
     .content1 {
         display: grid;
         grid-template-columns: auto;
@@ -436,7 +478,8 @@ i {
         height: 30px;
         line-height: 30px;
     }
-    .blog1>h1{
+
+    .blog1>h1 {
         font-size: 30px
     }
 
@@ -498,6 +541,7 @@ i {
         padding: 0px 5px;
         font-size: 16px;
     }
+
     .content4 {
         display: block;
     }
@@ -522,6 +566,7 @@ i {
     .blog4 {
         width: 100%;
     }
+
     .blog4>img {
         height: 300px;
         margin-bottom: 0px;
@@ -551,12 +596,14 @@ i {
         font-size: 22px;
     }
 
-    .content4 .blog4 .note p{
+    .content4 .blog4 .note p {
         font-size: 16px;
     }
-    .content4 .blog5 .note p{
+
+    .content4 .blog5 .note p {
         font-size: 16px;
     }
+
     .content5 {
         display: grid;
         grid-template-columns: auto;
@@ -575,11 +622,12 @@ i {
     }
 }
 
-@media (max-width: 576px){
-    body{
+@media (max-width: 576px) {
+    body {
         margin: 15px;
 
     }
+
     .content1 .box {
         display: grid;
         grid-template-columns: 30% 65%;
@@ -590,7 +638,7 @@ i {
     .blog1 {
         height: 300px;
     }
-    
+
     .content1 .blog1>button {
         position: absolute;
         bottom: 155px;
@@ -602,7 +650,7 @@ i {
         line-height: 25px;
     }
 
-    .blog1>h1{
+    .blog1>h1 {
         font-size: 22px
     }
 
@@ -615,9 +663,10 @@ i {
         font-size: 18px;
     }
 
-    .blog2 .box .desc >h3{
+    .blog2 .box .desc>h3 {
         font-size: 19px;
     }
+
     h3 {
         margin: 0px;
     }
@@ -667,6 +716,7 @@ i {
         padding: 0px 5px;
         font-size: 16px;
     }
+
     .content4 {
         display: block;
     }
@@ -690,6 +740,7 @@ i {
     .blog4 {
         width: 100%;
     }
+
     .blog4>img {
         height: 300px;
         margin-bottom: 0px;
@@ -718,12 +769,14 @@ i {
         font-size: 22px;
     }
 
-    .content4 .blog4 .note p{
+    .content4 .blog4 .note p {
         font-size: 16px;
     }
-    .content4 .blog5 .note p{
+
+    .content4 .blog5 .note p {
         font-size: 16px;
     }
+
     .content5 {
         display: grid;
         grid-template-columns: auto;
