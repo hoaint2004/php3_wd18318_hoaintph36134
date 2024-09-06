@@ -7,79 +7,65 @@ use App\Http\Requests\StorePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
-    public function test()
-    {
-        // Lấy toàn bộ dữ liệu
-        // $posts = Post::all();
-
-        // Lấy 1 bản ghi
-        // $posts = Post::all()->first();
-
-        // Lấy dữ liệu theo điều kiện (tìm kiếm dữ liệu tuyệt đối)
-        // $posts = Post::where('cate_id', 1)->get();
-
-        // Tìm kiếm dữ liệu gần đúng
-        // $posts = Post::query()->where('title', 'LIKE', '%Aut%')->get();
-        // return $posts;
-
-        // Các hàm trong SQL SUM, COUNT, AVG,...
-        // Đếm tổng số bài viết
-        // $count = Post::query()->count();
-        // return $count;
-
-        // Đếm toàn bộ bài viết có điều kiện
-        // $count = Post::query()->where('cate_id', 1)->count();
-        // return $count;
-
-        // Tính tổng số lượt xem
-        // $sum = Post::query()->sum('view');
-        // return $sum;
-
-        // Thêm dữ liệu
-        // Cách 1: Sử dụng mảng
-
-        // $data = [
-        //     'title' => fake()->text(25),
-        //     'image'=> fake()->imageUrl(),
-        //     'description' => fake()->text(30),
-        //     'content' => fake()->paragraph(),
-        //     'view' => rand(10, 1000),
-        //     'cate_id' => rand(1, 4),
-        // ];
-
-        // Post::query()->create($data);   
-
-        // Cách 2: dùng đối tượng
-
-        // $post = new Post();
-        // $post->title = fake()->text(25);
-        // $post->image = fake()->imageUrl();
-        // $post->description = fake()->text(30);
-        // $post->content = fake()->paragraph();
-        // $post->view = rand(10,1000);
-        // $post->cate_id = rand(1,4);
-        // $post->save();
-
-
-        // // Cập nhật dữ liệu
-        // Post::query()->find(202)->update([
-        //     'title' => 'Update Title'
-        // ]);
-
-
-        // Xóa dữ liệu
-        // Post::query()->find(201)->delete();
-
-    }
 
     public function index()
     {
         // Số lượng bản ghi muốn hiển thị trong 1 trang
         $posts = Post::query()->paginate(10);
+
         return view('listPost', compact('posts'));
+    }
+
+    public function indexHome()
+    {
+        // Lấy post mới nhất
+        $postNew = Post::query()->orderBy('created_at', 'desc')->first();
+
+        // Lấy 4 bản ghi cập nhật mới nhất
+        $postUpdate = Post::query()->orderBy('updated_at', 'desc')->limit(4)->get();
+
+        // Lấy bài viết theo danh mục
+        
+        $categories = Category::all();
+
+        $categories->each(function ($category) {
+            $category->setRelation('posts', $category->posts()->take(6)->get());
+        });
+
+        // dd($posts);
+        return view('user.home', compact('postNew', 'postUpdate', 'categories'));
+    }
+
+    public function detailPost($id)
+    {
+        //Hiển thị dữ liệu bài viết
+        $post = Post::query()->where('id', $id)->first();
+
+        $category = Category::all();
+
+        //Hiện thị danh sách bài viết cùng danh mục với bài viết
+        $categories = Category::query()
+            ->with(['posts' => function ($query) {
+                $query->limit(3);
+            }])
+            ->where('name', $post->category->name)
+            ->limit(3)
+            ->get();
+
+        // Hiển thị danh sách bài viết khác danh mục
+        
+        $cateOther = Category::query()->where('name', '!=', $post->category->name)->get();
+
+        $cateOther->each(function ($category) {
+            $category->setRelation('posts', $category->posts()->take(1)->get());
+        });
+
+        // dd($category);
+        return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther'));
     }
 
     public function create()
@@ -90,37 +76,7 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        // Validate: key = tên input
-        // $request->validate(
-        //     [
-        //         'title' => ['required', 'min:10'],
-        //         'image' => ['required', 'image'],
-        //         'description' => ['required', 'min:5'],
-        //         'content' => ['required', 'min:25'],
-        //         'view' => ['required', 'integer', 'min:0'],
-        //     ],
-        //     [
-        //         'title.required' => "Title không được để trống",
-        //         'title.min' => "Title phải được nhập từ 10 ký tự",
-        //         'image.required' => "Hình ảnh không được để trống",
-        //         'image.image' => "Định dạng hình ảnh không đúng",
-        //         'description.required' => "Mô tả không được để trống",
-        //         'description.min' => "Mô tả phải nhập ít nhất 5 ký tự",
-        //         'content.required' => "Nội dung không được để trống",
-        //         'content.min' => "Nội dung phải được nhập ít nhất 25 ký tự",
-        //         'view.required' => "Lượt xem không được để trống",
-        //         'view.integer' => "Lượt xem phải là số nguyên",
-        //         'view.min' => "Lượt xem phải là số lớn hơn 0",
-        //     ],
-        // );
-
-        // dd($request->all());
         $data = $request->except('image');
-        // except : loại bỏ
-
-        // dd($request->input('title'));
-        // dd($request['title']);
-
         $data['image'] = "";
         // kiểm tra file
         if ($request->hasFile('image')) {

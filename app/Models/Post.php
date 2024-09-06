@@ -8,17 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Post extends Model
 {
-    use HasFactory;
-    protected $fillable = [
-        'title',
-        'image',
-        'description',
-        'content',
-        'view',
-        'cate_id',
-    ];
+    
+use HasFactory;
 
-    public function category():BelongsTo{
+protected $table = 'posts';
+
+protected $guarded = [];
+
+    public function category(){
         return $this->belongsTo(Category::class, 'cate_id');
     }
 }
