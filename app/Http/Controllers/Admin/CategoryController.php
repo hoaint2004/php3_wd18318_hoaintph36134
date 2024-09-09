@@ -15,10 +15,12 @@ class CategoryController extends Controller
     }
 
     public function category($id){
-        $category = Category::with('');
-        
 
-        dd($category);
+        $category = Category::query()->where('id', $id)->get();
+        $category->each(function ($category) {
+            $category->setRelation('posts', $category->posts()->get());
+        });
+        // dd($category);
         return view('user.category', compact('category'));
     }
 }

@@ -20,13 +20,11 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/home', [PostController::class, 'indexHome']);
 Route::get('/detailpost/{id}', [PostController::class, 'detailPost'])->name('post.detail');
-// Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
+Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
 
 Route::get('/test', [PostController::class, 'test']);
 
 Route::middleware(AdminMiddleware::class)->group(function () {
-    
-   
     Route::get('/posts', [PostController::class, 'index'])->name('post.index');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
