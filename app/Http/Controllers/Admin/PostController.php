@@ -22,32 +22,30 @@ class PostController extends Controller
 
     public function indexHome()
     {
-        // Lấy post mới nhất
+        // Hiển thị bài viết mới nhất
         $postNew = Post::query()->orderBy('created_at', 'desc')->first();
 
-        // Lấy 4 bản ghi cập nhật mới nhất
+        // Hiển thị danh sách bài viết mới cập nhật
         $postUpdate = Post::query()->orderBy('updated_at', 'desc')->limit(4)->get();
 
-        // Lấy bài viết theo danh mục
-        
+        // Hiển thị danh sánh bài viết theo danh mục
         $categories = Category::all();
 
         $categories->each(function ($category) {
             $category->setRelation('posts', $category->posts()->take(6)->get());
         });
 
-        // dd($posts);
         return view('user.home', compact('postNew', 'postUpdate', 'categories'));
     }
 
     public function detailPost($id)
     {
-        //Hiển thị dữ liệu bài viết
+        // Hiển thị dữ liệu bài viết
         $post = Post::query()->where('id', $id)->first();
 
         $category = Category::all();
 
-        //Hiện thị danh sách bài viết cùng danh mục với bài viết
+        // Hiện thị danh sách bài viết cùng danh mục với bài viết
         $categories = Category::query()
             ->with(['posts' => function ($query) {
                 $query->limit(3);
@@ -57,14 +55,12 @@ class PostController extends Controller
             ->get();
 
         // Hiển thị danh sách bài viết khác danh mục
-        
         $cateOther = Category::query()->where('name', '!=', $post->category->name)->get();
 
         $cateOther->each(function ($category) {
             $category->setRelation('posts', $category->posts()->take(1)->get());
         });
 
-        // dd($category);
         return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther'));
     }
 
@@ -87,7 +83,6 @@ class PostController extends Controller
         Post::query()->create($data);
         return redirect()->route('post.index')->with('message', 'Thêm dữ liệu thành công!');
     }
-
 
     // Xóa bài viết
     public function destroy(Post $post)

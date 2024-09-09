@@ -16,8 +16,13 @@
     <div class="container">
         <div class="content">
             <button class="btn" style="background-color: #eba845">{{ $post->category->name }}</button>
-            <h1>{{ $post->title }}</h1>
-            <p>{{ $post->description }}</p>
+            <h1>
+                <a href="{{route('post.detail', $post->id)}}">
+                {{ $post->title }}
+            </a>
+            </h1>
+
+                <p>{{ $post->description }}</p>
             <div class="note">
                 <p><i class="fa fa-user"></i>{{ $post->view }}</p>
                 <p><i class="fa-solid fa-pen"></i>{{ $post->created_at }}</p>
@@ -54,7 +59,11 @@
 
             <div class="tag">
                 @foreach ($category as $cate)
-                    <button>{{ $cate->name }}</button>
+                    <button>
+                        <a href="">
+                            {{ $cate->name }}
+                        </a>
+                    </button>
                 @endforeach
             </div>
             <hr>
@@ -98,7 +107,11 @@
                             <div class="content-blog">
                                 <button class="btn"
                                     style="background-color: #eba845">{{ $post->category->name }}</button><br>
-                                <h2><a href="">{{ $post->title }}</a></h2>
+                                <h2>
+                                    <a href="{{route('post.detail', $post->id)}}">
+                                    {{ $post->title }}
+                                </a>
+                            </h2>
                                 <div class="note">
                                     <p><i class="fa fa-user"></i>{{ $post->view }}</p>
                                     <p><i class="fa-solid fa-pen"></i>{{ $post->created_at }}</p>
@@ -187,7 +200,11 @@
                                 <img src="{{ url('storage/' . $postOther->image) }}" alt="{{ $postOther->image }}">
                             </div>
                             <div class="content-blog">
-                                <h2><a href="">{{ $postOther->title }}</a></h2>
+                                <h2>
+                                    <a href="{{route('post.detail', $postOther->id)}}">
+                                    {{ $postOther->title }}
+                                </a>
+                                </h2>
                                 <button class="btn"
                                     style="background-color:#eba845">{{ $postOther->category->name }}</button>
                                 <div class="note">

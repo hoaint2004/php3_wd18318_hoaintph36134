@@ -82,9 +82,6 @@ body {
 }
 
 .content2 {
-    /* display: flex;
-    flex-wrap: nowrap;
-    gap: 20px; */
         display: grid;
         grid-template-columns: 32% 32% 32%;
         gap: 25px;
@@ -115,7 +112,7 @@ body {
         text-align: center;
     }
 
-    .btn-image>a {
+    .btn-image>a{
         padding: 1px 3px;
         position: absolute;
         top: 30px;
@@ -250,7 +247,14 @@ button {
     border: 5px;
 }
 
-
+h1 a{
+    text-decoration: none;
+    color: #fff;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
 .btn {
     text-decoration: none;
     line-height: 20px;
