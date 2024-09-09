@@ -11,10 +11,9 @@
 
 <body>
     <div class="container">
-
-        <h1 style="text-align: center">Health & Fitness</h1>
-        <p style="text-align: center">This is an optional subtitle for post section</p>
         @foreach ($category as $cate)
+            <h1 style="text-align: center">{{ $cate->name }}</h1>
+            <p style="text-align: center">This is an optional subtitle for post section</p>
             <div class="content5">
                 @foreach ($cate->posts as $post)
                     <div class="blog-end">
@@ -25,7 +24,11 @@
                                     class="btn">{{ $post->category->name }}</a>
                             </span>
                         </div>
-                        <h3>{{ $post->title }}</h3>
+                        <h3>
+                            <a href="{{ route('post.detail', $post->id)}}">
+                                {{ $post->title }}
+                            </a>
+                            </h3>
                         <div class="note">
                             <p class="icon1"><i class="fa fa-user"></i>{{ $post->view }}</p>
                             <p> <i class="fa-solid fa-pen"></i>{{ $post->updated_at }}</p>

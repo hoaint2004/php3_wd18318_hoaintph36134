@@ -39,8 +39,10 @@
                             <img src="{{ url('storage/' . $postUp->image) }}" alt="{{ $postUp->image }}">
                         </div>
                         <div class="desc">
-                            <button style="background-color:#91bd3a"
-                                class="btn">{{ $postUp->category->name }}</button>
+                            <a href="{{ route('category', $postUp->category->id) }}">
+                                <button style="background-color:#91bd3a" class="btn">{{ $postUp->category->name }}
+                                </button>
+                            </a>
                             <h3><a href="{{ route('post.detail', $postUp->id) }}">
                                     {{ $postUp->title }}</h3>
                             </a>
@@ -52,7 +54,6 @@
                     </div>
                 @endforeach
             </div>
-
         </div>
 
         @foreach ($categories as $category)
@@ -66,8 +67,8 @@
                             </span>
                             <img src="{{ url('storage/' . $post->image) }}" alt="" style="max-width:100%">
                             <span class="btn-image">
-                                <a href="" style="background-color: #62ce5c"
-                                    class="btn">{{ $post->category->name }}</a>
+                                <a href="{{ route('category', $post->category->id) }}"
+                                    style="background-color: #62ce5c" class="btn">{{ $post->category->name }}</a>
                             </span>
                         </div>
                         <h3>
@@ -180,23 +181,29 @@
         </div>
         {{-- </div> --}}
         {{-- <div class="container2"> --}}
-        <h2>Health & Fitness</h2>
+        <h2>Post New</h2>
         <p>This is an optional subtitle for post section</p>
         <div class="content5">
-            <div class="blog-end">
-                <div class="picture">
-                    <img src="{{ url('storage\images\a10.jpg') }}" alt="">
-                    <span class="btn-image">
-                        <a href="" style="background-color:#379e63" class="btn">Techno</a>
-                    </span>
+            @foreach ($postNews as $postN)
+                <div class="blog-end">
+                    <div class="picture">
+                        <img src="{{ url('storage/' .$postN->image) }}" alt="{{ $postN->image}}">
+                        <span class="btn-image">
+                            <a href="" style="background-color:#379e63" class="btn">{{$postN->category->name}}</a>
+                        </span>
+                    </div>
+                    <h3>
+                        <a href="{{ route('post.detail', $postN->id)}}">    
+                            {{ $postN->title}}
+                        </a>
+                    </h3>
+                    <div class="note">
+                        <p class="icon1"><i class="fa fa-user"></i>{{$postN->view}}</p>
+                        <p> <i class="fa-solid fa-pen"></i>{{ $postN->updated_at}}</p>
+                    </div>
                 </div>
-                <h3>This is an optional subtitle for post section</h3>
-                <div class="note">
-                    <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                    <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                </div>
-            </div>
-            <div class="blog-end">
+            @endforeach
+            {{-- <div class="blog-end">
                 <div class="picture">
                     <img src="{{ url('storage\images\a11.jpg') }}" alt="">
                     <span class="btn-image">
@@ -234,7 +241,7 @@
                     <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
                     <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

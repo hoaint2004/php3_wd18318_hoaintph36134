@@ -60,7 +60,7 @@
             <div class="tag">
                 @foreach ($category as $cate)
                     <button>
-                        <a href="">
+                        <a href="{{ route('category', $cate->id) }}">
                             {{ $cate->name }}
                         </a>
                     </button>

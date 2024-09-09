@@ -30,12 +30,14 @@ class PostController extends Controller
 
         // Hiển thị danh sánh bài viết theo danh mục
         $categories = Category::all();
-
         $categories->each(function ($category) {
             $category->setRelation('posts', $category->posts()->take(6)->get());
         });
 
-        return view('user.home', compact('postNew', 'postUpdate', 'categories'));
+        $postNews = Post::query()->orderBy('created_at', 'desc')->limit(4)->get();
+        // dd($postNews);
+
+        return view('user.home', compact('postNew', 'postUpdate', 'categories', 'postNews'));
     }
 
     public function detailPost($id)
