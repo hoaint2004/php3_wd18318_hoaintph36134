@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('home.css') }}">
+    <link rel="stylesheet" href="{{ asset('footer.css')}}">
     <title>Trang chủ</title>
 </head>
 
@@ -177,75 +178,35 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        {{-- </div> --}}
-        {{-- <div class="container2"> --}}
+
         <h2>Post New</h2>
         <p>This is an optional subtitle for post section</p>
         <div class="content5">
             @foreach ($postNews as $postN)
                 <div class="blog-end">
                     <div class="picture">
-                        <img src="{{ url('storage/' .$postN->image) }}" alt="{{ $postN->image}}">
+                        <img src="{{ url('storage/' . $postN->image) }}" alt="{{ $postN->image }}">
                         <span class="btn-image">
-                            <a href="" style="background-color:#379e63" class="btn">{{$postN->category->name}}</a>
+                            <a href="" style="background-color:#379e63"
+                                class="btn">{{ $postN->category->name }}</a>
                         </span>
                     </div>
                     <h3>
-                        <a href="{{ route('post.detail', $postN->id)}}">    
-                            {{ $postN->title}}
+                        <a href="{{ route('post.detail', $postN->id) }}">
+                            {{ $postN->title }}
                         </a>
                     </h3>
                     <div class="note">
-                        <p class="icon1"><i class="fa fa-user"></i>{{$postN->view}}</p>
-                        <p> <i class="fa-solid fa-pen"></i>{{ $postN->updated_at}}</p>
+                        <p class="icon1"><i class="fa fa-user"></i>{{ $postN->view }}</p>
+                        <p> <i class="fa-solid fa-pen"></i>{{ $postN->updated_at }}</p>
                     </div>
                 </div>
             @endforeach
-            {{-- <div class="blog-end">
-                <div class="picture">
-                    <img src="{{ url('storage\images\a11.jpg') }}" alt="">
-                    <span class="btn-image">
-                        <a href="" style="background-color:#379e63" class="btn">Techno</a>
-                    </span>
-                </div>
-                <h3>Relaxing with nice view after enjoy with your food</h3>
-                <div class="note">
-                    <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                    <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                </div>
-            </div>
-            <div class="blog-end">
-                <div class="picture">
-                    <img src="{{ url('storage\images\a12.jpg') }}" alt="">
-                    <span class="btn-image">
-                        <a href="" style="background-color:#eba845" class="btn">Business</a>
-                    </span>
-                </div>
-                <h3>Best Lighting For Outdoor Photo Shoot Style</h3>
-                <div class="note">
-                    <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                    <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                </div>
-            </div>
-            <div class="blog-end">
-                <div class="picture">
-                    <img src="{{ url('storage\images\a1.jpg') }}" alt="">
-                    <span class="btn-image">
-                        <a href="" style="background-color:#d63447;" class="btn">Health</a>
-                    </span>
-                </div>
-                <h3>New skill with the height quality camera lens</h3>
-                <div class="note">
-                    <p class="icon1"><i class="fa fa-user"></i>Spraya</p>
-                    <p> <i class="fa-solid fa-pen"></i>July 24, 2019</p>
-                </div>
-            </div> --}}
         </div>
     </div>
 
-    </div>
+    @include('user.footer')
 </body>
 
 </html>

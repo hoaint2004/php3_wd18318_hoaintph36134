@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css">
     <link rel="stylesheet" href="{{ asset('detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('footer.css')}}">
     <title>Chi tiết bài viết</title>
 </head>
 
@@ -224,6 +225,9 @@
             </div>
         </div>
     </div>
+
+    @include('user.footer')
+
 </body>
 
 </html>

@@ -22,7 +22,14 @@ Route::get('/home', [PostController::class, 'indexHome']);
 Route::get('/detailpost/{id}', [PostController::class, 'detailPost'])->name('post.detail');
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
 
-Route::get('/test', [PostController::class, 'test']);
+Route::get('/footer', function(){
+    return view('user.footer');
+});
+
+
+Route::get('/header', function(){
+    return view('user.header');
+});
 
 Route::middleware(AdminMiddleware::class)->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('post.index');
