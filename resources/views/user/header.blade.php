@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('header.css') }}">
-    <title>Header</title>
-</head>
-
-<body>
-    <div class="container">
+    <div class="header">
         <div class="preview-header">
             <div class="header-logo">
                 <a href="#" class="hd-logo"><strong>envato</strong> market</a>
@@ -76,51 +64,110 @@
         </div>
 
         <div class="main-menu">
-            <div class="logo-link">
-                <img src="{{ url('storage\images\yPHxKSj4uKOVEedpO6PLqaKMGjFoUxYLsvEh0aKI.png') }}" alt="">
-            </div>
+            <div class="menu-main">
+                <div class="logo-link">
+                    <img src="{{ url('storage\images\logo.png') }}" alt="">
+                </div>
 
-            <div class="search-header">
-                <div class="mode">
-                    <div class="night-mode">
+                <div class="menu-link">
+                    <ul>
+                        <li>
+                            <a href="{{ route('homePage')}}">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Features
+                                {{-- <span>
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </span> --}}
+                            </a>
+
+                            {{-- <ul class="sub-menu">
+                            <li>
+                                <a href="#">
+                                    Post Layout
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Post Format
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Author Page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Category Page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Page 404
+                                </a>
+                            </li>
+                        </ul> --}}
+                        </li>
+                        <li>
+                            <a href="#">Inspiration</a>
+                            {{-- <span>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </span> --}}
+                        </li>
+                        <li>
+                            <a href="#">Active</a>
+                        </li>
+                        <li>
+                            <a href="#">Business</a>
+                        </li>
+                        <li>
+                            <a href="#">Shop</a>
+                            {{-- <span>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </span> --}}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="search-header">
+                    <div class="mode">
+                        {{-- <div class="night-mode">
                         <span class="moon">
                             <i class="fa-regular fa-moon"></i>
                         </span>
+                    </div> --}}
+
+                        <div class="day-mode">
+                            <span class="sun">
+                                <i class="fa-regular fa-sun"></i>
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="night-mode">
-                        <span class="moon">
-                            <i class="fa-regular fa-moon"></i>
+                    <div class="act-cart">
+                        <span class="cart">
+                            <i class="fa-solid fa-bag-shopping"></i>
                         </span>
                     </div>
 
-                    <div class="day-mode">
-                        <span class="sun">
-                            <i class="fa-regular fa-sun"></i>
+                    <div class="act-search">
+                        <form action="{{ route('search')}}" id="form-search" method="POST">
+                            {{ csrf_field() }}
+                            <input type="text" id="search-text" name="keyword" placeholder="Bạn muốn tìm kiếm gì?" required>
+                            <button type="submit" id="search-btn" name="search-btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="act-bars">
+                        <span class="bars">
+                            <i class="fa-solid fa-bars"></i>
                         </span>
                     </div>
-                </div>
-
-                <div class="act-cart">
-                    <span class="cart">
-                        <i class="fa-thin fa-bag-shopping"></i>
-                    </span>
-                </div>
-
-                <div class="act-search">
-                    <span class="search">
-                        <i class="fa-thin fa-magnifying-glass"></i>
-                    </span>
-                </div>
-
-                <div class="act-bars">
-                    <span class="bars">
-                        <i class="fa-thin fa-magnifying-glass"></i>
-                    </span>
                 </div>
             </div>
+
         </div>
     </div>
-</body>
-
-</html>

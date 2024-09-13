@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Providers\AppServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/home', [PostController::class, 'indexHome']);
+Route::get('/', [PostController::class, 'indexHome'])->name('homePage');
 Route::get('/detailpost/{id}', [PostController::class, 'detailPost'])->name('post.detail');
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
+Route::post('/search', [PostController::class, 'search'])->name('search');
+Route::get('/search', [PostController::class, 'search'])->name('search');
 
 Route::get('/footer', function(){
     return view('user.footer');
@@ -29,6 +32,10 @@ Route::get('/footer', function(){
 
 Route::get('/header', function(){
     return view('user.header');
+});
+
+Route::get('tim-kiem', function(){
+    return view('user.search');
 });
 
 Route::middleware(AdminMiddleware::class)->group(function () {

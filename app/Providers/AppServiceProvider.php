@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Paginator::useBootstrap();
+        // Paginator::useBootstrap();
         // view()->composer('*', function($view){
         //     $view->with([
         //         'category'=> Category::where('status', 1)->orderBy('name', 'ASC')->get(),

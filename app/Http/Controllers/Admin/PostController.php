@@ -45,6 +45,10 @@ class PostController extends Controller
         // Hiển thị dữ liệu bài viết
         $post = Post::query()->where('id', $id)->first();
 
+        if(!$post){
+            return view('user.notFound');
+        }
+
         $category = Category::all();
 
         // Hiện thị danh sách bài viết cùng danh mục với bài viết
@@ -64,6 +68,18 @@ class PostController extends Controller
         });
 
         return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther'));
+    }
+
+    public function search(Request $request){
+        // 
+        $keyw = $request->keyword;
+        $category = Category::query()->get();
+        $post = Post::query()->get();
+        $search_post = Post::query()->where('title', 'LIKE', '%'.$keyw.'%')->paginate(10);
+        // dd($search_post);
+        // dd($keyw);
+        return view('user.search', compact('keyw', 'category', 'post', 'search_post'));
+
     }
 
     public function create()
