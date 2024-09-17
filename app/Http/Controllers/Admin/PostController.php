@@ -45,7 +45,7 @@ class PostController extends Controller
         // Hiển thị dữ liệu bài viết
         $post = Post::query()->where('id', $id)->first();
 
-        if(!$post){
+        if (!$post) {
             return view('user.notFound');
         }
 
@@ -70,17 +70,61 @@ class PostController extends Controller
         return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther'));
     }
 
-    public function search(Request $request){
-        // 
-        $keyw = $request->keyword;
-        $category = Category::query()->get();
-        $post = Post::query()->get();
-        $search_post = Post::query()->where('title', 'LIKE', '%'.$keyw.'%')->paginate(10);
-        // dd($search_post);
-        // dd($keyw);
-        return view('user.search', compact('keyw', 'category', 'post', 'search_post'));
 
+    public function search_form(Request $request)
+    {
+
+        // dd($request->time);
+        // Lấy từ khóa tìm kiếm từ form
+        $keyw = $request->input('keyword');
+        $date = $request->input('time');
+        $category = $request->input('category');
+
+        $query = Post::query();
+
+        if ($keyw) {
+            $query =  $query->where('title', 'LIKE', '%' . $keyw . '%');
+        }
+
+        if ($date) {
+            //1 day
+            if ($date == '1day') {
+                $dateFilter = now()->subDay();
+            }
+            //1 week
+            if ($date == '1week') {
+                $dateFilter = now()->subWeek();
+            }
+            //1 month
+            if ($date == '1month') {
+                $dateFilter = now()->subMonth();
+            }
+            //1 year
+            if ($date == '1year') {
+                $dateFilter = now()->subYear();
+            }
+            if ($dateFilter) {
+                $query =  $query->where('updated_at', '>=', $dateFilter);
+            }
+        }
+
+        if ($category) {
+            $query = Category::query()
+                ->where('name', $category)
+                ->with('posts');
+        }
+
+        $search_post = $query->paginate(10);
+        
+        if ($search_post->isNotEmpty()) {
+            // Trả về view với kết quả tìm kiếm
+            return view('user.search', compact('keyw', 'search_post'));
+        } else {
+            // Trả về view không có kết quả nếu không tìm thấy bài viết nào
+            return view('user.notResult');
+        }
     }
+
 
     public function create()
     {

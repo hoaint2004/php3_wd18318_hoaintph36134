@@ -12,6 +12,7 @@
         }
 
         .search-top {
+            position: relative;
             .filter {
                 display: flex;
                 gap: 30px;
@@ -32,8 +33,19 @@
                     }
                 }
             }
-        }
 
+        }
+        
+        .btn-submit{
+            position: absolute;
+            top: 44.5%;
+            right: 43%;
+            background-color: none;
+
+            i{
+                font-size: 20px;
+            }
+        }
         .search-bottom {
             .list-post {
                 display: flex;
@@ -60,8 +72,10 @@
                     }
                 }
             }
+        }
 
-            .result-search {
+        .result{
+            .result-search{
                 display: flex;
                 gap: 20px;
 
@@ -85,21 +99,22 @@
 
 .sidebar {
     width: 40%;
-    
+
     img {
         width: 100%;
         height: 350px;
     }
 }
-.pagination{
+
+.pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
 
-    
-    .pagination-item {
-        .pagination-item-link {
+
+    .page-item {
+        .page-link {
             display: block;
             text-decoration: none;
             font-size: 16px;
@@ -108,19 +123,35 @@
             height: 30px;
             line-height: 30px;
             text-align: center;
-            border-radius: 2px;           
+            border-radius: 2px;
         }
     }
-    
-    .pagination-item--active {
-        .pagination-item-link {
+
+    .active {
+        .page-link {
             background-color: orangered;
             color: #fff;
         }
-    }
-    .pagination-item--active {
-        .pagination-item-link:hover {
-            background-color:rgb(174, 114, 36);
+
+        .page-link:hover {
+            background-color: rgb(174, 114, 36);
         }
     }
+}
+
+.not-result{
+
+    .info-search{
+        text-align: center;
+        img{
+            width: 300px;
+            height: 350px;
+        }
+
+        i{
+            font-size: 50px;
+        }
+
+    }
+
 }

@@ -152,7 +152,7 @@
                     </div>
 
                     <div class="act-search">
-                        <form action="{{ route('search')}}" id="form-search" method="POST">
+                        <form action="{{ route('search-form')}}" id="form-search" method="POST">
                             {{ csrf_field() }}
                             <input type="text" id="search-text" name="keyword" placeholder="Bạn muốn tìm kiếm gì?" required>
                             <button type="submit" id="search-btn" name="search-btn">

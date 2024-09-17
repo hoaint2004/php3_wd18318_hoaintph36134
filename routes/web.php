@@ -8,7 +8,6 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Providers\AppServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'indexHome'])->name('homePage');
 Route::get('/detailpost/{id}', [PostController::class, 'detailPost'])->name('post.detail');
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
-Route::post('/search', [PostController::class, 'search'])->name('search');
-Route::get('/search', [PostController::class, 'search'])->name('search');
+Route::post('/search', [PostController::class, 'search_form'])->name('search-form');
+// Route::get('/search', [PostController::class, 'search_form'])->name('search');
+
+
+
 
 Route::get('/footer', function(){
     return view('user.footer');
