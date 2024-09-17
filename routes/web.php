@@ -22,6 +22,8 @@ Route::get('/', [PostController::class, 'indexHome'])->name('homePage');
 Route::get('/detailpost/{id}', [PostController::class, 'detailPost'])->name('post.detail');
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
 Route::post('/search', [PostController::class, 'search_form'])->name('search-form');
+Route::get('/search', [PostController::class, 'search_form'])->name('search-form');
+
 // Route::get('/search', [PostController::class, 'search_form'])->name('search');
 
 

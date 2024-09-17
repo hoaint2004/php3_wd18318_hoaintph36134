@@ -1,6 +1,6 @@
-@extends('user.layout')
+@extends('user.search')
 @section('title', 'Kết quả tìm kiếm')
-@section('content')
+@section('result')
 <div class="not-result">
     <h1>Kết quả tìm kiếm</h1>
     <div class="info-search">

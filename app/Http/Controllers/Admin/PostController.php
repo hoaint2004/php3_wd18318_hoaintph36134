@@ -74,19 +74,17 @@ class PostController extends Controller
     public function search_form(Request $request)
     {
 
-        // dd($request->time);
         // Lấy từ khóa tìm kiếm từ form
         $keyw = $request->input('keyword');
         $date = $request->input('time');
         $category = $request->input('category');
 
-        $query = Post::query();
-
-        if ($keyw) {
-            $query =  $query->where('title', 'LIKE', '%' . $keyw . '%');
-        }
+        $query = Post::query()->where('title', 'LIKE', '%' . $keyw . '%');
 
         if ($date) {
+            if($date == 'all'){
+                $dateFilter = null;
+            }
             //1 day
             if ($date == '1day') {
                 $dateFilter = now()->subDay();
@@ -109,22 +107,23 @@ class PostController extends Controller
         }
 
         if ($category) {
-            $query = Category::query()
-                ->where('name', $category)
-                ->with('posts');
-        }
+                $query->whereHas('category', function($q) use ($category) {
+                    $q->where('name', $category);
+                });
+        }   
 
         $search_post = $query->paginate(10);
-        
+
         if ($search_post->isNotEmpty()) {
             // Trả về view với kết quả tìm kiếm
-            return view('user.search', compact('keyw', 'search_post'));
+            return view('user.results', compact('keyw', 'search_post'));
         } else {
             // Trả về view không có kết quả nếu không tìm thấy bài viết nào
-            return view('user.notResult');
+            return view('user.notResult', compact('keyw', 'search_post'));
         }
-    }
 
+        return view('user.search', compact('keyw, search_post'));
+    }
 
     public function create()
     {

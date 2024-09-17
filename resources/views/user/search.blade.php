@@ -1,4 +1,3 @@
-{{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
 @extends('user.layout')
 @section('title', 'Kết quả tìm kiếm')
 @section('content')
@@ -8,7 +7,7 @@
                 {{ csrf_field() }}
                 <div class="search-top">
                     <h1>Kết Quả Tìm Kiếm</h1>
-                    <input type="text" value="{{ $keyw }}" name="key" placeholder="{{$keyw}}">
+                    <input type="text" name="keyword" value="{{$keyw}}">
 
                     <div class="filter">
                         <div class="time">
@@ -25,12 +24,12 @@
                         <div class="category">
                             <h3>Category</h3>
                             <select name="category" id="category">
-                                <option value="all">Tất cả</option>
-                                <option value="culture">Văn Hóa</option>
-                                <option value="sports">Thể thao</option>
-                                <option value="travel">Du lịch</option>
-                                <option value="real_estate">Bất động sản</option>
-                                <option value="politics">Chính Trị</option>
+                                <option value="Tất cả">Tất cả</option>
+                                <option value="Văn Hóa">Văn Hóa</option>
+                                <option value="Thể Thao">Thể thao</option>
+                                <option value="Du Lịch">Du lịch</option>
+                                <option value="Bất Động Sản">Bất động sản</option>
+                                <option value="Chính Trị">Chính Trị</option>
                             </select>
                         </div>
                     </div>
@@ -52,34 +51,10 @@
                 </button>
             </form>
 
+            
             <div class="result">
-                @foreach ($search_post as $result)
-                    <div class="result-search">
-                        <div class="info-post">
-                            <h3 class="title">
-                                <a href="#">
-                                    {{ $result->title }}
-                                </a>
-                            </h3>
-
-                            <p class="description">
-                                {{ $result->description }}
-                            </p>
-
-                            <div class="note">
-                                <p class="view"><i class="fa fa-user"></i>{{ $result->view }}</p>
-                                <p class="updated-at"> <i class="fa-solid fa-pen"></i>{{ $result->updated_at }}</p>
-                            </div>
-                        </div>
-
-                        <div class="image-post">
-                            <img src="{{ url('storage/' . $result->image) }}" alt="{{ $result->image }}">
-                        </div>
-                    </div>
-                    <hr>
-                @endforeach
+                @yield('result')
             </div>
-            {{-- <hr> --}}
         </div>
         <hr>
 
@@ -88,8 +63,11 @@
         </div>
     </div>
 
-    {{ $search_post->links()}}
-    {{-- <ul class="pagination">
+    {{ $search_post->links() }}
+    <hr>
+@endsection
+
+{{-- <ul class="pagination">
         <li class="page-item">
             <a href="#" class="page-link">
                 <i class="page-item-icon fas fa-angle-left"></i>
@@ -114,5 +92,3 @@
             </a>
         </li>
     </ul> --}}
-    <hr>
-@endsection
