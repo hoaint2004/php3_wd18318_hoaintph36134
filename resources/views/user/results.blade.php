@@ -6,7 +6,7 @@
             <div class="result-search">
                 <div class="info-post">
                     <h3 class="title">
-                        <a href="#">
+                        <a href="{{ route('post.detail', $result->id) }}">
                             {{ $result->title }}
                         </a>
                     </h3>

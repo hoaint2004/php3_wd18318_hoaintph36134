@@ -63,8 +63,9 @@
         </div>
     </div>
 
-    {{ $search_post->links() }}
+    {{ $search_post->appends(request()->all())->links() }}    
     <hr>
+
 @endsection
 
 {{-- <ul class="pagination">
