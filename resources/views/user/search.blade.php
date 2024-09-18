@@ -14,10 +14,10 @@
                             <h3>Time</h3>
                             <select name="time" id="time">
                                 <option value="all">Tất cả</option>
-                                <option value="1day">1 ngày qua</option>
-                                <option value="1week">1 tuần qua</option>
-                                <option value="1month">1 tháng qua</option>
-                                <option value="1year">1 năm qua</option>
+                                <option value="1day" {{ $date == '1day' ? 'selected' : '' }}>1 ngày qua</option>
+                                <option value="1week" {{ $date == '1week' ? 'selected' : '' }}>1 tuần qua</option>
+                                <option value="1month" {{ $date == '1month' ? 'selected' : '' }}>1 tháng qua</option>
+                                <option value="1year" {{ $date == '1year' ? 'selected' : '' }}>1 năm qua</option>
                             </select>
                         </div>
 
@@ -25,11 +25,11 @@
                             <h3>Category</h3>
                             <select name="category" id="category">
                                 <option value="Tất cả">Tất cả</option>
-                                <option value="Văn Hóa">Văn Hóa</option>
-                                <option value="Thể Thao">Thể thao</option>
-                                <option value="Du Lịch">Du lịch</option>
-                                <option value="Bất Động Sản">Bất động sản</option>
-                                <option value="Chính Trị">Chính Trị</option>
+                                <option value="Văn Hóa" {{ $category == 'Văn Hóa' ? 'selected' : '' }}>Văn Hóa</option>
+                                <option value="Thể Thao" {{ $category == 'Thể Thao' ? 'selected' : '' }}>Thể thao</option>
+                                <option value="Du Lịch" {{ $category == 'Du Lịch' ? 'selected' : '' }}>Du lịch</option>
+                                <option value="Bất Động Sản" {{ $category == 'Bất Động Sản' ? 'selected' : '' }}>Bất động sản</option>
+                                <option value="Chính Trị"{{ $category == 'Chính Trị' ? 'selected' : '' }}>Chính Trị</option>
                             </select>
                         </div>
                     </div>

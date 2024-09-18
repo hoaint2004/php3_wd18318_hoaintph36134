@@ -116,10 +116,10 @@ class PostController extends Controller
 
         if ($search_post->isNotEmpty()) {
             // Trả về view với kết quả tìm kiếm
-            return view('user.results', compact('keyw', 'search_post'));
+            return view('user.results', compact('keyw', 'search_post', 'date', 'category'));
         } else {
             // Trả về view không có kết quả nếu không tìm thấy bài viết nào
-            return view('user.notResult', compact('keyw', 'search_post'));
+            return view('user.notResult', compact('keyw', 'search_post','date', 'category'));
         }
 
         return view('user.search', compact('keyw, search_post'));

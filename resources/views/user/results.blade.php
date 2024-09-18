@@ -31,6 +31,7 @@
                 </div>
             </div>
             <hr>
+
         @endforeach
     </div>
 @endsection
