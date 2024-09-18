@@ -66,6 +66,7 @@
     {{ $search_post->appends(request()->all())->links() }}    
     <hr>
 
+    {{-- except('page') --}}
 @endsection
 
 {{-- <ul class="pagination">

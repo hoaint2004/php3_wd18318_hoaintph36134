@@ -106,13 +106,13 @@ class PostController extends Controller
             }
         }
 
-        if ($category && $category ==! 'Tất cả') {
+        if ($category && $category != 'Tất cả') {
             $query->whereHas('category', function($q) use ($category) {
                 $q->where('name', $category);
             });
         }   
 
-        $search_post = $query->paginate($perPage = 10, $columns = ['*'], $pageName = 'posts');
+        $search_post = $query->paginate(10);
 
         if ($search_post->isNotEmpty()) {
             // Trả về view với kết quả tìm kiếm

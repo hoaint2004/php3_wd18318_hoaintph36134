@@ -11,6 +11,11 @@
                         </a>
                     </h3>
 
+                    <a href="{{ route('category', $result->category->id) }}">
+                        <button style="background-color:#91bd3a" class="btn">{{ $result->category->name }}
+                        </button>
+                    </a>
+
                     <p class="description">
                         {{ $result->description }}
                     </p>
