@@ -1,4 +1,7 @@
-    <div class="header">
+<link rel="stylesheet" href="{{ asset('header.css')}}">
+
+   <div class="container">
+        <div class="header">
         <div class="preview-header">
             <div class="header-logo">
                 <a href="#" class="hd-logo"><strong>envato</strong> market</a>
@@ -169,5 +172,6 @@
                 </div>
             </div>
 
+        </div>
         </div>
     </div>

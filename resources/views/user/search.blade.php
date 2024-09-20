@@ -1,13 +1,19 @@
 @extends('user.layout')
 @section('title', 'Kết quả tìm kiếm')
 @section('content')
+<div class="container">
     <div class="form-search">
         <div class="search">
             <form action="{{ route('search-form') }}" method="POST" id="search-form">
                 {{ csrf_field() }}
                 <div class="search-top">
                     <h1>Kết Quả Tìm Kiếm</h1>
-                    <input type="text" name="keyword" value="{{$keyw}}">
+                    <div class="input-search">
+                        <input type="text" name="keyword" value="{{$keyw}}">
+                        <button type="submit" class="btn-submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
 
                     <div class="filter">
                         <div class="time">
@@ -45,10 +51,6 @@
                         </li>
                     </ul>
                 </div>
-
-                <button type="submit" class="btn-submit">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                </button>
             </form>
 
             
@@ -56,6 +58,7 @@
                 @yield('result')
             </div>
         </div>
+        
         <hr>
 
         <div class="sidebar">
@@ -67,8 +70,8 @@
     <hr>
 
     {{-- except('page') --}}
+</div>
 @endsection
-
 {{-- <ul class="pagination">
         <li class="page-item">
             <a href="#" class="page-link">
