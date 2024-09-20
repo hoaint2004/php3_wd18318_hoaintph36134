@@ -59,7 +59,7 @@
             </div>
         </div>
         
-        <hr>
+        <hr class="hr">
 
         <div class="sidebar">
             <img src="{{ url('storage\images\warning.png') }}" alt="image-sidebar">

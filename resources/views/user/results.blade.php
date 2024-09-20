@@ -1,7 +1,7 @@
 @extends('user.search')
 
 @section('result')
-<div class="">
+<div class="results">
     @foreach ($search_post as $result)
             <div class="result-search">
                 <div class="info-post">

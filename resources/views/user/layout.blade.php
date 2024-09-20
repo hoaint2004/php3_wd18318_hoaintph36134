@@ -24,14 +24,6 @@
 
         }
 
-        /* header{
-            max-width: 100%;
-            left: 0;
-            right: 0;
-            margin: 0;
-            padding: 0;
-                } */
-
         article {
             margin: 50px;
         }
