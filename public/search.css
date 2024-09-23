@@ -191,6 +191,67 @@
         .form-search {
             .search {
                 width: 100%;
+
+                .input-search {
+                    input {
+                        width: 100%;
+                        padding: 10px 5px;
+                        border-radius: 5px;
+                        font-size: 18px;
+                    }
+                }
+
+                .search-top {
+                    .filter {
+                        select {
+                            font-size: 18px;
+                        }
+
+                        h3 {
+                            font-size: 20px;
+                        }
+                    }
+
+
+                }
+
+                .search-bottom {
+                    .list-post {
+                        .post-related {
+                            a {
+                                border-radius: 0 3px 3px 0;
+                                border: 1px solid #555;
+                                padding: 10px 35px;
+                                font-size: 18px;
+                            }
+                        }
+
+                        .post-new {
+                            a {
+                                border-radius: 3px 0 0 3px;
+                                border: 1px solid #555;
+                                padding: 10px 35px;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .result {
+                .results {
+                    .result-search {
+                        .info-post {
+                            h3 {
+                                font-size: 22px;
+                            }
+
+                            p {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
             }
 
             .hr {
@@ -201,17 +262,61 @@
                 display: none;
             }
         }
-
-
     }
-
 }
-
-
-
 
 /* Max width 768px */
 @media (max-width: 768px) {
+    .container {
+        .form-search {
+            .search {
+                .input-search {
+                    input {
+                        width: 100%;
+                        padding: 10px 5px;
+                        border-radius: 5px;
+                        font-size: 20px;
+                    }
+                }
+
+                .search-top {
+                    .filter {
+                        select {
+                            font-size: 20px;
+                        }
+
+                        h3 {
+                            font-size: 25px;
+                        }
+                    }
+
+
+                }
+
+                .search-bottom {
+                    .list-post {
+                        .post-related {
+                            a {
+                                border-radius: 0 3px 3px 0;
+                                border: 1px solid #555;
+                                padding: 10px 35px;
+                                font-size: 20px;
+                            }
+                        }
+
+                        .post-new {
+                            a {
+                                border-radius: 3px 0 0 3px;
+                                border: 1px solid #555;
+                                padding: 10px 35px;
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 /* Max width 576px */

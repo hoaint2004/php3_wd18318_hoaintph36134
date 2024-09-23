@@ -191,6 +191,7 @@ body {
             margin: 10px 0 0 0;
             min-height: 85px;
         }
+
         .picture {
             position: relative;
 
@@ -258,6 +259,7 @@ button {
 h1 a {
     text-decoration: none;
     color: #fff;
+    font-size: 25px;
 }
 
 a {
@@ -285,205 +287,209 @@ i {
         margin: 40px;
     }
 
-    .content1 {
-        display: grid;
-        grid-template-columns: 55% 40%;
-        gap: 25px;
-    }
+    .container {
+
+        .content1 {
+            display: grid;
+            grid-template-columns: 55% 40%;
+            gap: 25px;
+        }
 
 
-    .note>p {
-        color: #6f6f6f;
-        text-align: left;
-        padding: 0px 5px;
-        font-size: 14px;
-    }
+        .note>p {
+            color: #6f6f6f;
+            text-align: left;
+            padding: 0px 5px;
+            font-size: 14px;
+        }
 
-    .content4 {
-        display: grid;
-        grid-template-columns: 50% 45%;
-        gap: 50px;
+        .content4 {
+            display: grid;
+            grid-template-columns: 50% 45%;
+            gap: 50px;
 
-        .blog5-blog h3 {
-            min-height: 80px;
+            .blog5-blog h3 {
+                min-height: 80px;
+            }
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        .content5 {
+            padding: 0;
+            gap: 15px;
+        }
+
+        .blog-end>img {
+            height: 200px;
+            background-size: 100% 100%;
         }
     }
-
-    h3 {
-        font-size: 18px;
-    }
-
-    .content5 {
-        padding: 0;
-        gap: 15px;
-    }
-
-    .blog-end>img {
-        height: 200px;
-        background-size: 100% 100%;
-    }
-
 }
 
 /* Max width 992px */
 @media (max-width: 992px) {
-    body {
+    /* body {
         margin: 30px;
+    } */
+
+    .container {
+        .content1 {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 10px;
+        }
+
+        .blog2 .box .picture {
+            width: 100%;
+            padding: 0;
+        }
+
+        .content1 .box {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .box .desc>h3 {
+            width: 170px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .blog1>h1 {
+            position: absolute;
+            bottom: 50px;
+            left: 25px;
+            right: 25px;
+            font-size: 22px;
+        }
+
+        .blog1 .note {
+            position: absolute;
+            bottom: 15px;
+            left: 16px;
+        }
+
+        .blog1>button {
+            position: absolute;
+            bottom: 200px;
+            left: 25px;
+        }
+
+        .blog1 .note {
+            position: absolute;
+            bottom: 20px;
+            left: 25px;
+        }
+
+        .blog2 .box .note>p {
+            padding: 0px 5px;
+            font-size: 13px;
+        }
+
+        .content2 {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 30px;
+        }
+
+        .content2 .box2 .note>p {
+            padding: 0px 5px;
+            font-size: 16px;
+        }
+
+        .content4 .blog4 {
+            width: 100%;
+            text-align: left;
+        }
+
+        .content4 {
+            display: grid;
+            grid-template-columns: 45% 50%;
+            gap: 30px;
+        }
+
+        .content4 .note>p {
+            color: #6f6f6f;
+            text-align: left;
+            padding: 0px 5px;
+            font-size: 12px;
+        }
+
+        .content5 {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 30px;
+            padding: 10px;
+        }
+
+        .blog-end>img {
+            width: 100%;
+            height: 350px;
+            background-size: 100% 100%;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        .box .picture {
+            width: 30%;
+            padding: 0px 15px;
+        }
+
+        .box .picture>img {
+            height: 100px;
+            background-size: 100% 100%;
+        }
+
+        button {
+            font-size: 12px;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .blog4 {
+            width: 70%;
+        }
+
+
+        .btn1 {
+            width: 120px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .content4 .blog5 {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+        }
+
+        .blog5 .blog5-blog>h3 {
+            min-height: 70px;
+            font-size: 16px;
+        }
+
+        img {
+            width: 100%;
+            background-size: 100% 100%;
+        }
+
+
     }
-
-    .content1 {
-        display: grid;
-        grid-template-columns: 60% 40%;
-        gap: 10px;
-    }
-
-    .blog2 .box .picture {
-        width: 100%;
-        padding: 0;
-    }
-
-    .content1 .box {
-        display: grid;
-        grid-template-columns: 30% 70%;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-
-    .box .desc>h3 {
-        /* white-space: nowrap; */
-        width: 170px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .blog1>h1 {
-        position: absolute;
-        bottom: 50px;
-        left: 25px;
-        right: 25px;
-        font-size: 22px;
-    }
-
-    .blog1 .note {
-        position: absolute;
-        bottom: 15px;
-        left: 16px;
-    }
-
-    .blog1>button {
-        position: absolute;
-        bottom: 200px;
-        left: 25px;
-    }
-
-    .blog1 .note {
-        position: absolute;
-        bottom: 20px;
-        left: 25px;
-    }
-
-    .blog2 .box .note>p {
-        padding: 0px 5px;
-        font-size: 13px;
-    }
-
-    .content2 {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 30px;
-    }
-
-    .content2 .box2 .note>p {
-        padding: 0px 5px;
-        font-size: 16px;
-    }
-
-    .content4 .blog4 {
-        width: 100%;
-        text-align: left;
-    }
-
-    .content4 {
-        display: grid;
-        grid-template-columns: 45% 50%;
-        gap: 30px;
-    }
-
-    .content4 .note>p {
-        color: #6f6f6f;
-        text-align: left;
-        padding: 0px 5px;
-        font-size: 12px;
-    }
-
-    .content5 {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 30px;
-        padding: 10px;
-    }
-
-    .blog-end>img {
-        width: 100%;
-        height: 350px;
-        background-size: 100% 100%;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    h3 {
-        font-size: 18px;
-    }
-
-    h2 {
-        font-size: 28px;
-    }
-
-    .box .picture {
-        width: 30%;
-        padding: 0px 15px;
-    }
-
-    .box .picture>img {
-        height: 100px;
-        background-size: 100% 100%;
-    }
-
-    button {
-        font-size: 12px;
-        height: 20px;
-        line-height: 20px;
-    }
-
-    .blog4 {
-        width: 70%;
-    }
-
-
-    .btn1 {
-        width: 120px;
-        height: 50px;
-        line-height: 50px;
-    }
-
-    .content4 .blog5 {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10px;
-    }
-
-    .blog5 .blog5-blog>h3 {
-        min-height: 70px;
-        font-size: 16px;
-    }
-
-    img {
-        width: 100%;
-        background-size: 100% 100%;
-    }
-
 }
 
 /* Max width 768px */
@@ -492,161 +498,176 @@ i {
         margin: 25px;
     }
 
-    .content1 {
-        display: grid;
-        grid-template-columns: auto;
-    }
+    .container {
+        .content1 {
+            display: grid;
+            grid-template-columns: auto;
+        }
 
-    .blog1 {
-        height: 450px;
-        width: 100%;
-        margin-bottom: 50px;
-    }
+        .blog1 {
+            height: 450px;
+            width: 100%;
+            margin-bottom: 50px;
+        }
 
-    .blog1>button {
-        font-size: 20px;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-    }
+        .blog1 {
+            .descript {
+                h1 {
+                    margin: 0;
+                    line-height: 1;
+                    position: absolute;
+                    bottom: 85px;
+                    left: 25px;
+                    right: 25px;
+                }
+            }
+        }
 
-    .blog1>h1 {
-        font-size: 30px
-    }
+        .blog1>button {
+            font-size: 20px;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+        }
 
-    .blog2 {
-        width: 100%;
-    }
+        .blog1>h1 {
+            font-size: 30px
+        }
 
-    .blog2 .box .note>p {
-        padding: 0px 5px;
-        font-size: 15px;
-    }
+        .blog2 {
+            width: 100%;
+        }
 
-    h3 {
-        margin: 0px;
-    }
+        .blog2 .box .note>p {
+            padding: 0px 5px;
+            font-size: 15px;
+        }
 
-    .box .picture {
-        width: 100%;
-    }
+        h3 {
+            margin: 0px;
+        }
 
-    .box .desc {
-        width: 100%;
-    }
+        .box .picture {
+            width: 100%;
+        }
 
-    .desc .note {
-        margin: 0px;
-    }
+        .box .desc {
+            width: 100%;
+        }
 
-    h1 {
-        font-size: 50px;
-    }
+        .desc .note {
+            margin: 0px;
+        }
 
-    p {
-        font-size: 18px;
-    }
+        h1 {
+            font-size: 50px;
+        }
 
-    h3 {
-        font-size: 22px;
-    }
+        p {
+            font-size: 18px;
+        }
 
-    h2 {
-        font-size: 30px;
-    }
+        h3 {
+            font-size: 22px;
+        }
 
-    button {
-        font-size: 12px;
-        height: 22px;
-        line-height: 22px;
-    }
+        h2 {
+            font-size: 30px;
+        }
 
-    .btn1 {
-        width: 134px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 15px;
-    }
+        button {
+            font-size: 12px;
+            height: 22px;
+            line-height: 22px;
+        }
 
-    .content2 .box2 .note>p {
-        padding: 0px 5px;
-        font-size: 16px;
-    }
+        .btn1 {
+            width: 134px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+        }
 
-    .content4 {
-        display: block;
-    }
+        .content2 .box2 .note>p {
+            padding: 0px 5px;
+            font-size: 16px;
+        }
 
-    .box .desc>h3 {
-        white-space: normal;
-        width: 100%;
-    }
+        .content4 {
+            display: block;
+        }
 
-    .content2 {
-        display: grid;
-        grid-template-columns: auto;
+        .box .desc>h3 {
+            white-space: normal;
+            width: 100%;
+        }
 
-    }
+        .content2 {
+            display: grid;
+            grid-template-columns: auto;
 
-    .box2 .picture img {
-        width: 100%;
-        height: 300px;
-        background-size: 100% 100%;
-    }
+        }
 
-    .blog4 {
-        width: 100%;
-    }
+        .box2 .picture img {
+            width: 100%;
+            height: 300px;
+            background-size: 100% 100%;
+        }
 
-    .blog4>img {
-        height: 300px;
-        margin-bottom: 0px;
-        background-size: 100% 100%;
-    }
+        .blog4 {
+            width: 100%;
+        }
 
-    .content4 .blog5 {
-        display: grid;
-        grid-template-columns: auto;
-        gap: 10px;
-    }
+        .blog4>img {
+            height: 300px;
+            margin-bottom: 0px;
+            background-size: 100% 100%;
+        }
 
-    .blog5 {
-        display: grid;
-        grid-template-columns: auto;
-    }
+        .content4 .blog5 {
+            display: grid;
+            grid-template-columns: auto;
+            gap: 10px;
+        }
 
-    .blog5-blog>img {
-        height: 300px;
-        margin-bottom: 10px;
-        background-size: 100% 100%;
-    }
+        .blog5 {
+            display: grid;
+            grid-template-columns: auto;
+        }
 
-    .blog5 .blog5-blog>h3 {
-        min-height: 0;
-        font-size: 22px;
-    }
+        .blog5-blog>img {
+            height: 300px;
+            margin-bottom: 10px;
+            background-size: 100% 100%;
+        }
 
-    .content4 .blog4 .note p {
-        font-size: 16px;
-    }
+        .blog5 .blog5-blog>h3 {
+            min-height: 0;
+            font-size: 22px;
+        }
 
-    .content4 .blog5 .note p {
-        font-size: 16px;
-    }
+        .content4 .blog4 .note p {
+            font-size: 16px;
+        }
 
-    .content5 {
-        display: grid;
-        grid-template-columns: auto;
-    }
+        .content4 .blog5 .note p {
+            font-size: 16px;
+        }
 
-    .content5 .blog-end>img {
-        width: 100%;
-        height: 300px;
-        background-size: 100% 100%;
-    }
+        .content5 {
+            display: grid;
+            grid-template-columns: auto;
+        }
 
-    .note>p {
-        font-size: 15px;
+        .content5 .blog-end>img {
+            width: 100%;
+            height: 300px;
+            background-size: 100% 100%;
+        }
+
+        .note>p {
+            font-size: 15px;
+        }
     }
 }
 
@@ -656,170 +677,172 @@ i {
 
     }
 
-    .content1 .box {
-        display: grid;
-        grid-template-columns: 30% 65%;
-        gap: 20px;
-    }
+    .container {
+        .content1 .box {
+            display: grid;
+            grid-template-columns: 30% 65%;
+            gap: 20px;
+        }
 
-    .blog1 {
-        height: 300px;
-    }
+        .blog1 {
+            height: 300px;
+        }
 
-    .content1 .blog1>button {
-        position: absolute;
-        bottom: 155px;
-        left: 25px;
+        .content1 .blog1>button {
+            position: absolute;
+            bottom: 155px;
+            left: 25px;
 
-        font-size: 15px;
-        width: 70px;
-        height: 25px;
-        line-height: 25px;
-    }
+            font-size: 15px;
+            width: 70px;
+            height: 25px;
+            line-height: 25px;
+        }
 
-    .blog1>h1 {
-        font-size: 22px
-    }
+        .blog1>.descript>h1>a {
+            font-size: 17px;
+        }
 
-    .blog2 {
-        width: 100%;
-    }
+        .blog2 {
+            width: 100%;
+        }
 
-    .blog2 .box .note>p {
-        padding: 0px 5px;
-        font-size: 18px;
-    }
+        .blog2 .box .note>p {
+            padding: 0px 5px;
+            font-size: 18px;
+        }
 
-    .blog2 .box .desc>h3 {
-        font-size: 19px;
-    }
+        .blog2 .box .desc>h3 {
+            font-size: 19px;
+        }
 
-    h3 {
-        margin: 0px;
-    }
+        h3 {
+            margin: 0px;
+        }
 
-    .box .picture {
-        width: 100%;
-    }
+        .box .picture {
+            width: 100%;
+        }
 
-    .box .desc {
-        width: 100%;
-    }
+        .box .desc {
+            width: 100%;
+        }
 
-    .desc .note {
-        margin: 0px;
-    }
+        .desc .note {
+            margin: 0px;
+        }
 
-    h1 {
-        font-size: 50px;
-    }
+        h1 {
+            font-size: 50px;
+        }
 
-    p {
-        font-size: 18px;
-    }
+        p {
+            font-size: 18px;
+        }
 
-    h3 {
-        font-size: 22px;
-    }
+        h3 {
+            font-size: 22px;
+        }
 
-    h2 {
-        font-size: 30px;
-    }
+        h2 {
+            font-size: 30px;
+        }
 
-    button {
-        font-size: 12px;
-        height: 22px;
-        line-height: 22px;
-    }
+        button {
+            font-size: 12px;
+            height: 22px;
+            line-height: 22px;
+        }
 
-    .btn1 {
-        width: 134px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 15px;
-    }
+        .btn1 {
+            width: 134px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+        }
 
-    .content2 .box2 .note>p {
-        padding: 0px 5px;
-        font-size: 16px;
-    }
+        .content2 .box2 .note>p {
+            padding: 0px 5px;
+            font-size: 16px;
+        }
 
-    .content4 {
-        display: block;
-    }
+        .content4 {
+            display: block;
+        }
 
-    .box .desc>h3 {
-        white-space: normal;
-        width: 100%;
-    }
+        .box .desc>h3 {
+            white-space: normal;
+            width: 100%;
+        }
 
-    .content2 {
-        display: grid;
-        grid-template-columns: auto;
-    }
+        .content2 {
+            display: grid;
+            grid-template-columns: auto;
+        }
 
-    .box2 .picture>img {
-        height: 600px;
-        margin-bottom: 10px;
-        background-size: 100% 100%;
-    }
+        .box2 .picture>img {
+            height: 600px;
+            margin-bottom: 10px;
+            background-size: 100% 100%;
+        }
 
-    .blog4 {
-        width: 100%;
-    }
+        .blog4 {
+            width: 100%;
+        }
 
-    .blog4>img {
-        height: 300px;
-        margin-bottom: 0px;
-        background-size: 100% 100%;
-    }
+        .blog4>img {
+            height: 300px;
+            margin-bottom: 0px;
+            background-size: 100% 100%;
+        }
 
-    .content4 .blog5 {
-        display: grid;
-        grid-template-columns: auto;
-        gap: 10px;
-    }
+        .content4 .blog5 {
+            display: grid;
+            grid-template-columns: auto;
+            gap: 10px;
+        }
 
-    .blog5 {
-        display: grid;
-        grid-template-columns: auto;
-    }
+        .blog5 {
+            display: grid;
+            grid-template-columns: auto;
+        }
 
-    .blog5-blog>img {
-        height: 300px;
-        margin-bottom: 10px;
-        background-size: 100% 100%;
-    }
+        .blog5-blog>img {
+            height: 300px;
+            margin-bottom: 10px;
+            background-size: 100% 100%;
+        }
 
-    .blog5 .blog5-blog>h3 {
-        min-height: 0;
-        font-size: 22px;
-    }
+        .blog5 .blog5-blog>h3 {
+            min-height: 0;
+            font-size: 22px;
+        }
 
-    .content4 .blog4 .note p {
-        font-size: 16px;
-    }
+        .content4 .blog4 .note p {
+            font-size: 16px;
+        }
 
-    .content4 .blog5 .note p {
-        font-size: 16px;
-    }
+        .content4 .blog5 .note p {
+            font-size: 16px;
+        }
 
-    .content5 {
-        display: grid;
-        grid-template-columns: auto;
-    }
+        .content5 {
+            display: grid;
+            grid-template-columns: auto;
+        }
 
-    .content5 .blog-end>img {
-        width: 100%;
-        height: 250px;
-        background-size: 100% 100%;
-    }
+        .content5 .blog-end>img {
+            width: 100%;
+            height: 250px;
+            background-size: 100% 100%;
+        }
 
-    .note>p {
-        font-size: 15px;
-    }
+        .note>p {
+            font-size: 15px;
+        }
 
-    .note1>p {
-        font-size: 14px;
+        .note1>p {
+            font-size: 14px;
+        }
     }
 }

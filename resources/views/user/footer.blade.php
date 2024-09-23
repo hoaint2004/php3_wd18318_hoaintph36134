@@ -1,4 +1,8 @@
-    <div class="container-ft">
+<link rel="stylesheet" href="{{ asset('footer.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+   <div class="container-ft">
         <div class="footer-top">
             <div class="row">
                 <div class="col">
@@ -66,7 +70,6 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
                 <div class="col">
                     <h2>More From Us</h2>

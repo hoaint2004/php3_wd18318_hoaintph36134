@@ -1,13 +1,16 @@
-/* body { */
-    
-    .container-ft{
-        color: #fff;
-        margin: 50px 0;
-        line-height: 1.5;
-        padding: 50px;
-        background-color: black;
-        
-    }
+body {
+    margin: 0;
+}
+
+.container-ft {
+    margin: 0;
+    padding: 50px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    overflow-x: hidden;
+    background-color: black;
+    color: #fff;
+
     .row {
         display: flex;
         gap: 30px;
@@ -121,5 +124,186 @@
     p {
         font-size: 15px;
     }
+}
 
-/* } */
+@media (max-width: 1200px) {
+    .container-ft {
+        padding: 40px;
+        margin: 0;
+
+        .footer-top {
+            .row {
+                gap: 20px;
+                .col {
+                    .about-us {
+                        .ab-us-desc {
+                            img {
+                                width: 80%;
+                            }
+                        }
+                    }
+
+                    .col1 {
+                        .col1-1 {
+                            gap: 10px;
+
+                            .col1-image {
+                                width: 30%;
+
+                                a {
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+
+                                    }
+                                }
+                            }
+
+                            .col1-desc {
+                                width: 70%;
+
+                                h2 {
+                                    font-size: 18px;
+                                }
+
+                                .note {
+                                    p {
+                                        font-size: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .col2 {
+                        gap: 10px;
+
+                        .col2-1 {
+                            gap: 10px;
+                            padding: 5px;
+
+                            .col2-desc {
+                                .cate-name {
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .container-ft {
+        margin: 0;
+        padding: 30px;
+        .footer-top {
+            .row {
+                display: flex;
+                gap: 20px;
+                .col {
+                    .col1 {
+                        .col1-1 {
+                            .col1-desc {
+                                h2 {
+                                    font-size: 20px;
+                                }
+
+                                .note {
+                                    p {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .col2 {
+                        display: block;
+                        gap: 10px;
+
+                        .col2-1 {
+                            padding: 10px;
+                            margin: 10px 0;
+
+                            .col2-desc {
+                                .cate-name {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container-ft {
+        padding: 30px;
+
+        .footer-top {
+            
+            .row {
+                display: block;
+                .col {
+                    width: 100%;
+
+                    .about-us{
+                        .ab-us-desc{
+                            p{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                    .col1 {
+                        .col1-1 {
+                            .col1-image>a>img {
+                                width: 100%;
+                                max-height: 100px;
+                            }
+                            .col1-desc {
+                                h2 {
+                                    font-size: 22px;
+                                }
+
+                                .note {
+                                    p {
+                                        font-size: 18px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .col2 {
+                        display: block;
+                        gap: 10px;
+
+                        .col2-1 {
+
+                            .col2-desc {
+                                .cate-name {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-bottom{
+            display: block;
+            
+            .ft-r{
+                padding: 0;      
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {}
