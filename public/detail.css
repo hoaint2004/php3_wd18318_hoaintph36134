@@ -34,7 +34,7 @@ body {
 
     .content>h1>a {
         color: black;
-        font-size: 40px;
+        font-size: 35px;    
         text-transform: capitalize;
     }
 
@@ -437,7 +437,7 @@ body {
 
     .image-cus {
         width: 100%;
-        height: 50%;
+        /* height: 50%; */
     }
 
     .content-cus {
@@ -554,7 +554,7 @@ body {
 
             .image-cus {
                 width: 100%;
-                height: 50%;
+                /* height: 50%; */
             }
 
             .content-cus {
@@ -635,6 +635,7 @@ body {
 
 /* Max width 576px */
 @media (max-width: 576px) {
+    .container{
     p {
         font-size: 13px;
     }
@@ -666,6 +667,9 @@ body {
 
     .content>h1 {
         font-size: 30px;
+    }
+    .content>h1>a {
+        font-size: 25px;
     }
 
     .section1 {
@@ -712,6 +716,13 @@ body {
     .rate {
         display: block;
         text-align: center;
+
+        .image-cus{
+            img{
+                width: 35%;
+                height: 90px;
+            }
+        }
     }
 
     .icon-rate {
@@ -810,7 +821,6 @@ body {
             width: 100%;
             height: 250px;
         }
-
     }
-
+    }
 }
