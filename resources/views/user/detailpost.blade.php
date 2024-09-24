@@ -1,6 +1,8 @@
 @extends('user.layout')
-
+<link rel="stylesheet" href="{{ asset('detail.css')}}">
 @section('content')
+
+<div class="container">
     <div class="detail">
         <div class="content">
             <button class="btn" style="background-color: #eba845">{{ $post->category->name }}</button>
@@ -212,5 +214,5 @@
             </div>
         </div>
     </div>
-
+</div>
 @endsection

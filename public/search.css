@@ -202,6 +202,7 @@
                 }
 
                 .search-top {
+
                     .filter {
                         select {
                             font-size: 18px;
@@ -275,18 +276,21 @@
                         width: 100%;
                         padding: 10px 5px;
                         border-radius: 5px;
-                        font-size: 20px;
+                        font-size: 15px;
                     }
                 }
 
                 .search-top {
+                    h1{
+                        font-size: 22px;
+                    }
                     .filter {
                         select {
-                            font-size: 20px;
+                            font-size: 15px;
                         }
 
                         h3 {
-                            font-size: 25px;
+                            font-size: 22px;
                         }
                     }
 
@@ -300,7 +304,7 @@
                                 border-radius: 0 3px 3px 0;
                                 border: 1px solid #555;
                                 padding: 10px 35px;
-                                font-size: 20px;
+                                font-size: 18px;
                             }
                         }
 
@@ -309,7 +313,7 @@
                                 border-radius: 3px 0 0 3px;
                                 border: 1px solid #555;
                                 padding: 10px 35px;
-                                font-size: 20px;
+                                font-size: 18px;
                             }
                         }
                     }
@@ -320,4 +324,61 @@
 }
 
 /* Max width 576px */
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+    .container {
+        .form-search {
+            .search {
+                .input-search {
+                    input {
+                        font-size: 15px;
+                    }
+                }
+                
+                .search-top{
+                    .filter{
+                        select {
+                            padding: 10px 0px;
+                            border-radius: 5px;
+                            font-size: 15px;
+
+                            option {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+
+                .search-bottom {
+                    .list-post {
+                        display: flex;
+                        padding: 10px 0;
+    
+                        .post-new {
+                            list-style: none;
+    
+                            a {
+                                font-size: 18px;
+                                border-radius: 3px 0 0 3px;
+                                border: 1px solid #555;
+                                padding: 10px 10px;
+                            }
+    
+                        }
+    
+                        .post-related {
+                            list-style: none;
+    
+                            a {
+                                font-size: 18px;
+                                border-radius: 0 3px 3px 0;
+                                border: 1px solid #555;
+                                padding: 10px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

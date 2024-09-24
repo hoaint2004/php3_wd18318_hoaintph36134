@@ -686,6 +686,14 @@ i {
 
         .blog1 {
             height: 300px;
+
+            .image{
+                .descript{
+                    h1{
+                        font-size: 25px;
+                    }
+                }
+            }
         }
 
         .content1 .blog1>button {
@@ -781,7 +789,7 @@ i {
         }
 
         .box2 .picture>img {
-            height: 600px;
+            height: 350px;
             margin-bottom: 10px;
             background-size: 100% 100%;
         }

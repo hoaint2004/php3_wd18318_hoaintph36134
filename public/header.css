@@ -8,6 +8,12 @@
     overflow-x: hidden;
 
     .header {
+        /* position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 200px; */
+
         .preview-header {
             background-color: #262626;
             display: flex;
@@ -97,7 +103,7 @@
 
         .main-menu {
             padding: 20px 50px;
-            height: 30px;
+            height: auto;
             border: 1px solid #555;
 
 
@@ -117,60 +123,64 @@
                 }
 
                 .menu-link {
-                    ul {
-                        padding: 0;
-                        margin: 0;
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 20px;
+                    .nav-pc {
+                        ul {
+                            padding: 0;
+                            margin: 0;
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 20px;
 
-                        li {
-                            list-style: none;
+                            li {
+                                list-style: none;
 
-                            a {
-                                text-decoration: none;
-                                color: black;
-                            }
+                                a {
+                                    text-decoration: none;
+                                    color: black;
+                                }
 
-                            .sub-menu {
-                                margin: 10px 0;
-                                display: block;
-                                width: 130px;
-                                height: 130px;
-                                background-color: #555;
+                                .sub-menu {
+                                    margin: 10px 0;
+                                    display: block;
+                                    width: 130px;
+                                    height: 130px;
+                                    background-color: #555;
+                                }
                             }
                         }
                     }
                 }
 
                 .search-header {
-                    display: flex;
-                    flex-wrap: wrap;
+                    .icon-media {
+                        display: flex;
+                        flex-wrap: wrap;
 
-                    gap: 20px;
-                    color: black;
-                    line-height: 30px;
+                        gap: 20px;
+                        color: black;
+                        line-height: 30px;
 
-                    .mode {
-                        width: 50px;
-                        height: 20px;
-                        line-height: 20px;
-                        margin: 5px 0;
-                        border-radius: 20px;
-                        background-color: #555;
-                        justify-content: center;
-                        /* border: 1px solid #555; */
+                        .mode {
+                            width: 50px;
+                            height: 20px;
+                            line-height: 20px;
+                            margin: 5px 0;
+                            border-radius: 20px;
+                            background-color: #555;
+                            justify-content: center;
+                            /* border: 1px solid #555; */
 
-                        .day-mode {
-                            background-color: #fff;
-                            height: 100%;
-                            width: 30px;
-                            border-radius: 30px;
-                            text-align: center;
-                        }
+                            .day-mode {
+                                background-color: #fff;
+                                height: 100%;
+                                width: 30px;
+                                border-radius: 30px;
+                                text-align: center;
+                            }
 
-                        .night-mode {
-                            display: none;
+                            .night-mode {
+                                display: none;
+                            }
                         }
                     }
 
@@ -207,11 +217,24 @@
 
                     }
 
+                    .act-bars {
+                        display: none;
+                    }
 
+                    .nav-overlay {
+                        display: none;
+                    }
 
+                    .menu-link-mb {
+                        .nav-mb {
+                            display: none;
+                        }
+                    }
                 }
             }
         }
+
+
     }
 }
 
@@ -233,33 +256,104 @@
 }
 
 @media (max-width: 992px) {
+    .container {
+        .header {
+            .main-menu {
+                .menu-main {
+                    .menu-link {
+                        display: none;
+                    }
 
-    .header {
+                    .search-header {
+                        .icon-media {
+                            display: none;
+                        }
 
-        .main-menu {
+                        .act-bars {
+                            display: block;
+                        }
 
-            .menu-link {
-                display: none;
+                        .nav-input:checked~.nav-overlay {
+                            display: block;
+                            position: fixed;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background-color: rgba(0, 0, 0, 0.3);
+                            z-index: 2;
+                        }
+
+                        .nav-input:checked~.menu-link-mb {
+                            .nav-mb {
+                                display: block;
+                                position: fixed;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                width: 320px;
+                                max-width: 100%;
+                                z-index: 2;
+                                background-color: #fff;
+
+                                label {
+                                    i {
+                                        font-size: 30px;
+                                        padding: 10px;
+                                    }
+                                }
+
+                                .act-search {
+                                    #form-search {
+                                        margin: 10px;
+
+                                        input {
+                                            width: 100%;
+                                            padding: 10px;
+                                            border-radius: 5px;
+                                        }
+
+                                        button {
+                                            width: 10%;
+                                            background-color: #fff;
+                                            padding: 5px;
+
+                                            i {
+                                                font-size: 18px;
+                                            }
+                                        }
+                                    }
+                                    #form-search:hover #search-text, #form-search #search-text:valid {
+                                        width: 240px;
+                                }
+                            }
+
+                        }
+
+                        ul {
+                            li {
+                                list-style: none;
+                                margin: 20px;
+
+                                a {
+                                    text-decoration: none;
+                                    color: black;
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+
+                }
             }
         }
     }
-}
-
-@media (max-width: 768px) {
-
-    /* .header {
-
-        .main-menu {
-            
-            .menu-link {
-                background-color: #262626;
-                padding-top: 100px;
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    } */
 
 }
+}
+
+
+
+@media (max-width: 768px) {}
 
 @media (max-width: 576px) {}

@@ -1,7 +1,9 @@
-<link rel="stylesheet" href="{{ asset('header.css')}}">
+<link rel="stylesheet" href="{{ asset('header.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-   <div class="container">
-        <div class="header">
+<div class="container">
+    <div class="header">
         <div class="preview-header">
             <div class="header-logo">
                 <a href="#" class="hd-logo"><strong>envato</strong> market</a>
@@ -56,7 +58,7 @@
                                 <i class="fa-brands fa-telegram"></i>
                             </a>
                         </li>
-                        <li>
+                        <li class="nav-bar-btn">
                             <a href="#">
                                 <i class="fa-brands fa-behance"></i>
                             </a>
@@ -73,18 +75,20 @@
                 </div>
 
                 <div class="menu-link">
-                    <ul>
-                        <li>
-                            <a href="{{ route('homePage')}}">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Features
-                                {{-- <span>
+                    <div class="nav-pc">
+                        {{-- na-pc --}}
+                        <ul>
+                            <li>
+                                <a href="{{ route('homePage') }}">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Features
+                                    {{-- <span>
                                     <i class="fa-solid fa-angle-down"></i>
                                 </span> --}}
-                            </a>
+                                </a>
 
-                            {{-- <ul class="sub-menu">
+                                {{-- <ul class="sub-menu">
                             <li>
                                 <a href="#">
                                     Post Layout
@@ -111,29 +115,35 @@
                                 </a>
                             </li>
                         </ul> --}}
-                        </li>
-                        <li>
-                            <a href="#">Inspiration</a>
-                            {{-- <span>
+                            </li>
+                            <li>
+                                <a href="#">Inspiration</a>
+                                {{-- <span>
                                 <i class="fa-solid fa-angle-down"></i>
                             </span> --}}
-                        </li>
-                        <li>
-                            <a href="#">Active</a>
-                        </li>
-                        <li>
-                            <a href="#">Business</a>
-                        </li>
-                        <li>
-                            <a href="#">Shop</a>
-                            {{-- <span>
+                            </li>
+                            <li>
+                                <a href="#">Active</a>
+                            </li>
+                            <li>
+                                <a href="#">Business</a>
+                            </li>
+                            <li>
+                                <a href="#">Shop</a>
+                                {{-- <span>
                                 <i class="fa-solid fa-angle-down"></i>
                             </span> --}}
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-overlay">
+                        
+                    </div>
                 </div>
 
                 <div class="search-header">
+                    <div class="icon-media">
                     <div class="mode">
                         {{-- <div class="night-mode">
                         <span class="moon">
@@ -155,23 +165,74 @@
                     </div>
 
                     <div class="act-search">
-                        <form action="{{ route('search-form')}}" id="form-search" method="POST">
+                        <form action="{{ route('search-form') }}" id="form-search" method="POST">
                             {{ csrf_field() }}
-                            <input type="text" id="search-text" name="keyword" placeholder="Bạn muốn tìm kiếm gì?" required>
+                            <input type="text" id="search-text" name="keyword" placeholder="Bạn muốn tìm kiếm gì?"
+                                required>
                             <button type="submit" id="search-btn" name="search-btn">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
                         </form>
                     </div>
 
-                    <div class="act-bars">
+                    </div>
+                    <label for="nav-mb-input" class="act-bars">
                         <span class="bars">
                             <i class="fa-solid fa-bars"></i>
                         </span>
+                    </label>
+
+                    <input type="checkbox" hidden class="nav-input" id="nav-mb-input">
+
+                    <label  for="nav-mb-input"  class="nav-overlay">    
+                    </label>
+
+                    <div class="menu-link-mb">
+                        <div class="nav-mb">
+                            {{-- nav-mb --}}
+                            <label for="nav-mb-input">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                            </label>
+            
+                            <div class="act-search">
+                                <form action="{{ route('search-form') }}" id="form-search" method="POST">
+                                    {{ csrf_field() }}
+                                    <button type="submit" id="search-btn" name="search-btn">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+
+                                    <input type="text" id="search-text" name="keyword" placeholder="Bạn muốn tìm kiếm gì?"
+                                        required>
+                                </form>
+                            </div>
+            
+                            <ul>
+                                <li>
+                                    <a href="{{ route('homePage') }}" class="link-mobile">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link-mobile">Features</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link-mobile">Inspiration</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link-mobile">Active</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link-mobile">Business</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link-mobile">Shop</a>
+                                </li>
+                            </ul>
+                        </div>
+                
                     </div>
                 </div>
+                
             </div>
+        </div>
 
-        </div>
-        </div>
     </div>
+</div>
