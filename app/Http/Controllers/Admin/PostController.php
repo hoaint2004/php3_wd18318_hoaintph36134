@@ -31,13 +31,36 @@ class PostController extends Controller
         // Hiển thị danh sánh bài viết theo danh mục
         $categories = Category::all();
         $categories->each(function ($category) {
-            $category->setRelation('posts', $category->posts()->take(6)->get());
+            $category->setRelation('posts', $category->posts()->take(6)->orderBy('id', 'DESC')->get());
         });
 
-        $postNews = Post::query()->orderBy('created_at', 'desc')->limit(4)->get();
-        // dd($postNews);
 
+        $postNews = Post::query()->orderBy('created_at', 'desc')->limit(4)->get();
         return view('user.home', compact('postNew', 'postUpdate', 'categories', 'postNews'));
+    }
+
+    public function load_more_post(Request $request)
+    {
+        $start = $request->input('start');
+        $categoryId = $request->input('categoryId');
+        $postId = $request->input('postId');
+
+        $data = Post::where('id', '<', $postId)
+            ->where('cate_id', $categoryId )
+            ->orderBy('id', 'DESC')
+            ->limit(3)
+            ->get();
+     
+            return response()->json([
+            'data' => $data,
+            'next' => $start + 3,
+        ]);
+
+        return response()->json([
+            'message' => 'Đã nhận được dữ liệu!',
+            'data' => $data,
+            'next' => $start +3
+        ]);
     }
 
     public function detailPost($id)
@@ -82,7 +105,7 @@ class PostController extends Controller
         $query = Post::query()->where('title', 'LIKE', '%' . $keyw . '%');
 
         if ($date) {
-            if($date == 'all'){
+            if ($date == 'all') {
                 $dateFilter = null;
             }
             //1 day
@@ -107,10 +130,10 @@ class PostController extends Controller
         }
 
         if ($category && $category != 'Tất cả') {
-            $query->whereHas('category', function($q) use ($category) {
+            $query->whereHas('category', function ($q) use ($category) {
                 $q->where('name', $category);
             });
-        }   
+        }
 
         $search_post = $query->paginate(10);
 
@@ -119,7 +142,7 @@ class PostController extends Controller
             return view('user.results', compact('keyw', 'search_post', 'date', 'category'));
         } else {
             // Trả về view không có kết quả nếu không tìm thấy bài viết nào
-            return view('user.notResult', compact('keyw', 'search_post','date', 'category'));
+            return view('user.notResult', compact('keyw', 'search_post', 'date', 'category'));
         }
 
         return view('user.search', compact('keyw, search_post'));

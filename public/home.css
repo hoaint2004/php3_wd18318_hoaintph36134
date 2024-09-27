@@ -239,16 +239,18 @@ img {
     text-align: center;
 }
 
-.btn1 {
+
+.load-more-post {
     width: 100px;
     height: 40px;
     line-height: 40px;
     background: black;
     color: #fff;
     border-radius: 7px;
+    padding: 10px;
 }
 
-.btn1:hover {
+.load-more-post:hover {
     background: red;
 }
 
@@ -391,13 +393,13 @@ i {
             font-size: 13px;
         }
 
-        .content2 {
+        #load-all-post .content2 {
             display: grid;
             grid-template-columns: auto auto;
             gap: 30px;
         }
 
-        .content2 .box2 .note>p {
+        #load-all-post .content2 .box2 .note>p {
             padding: 0px 5px;
             font-size: 16px;
         }
@@ -466,7 +468,7 @@ i {
         }
 
 
-        .btn1 {
+        .load-more-post {
             width: 120px;
             height: 50px;
             line-height: 50px;
@@ -581,7 +583,7 @@ i {
             line-height: 22px;
         }
 
-        .btn1 {
+        .load-more-post {
             width: 134px;
             height: 40px;
             line-height: 40px;
@@ -762,7 +764,7 @@ i {
             line-height: 22px;
         }
 
-        .btn1 {
+        .load-more-post {
             width: 134px;
             height: 40px;
             line-height: 40px;

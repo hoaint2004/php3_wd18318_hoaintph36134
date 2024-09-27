@@ -2,7 +2,7 @@
 @section('title', 'Trang chủ')
 @section('content')
 
-<div class="container">
+    <div class="container">
         <div class="content1">
             <div class="blog1" style="">
                 <div class="image">
@@ -46,40 +46,53 @@
             </div>
         </div>
 
-        @foreach ($categories as $category)
-            <h2>{{ $category->name }}</h2>
-            <div class="content2">
-                @foreach ($category->posts as $post)
-                    <div class="box2">
-                        <div class="picture">
-                            <span class="icon-image">
-                                <i class="fa-regular fa-image"></i>
-                            </span>
-                            <img src="{{ url('storage/' . $post->image) }}" alt="" style="max-width:100%">
-                            <span class="btn-image">
-                                <a href="{{ route('category', $post->category->id) }}"
-                                    style="background-color: #62ce5c" class="btn">{{ $post->category->name }}</a>
-                            </span>
-                        </div>
-                        <h3>
-                            <a href="{{ route('post.detail', $post->id) }}">
-                                {{ $post->title }}
-                            </a>
-                        </h3>
+        <div id="load-all-post">
+            @foreach ($categories as $category)
+                <h2>{{ $category->name }}</h2>
+                <div class="content2" id="content{{ $category->id }}">
+                    @php
+                        $postIdLast = 0;
+                    @endphp
+                    @foreach ($category->posts as $post)
+                        @php
+                            $postIdLast = $post->id;
+                        @endphp
+                        <div class="box2">
+                            <div class="picture">
+                                <span class="icon-image">
+                                    <i class="fa-regular fa-image"></i>
+                                </span>
+                                <img src="{{ url('storage/' . $post->image) }}" alt="" style="max-width:100%">
+                                <span class="btn-image">
+                                    <a href="{{ route('category', $post->category->id) }}"
+                                        style="background-color: #62ce5c" class="btn">{{ $post->category->name }}</a>
+                                </span>
+                            </div>
+                            <h3>
+                                <a href="{{ route('post.detail', $post->id) }}">
+                                    {{ $post->title }}
+                                </a>
+                            </h3>
 
-                        <div class="note">
-                            <p class="icon1"><i class="fa fa-user"></i>{{ $post->view }}</p>
-                            <p> <i class="fa-solid fa-p en"></i>{{ $post->created_at }}</p>
-                            <p><i class="fa-regular fa-clock"></i>{{ $post->updated_at }}</p>
+                            <div class="note">
+                                <p class="icon1"><i class="fa fa-user"></i>{{ $post->view }}</p>
+                                <p> <i class="fa-solid fa-p en"></i>{{ $post->created_at }}</p>
+                                <p><i class="fa-regular fa-clock"></i>{{ $post->updated_at }}</p>
+                            </div>
+                            <p>{{ $post->description }}</p>
                         </div>
-                        <p>{{ $post->description }}</p>
-                    </div>
-                @endforeach
-            </div>
-            <div class="button">
-                <button class="btn1">Load More</button>
-            </div>
-        @endforeach
+                    @endforeach
+                </div>
+
+                <div class="button">
+                    {{-- <a href="{{route('load.more')}}"> --}}
+                        <a class="load-more-post" data-category_id="{{ $category->id }}"
+                            data-post_id="{{ $postIdLast }}">Load More
+                        </a>
+                    {{-- </a> --}}
+                </div>
+            @endforeach
+        </div>
 
         <div class="text">
             <h2>Lifestyle News</h2>
@@ -108,8 +121,7 @@
                 <div class="blog5">
                     <div class="blog5-blog">
                         <div class="picture">
-                            <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="200px"
-                                height="200px">
+                            <img src="{{ url('storage\images\a10.jpg') }}" alt="" width="200px" height="200px">
                             <span class="btn-image">
                                 <a href="" style="background-color:#91bd3a" class="btn">Inspiration</a>
                             </span>
@@ -123,8 +135,7 @@
 
                     <div class="blog5-blog">
                         <div class="picture">
-                            <img src="{{ url('storage\images\a11.jpg') }}" alt="" width="200px"
-                                height="200px">
+                            <img src="{{ url('storage\images\a11.jpg') }}" alt="" width="200px" height="200px">
                             <span class="btn-image">
                                 <a href="" style="background-color:#d66300" class="btn">Science</a>
                             </span>
@@ -138,8 +149,7 @@
 
                     <div class="blog5-blog">
                         <div class="picture">
-                            <img src="{{ url('storage\images\a1.jpg') }}" alt="" width="200px"
-                                height="200px">
+                            <img src="{{ url('storage\images\a1.jpg') }}" alt="" width="200px" height="200px">
                             <span class="btn-image">
                                 <a href="" style="background-color:#d63447;" class="btn">Health</a>
                             </span>
@@ -194,8 +204,6 @@
             @endforeach
         </div>
     </div>
-</body>
-
-</html>
 @endsection()
+
 

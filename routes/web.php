@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [PostController::class, 'indexHome'])->name('homePage');
+Route::get('/load-more-post', [PostController::class, 'load_more_post'])->name('load.more');
 Route::get('/detailpost/{id}', [PostController::class, 'detailPost'])->name('post.detail');
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
 Route::post('/search', [PostController::class, 'search_form'])->name('search-form');

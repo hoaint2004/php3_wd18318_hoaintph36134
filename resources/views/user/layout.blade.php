@@ -29,10 +29,12 @@
 
 
         @media (max-width: 1200px) {
-            body{
-                max-width: 100vw; /* Đảm bảo không vượt quá chiều rộng của viewport */
+            body {
+                max-width: 100vw;
+                /* Đảm bảo không vượt quá chiều rộng của viewport */
 
             }
+
             article {
                 margin: 40px;
 
@@ -41,10 +43,12 @@
         }
 
         @media (max-width: 992px) {
-            body{
-                max-width: 100vw; /* Đảm bảo không vượt quá chiều rộng của viewport */
+            body {
+                max-width: 100vw;
+                /* Đảm bảo không vượt quá chiều rộng của viewport */
 
             }
+
             article {
                 margin: 30px;
             }
@@ -79,6 +83,93 @@
     <footer>
         @include('user.footer')
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.load-more-post').click(function() {
+                var start = 6;
+                var categoryId = $(this).data('category_id');
+                var postId = $(this).data('post_id');
+                console.log({
+                    start: start,
+                    categoryId: categoryId,
+                    postId: postId
+                });
+
+                var datatoSend = {
+                    start: start,
+                    categoryId: categoryId,
+                    postId: postId
+                }
+
+                $.ajax({
+                    url: "{{ route('load.more') }}",
+                    method: "GET",
+                    data: datatoSend,
+
+                    dataType: "json",
+
+                    beforeSend: function() {
+                        $('#load-more-post').html('Loading...');
+                        $('#load-more-post').attr('disabled', true);
+                    },
+
+                    success: function(response) {
+                        console.log("Dữ liệu đã được gửi thành công", response.data);
+                        if (response.data.length > 0) {
+                            var html = '';
+                            for (var i = 0; i < response.data.length; i++) {
+                                var imageUrl = '/storage/' + response.data[i].image;
+                                var categoryUrl = '/category/' + response.data[i].cate_id;
+                                var postUrl = '/detailpost/' + response.data[i].id;
+
+                                html += `
+                              <div class="box2">
+                                <div class="picture">
+                                    <span class="icon-image">
+                                        <i class="fa-regular fa-image"></i>
+                                    </span>
+                                <img src="` + imageUrl + `" alt="` + response.data[i]
+                                        .image + `" style="max-width:100%">
+                                    <span class="btn-image">
+                                        <a href="` + categoryUrl + `"
+                                            style="background-color: #62ce5c" class="btn">` + response.data[i].name + `</a>
+                                    </span>
+                                </div>
+                                <h3>
+                                    <a href="` + postUrl + `">
+                                        ` + response.data[i].title + `
+                                    </a>
+                                </h3>
+
+                                <div class="note">
+                                    <p class="icon1"><i class="fa fa-user"></i>` + response.data[i].view + `</p>
+                                    <p> <i class="fa-solid fa-p en"></i>` + response.data[i].created_at + `</p>
+                                    <p><i class="fa-regular fa-clock"></i>` + response.data[i].updated_at + `</p>
+                                </div>
+                                <p>` + response.data[i].description + `</p>
+                            </div>  
+                            `;
+                            }
+                            console.log(html);
+                            $('#content' + categoryId).append(html);
+
+                            start = response.data.next;
+                        } else {
+                            $('#content' +categoryId).html('No More Data Available');
+                            $('#content' +categoryId).attr('disabled', true);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Lỗi: ", error);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
