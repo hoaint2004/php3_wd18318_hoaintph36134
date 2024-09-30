@@ -89,41 +89,50 @@
 
     <script>
         $(document).ready(function() {
+            var start = 6; //biến để lưu giá trị vị trí bắt đầu load
+
             $('.load-more-post').click(function() {
-                var start = 6;
-                var categoryId = $(this).data('category_id');
+                var categoryId = $(this).data('category_id'); //Lấy dữ liệu category_id từ 'load-more-post'
                 var postId = $(this).data('post_id');
+
                 console.log({
                     start: start,
                     categoryId: categoryId,
                     postId: postId
                 });
 
-                var datatoSend = {
-                    start: start,
-                    categoryId: categoryId,
-                    postId: postId
-                }
-
                 $.ajax({
                     url: "{{ route('load.more') }}",
                     method: "GET",
-                    data: datatoSend,
+                    data: {
+                        start: start,
+                        categoryId: categoryId,
+                        postId: postId
+                    },
 
                     dataType: "json",
 
                     beforeSend: function() {
-                        $('#load-more-post').html('Loading...');
-                        $('#load-more-post').attr('disabled', true);
+                        $('#load-more-post' + categoryId).html('Loading...');
+                        $('#load-more-post' + categoryId).attr('disabled', true);
                     },
 
                     success: function(response) {
                         console.log("Dữ liệu đã được gửi thành công", response.data);
+
+                        console.log({
+                            start: start,
+                            categoryId: categoryId,
+                            postId: postId
+                        });
+
                         if (response.data.length > 0) {
                             var html = '';
                             for (var i = 0; i < response.data.length; i++) {
                                 var imageUrl = '/storage/' + response.data[i].image;
                                 var categoryUrl = '/category/' + response.data[i].cate_id;
+                                var cate = response.data[i].category.name;
+
                                 var postUrl = '/detailpost/' + response.data[i].id;
 
                                 html += `
@@ -133,10 +142,10 @@
                                         <i class="fa-regular fa-image"></i>
                                     </span>
                                 <img src="` + imageUrl + `" alt="` + response.data[i]
-                                        .image + `" style="max-width:100%">
+                                    .image + `" style="max-width:100%">
                                     <span class="btn-image">
                                         <a href="` + categoryUrl + `"
-                                            style="background-color: #62ce5c" class="btn">` + response.data[i].name + `</a>
+                                            style="background-color: #62ce5c" class="btn">` + cate + `</a>
                                     </span>
                                 </div>
                                 <h3>
@@ -154,14 +163,19 @@
                             </div>  
                             `;
                             }
-                            console.log(html);
                             $('#content' + categoryId).append(html);
+                            $('#load-more-post' + categoryId).html('Load More');
+                            $('#load-more-post' + categoryId).attr('disabled', false);
 
-                            start = response.data.next;
+                            postId = response.data[response.data.length - 1].id;
+                            $('#load-more-post' + categoryId).data('post_id', postId);
+                            
                         } else {
-                            $('#content' +categoryId).html('No More Data Available');
-                            $('#content' +categoryId).attr('disabled', true);
+                            $('#load-more-post' + categoryId).html('No More Data Available');
+                            $('#load-more-post' + categoryId).attr('disabled', true);
                         }
+
+                        start = response.next;
                     },
                     error: function(xhr, status, error) {
                         console.log("Lỗi: ", error);

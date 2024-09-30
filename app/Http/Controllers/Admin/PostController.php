@@ -49,17 +49,13 @@ class PostController extends Controller
             ->where('cate_id', $categoryId )
             ->orderBy('id', 'DESC')
             ->limit(3)
+            ->with('category')
             ->get();
-     
-            return response()->json([
-            'data' => $data,
-            'next' => $start + 3,
-        ]);
 
-        return response()->json([
+            return response()->json([
             'message' => 'Đã nhận được dữ liệu!',
             'data' => $data,
-            'next' => $start +3
+            'next' => $start + 3,
         ]);
     }
 

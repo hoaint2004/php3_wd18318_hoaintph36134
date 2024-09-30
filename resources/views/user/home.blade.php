@@ -85,11 +85,9 @@
                 </div>
 
                 <div class="button">
-                    {{-- <a href="{{route('load.more')}}"> --}}
-                        <a class="load-more-post" data-category_id="{{ $category->id }}"
+                        <a class="load-more-post" id="load-more-post{{$category->id}}" data-category_id="{{ $category->id }}"
                             data-post_id="{{ $postIdLast }}">Load More
                         </a>
-                    {{-- </a> --}}
                 </div>
             @endforeach
         </div>
