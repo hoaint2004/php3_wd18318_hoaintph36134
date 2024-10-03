@@ -34,7 +34,7 @@ body {
 
     .content>h1>a {
         color: black;
-        font-size: 35px;    
+        font-size: 35px;
         text-transform: capitalize;
     }
 
@@ -319,6 +319,7 @@ body {
         gap: 30px;
     }
 
+
     .picture,
     .content-blog {
         width: 100%;
@@ -391,6 +392,55 @@ body {
         background-color: black;
         color: #fff;
         border-radius: 8px;
+        margin: 10px 0;
+    }
+
+    .comment {
+        .error-comment{
+            height: 50px;
+            line-height: 50px;
+            background-color: black;
+            color: #fff;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+    }
+
+    .list-comment {
+        display: flex;
+
+        .media-comment {
+            .comment-parent {
+                display: flex;
+                gap: 10px;
+
+                .pull-left {
+                    .avatar {
+                        width: 60px;
+                    }
+                }
+
+                .media-comment-body {
+                    .btn-reply {
+                        width: 70px;
+                        height: 30px;
+                        line-height: 30px;
+                        background-color: black;
+                        border-radius: 8px;
+                        margin: 10px 0;
+                        text-align: center;
+
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+
+
+        }
     }
 
     .media1 {
@@ -445,6 +495,7 @@ body {
     }
 
     .text-note {
+        color: black;
         padding: 0;
     }
 
@@ -635,192 +686,195 @@ body {
 
 /* Max width 576px */
 @media (max-width: 576px) {
-    .container{
-    p {
-        font-size: 13px;
-    }
+    .container {
+        p {
+            font-size: 13px;
+        }
 
-    .note {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-    }
+        .note {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
 
-    .note>p>i {
-        font-size: 13px;
-    }
+        .note>p>i {
+            font-size: 13px;
+        }
 
-    input {
-        font-size: 15px;
-    }
+        input {
+            font-size: 15px;
+        }
 
-    label {
-        font-size: 25px;
-    }
+        label {
+            font-size: 25px;
+        }
 
-    .tag>button {
-        font-size: 15px;
-    }
+        .tag>button {
+            font-size: 15px;
+        }
 
-    .text-previous {
-        font-size: 22px;
-    }
+        .text-previous {
+            font-size: 22px;
+        }
 
-    .content>h1 {
-        font-size: 30px;
-    }
-    .content>h1>a {
-        font-size: 25px;
-    }
+        .content>h1 {
+            font-size: 30px;
+        }
 
-    .section1 {
-        display: grid;
-        grid-template-columns: auto;
-    }
+        .content>h1>a {
+            font-size: 25px;
+        }
 
-    .media {
-        display: grid;
-        grid-template-columns: auto auto auto auto auto auto;
-        gap: 10px;
-    }
+        .section1 {
+            display: grid;
+            grid-template-columns: auto;
+        }
+
+        .media {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
+            gap: 10px;
+        }
 
 
-    .icon-media-facebook,
-    .icon-media-twitter,
-    .icon-media-pinterest,
-    .icon-media-linkedin,
-    .icon-media-heart,
-    .icon-media-eye {
-        width: 40px;
-        border-radius: 30px;
-        text-align: center;
-        line-height: 40px;
-        font-size: 20px;
-    }
+        .icon-media-facebook,
+        .icon-media-twitter,
+        .icon-media-pinterest,
+        .icon-media-linkedin,
+        .icon-media-heart,
+        .icon-media-eye {
+            width: 40px;
+            border-radius: 30px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+        }
 
-    .text {
-        width: 100%;
-    }
+        .text {
+            width: 100%;
+        }
 
-    .introduce>h2 {
-        font-size: 25px;
-    }
+        .introduce>h2 {
+            font-size: 25px;
+        }
 
-    .introduce>p {
-        font-size: 15px;
-    }
+        .introduce>p {
+            font-size: 15px;
+        }
 
-    li {
-        font-size: 15px;
-    }
+        li {
+            font-size: 15px;
+        }
 
-    .rate {
-        display: block;
-        text-align: center;
+        .rate {
+            display: block;
+            text-align: center;
 
-        .image-cus{
-            img{
-                width: 35%;
-                height: 90px;
+            .image-cus {
+                img {
+                    width: 35%;
+                    height: 90px;
+                }
             }
         }
-    }
 
-    .icon-rate {
-        font-size: 15px;
-    }
+        .icon-rate {
+            font-size: 15px;
+        }
 
-    h5 {
-        font-size: 22px;
-    }
+        h5 {
+            font-size: 22px;
+        }
 
-    .content-blog>h2>a {
-        font-size: 16px;
-    }
+        .content-blog>h2>a {
+            font-size: 16px;
+        }
 
-    .btn {
-        font-size: 13px;
-        width: auto;
-        height: 30px;
-        line-height: 30px;
-        margin-bottom: 15px;
-    }
+        .btn {
+            font-size: 13px;
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 15px;
+        }
 
-    .blog {
-        display: grid;
-        grid-template-columns: auto;
-    }
-
-    .contact {
-        display: grid;
-        grid-template-columns: auto;
-    }
-
-    .contact>input {
-        height: 25px;
-    }
-
-    .save {
-        width: 20px;
-        height: 20px;
-    }
-
-    .art-fashion .blog {
-        display: flex;
-    }
-
-    .art-fashion .picture {
-        width: 25%;
-    }
-
-    .art-fashion .content-blog {
-        width: 75%;
-    }
-
-    .content>button {
-        font-size: 15px;
-        width: 120px;
-        height: 40px;
-        line-height: 40px;
-    }
-
-    h3 {
-        font-size: 22px;
-    }
-
-    .sidebar>h3 {
-        font-size: 20px;
-    }
-
-    .media-slidebar {
-        font-size: 16px;
-    }
-
-    label {
-        font-size: 15px;
-    }
-
-    .tag>button {
-        font-size: 13px;
-    }
-
-    .blog-related {
         .blog {
             display: grid;
             grid-template-columns: auto;
         }
 
-        .blog .picture {
-            width: 100%;
+        .contact {
+            display: grid;
+            grid-template-columns: auto;
         }
 
-        .blog .content-blog {
-            width: 100%;
+        .contact>input {
+            height: 25px;
         }
 
-        .blog-related .blog .picture>img {
-            width: 100%;
-            height: 250px;
+        .save {
+            width: 20px;
+            height: 20px;
         }
-    }
+
+        .art-fashion .blog {
+            display: flex;
+        }
+
+        .art-fashion .picture {
+            width: 25%;
+        }
+
+        .art-fashion .content-blog {
+            width: 75%;
+        }
+
+        .content>button {
+            font-size: 15px;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        h3 {
+            font-size: 22px;
+        }
+
+        .sidebar>h3 {
+            font-size: 20px;
+        }
+
+        .media-slidebar {
+            font-size: 16px;
+        }
+
+        label {
+            font-size: 15px;
+        }
+
+        .tag>button {
+            font-size: 13px;
+        }
+
+        .blog-related {
+            .blog {
+                display: grid;
+                grid-template-columns: auto;
+            }
+
+            .blog .picture {
+                width: 100%;
+            }
+
+            .blog .content-blog {
+                width: 100%;
+            }
+
+            .blog-related .blog .picture>img {
+                width: 100%;
+                height: 250px;
+            }
+        }
+
+
     }
 }

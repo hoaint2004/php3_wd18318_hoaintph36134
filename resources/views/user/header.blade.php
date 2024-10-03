@@ -64,6 +64,15 @@
                             </a>
                         </li>
                     </ul>
+
+                    @if (Auth::check())
+                        <p>Xin chào, {{ Auth::user()->fullname }}</p>
+                        <a href="{{ route('logout') }}" class="auth-link">Logout</a>
+                    @else
+                    {{-- <p>Bạn chưa đăng nhập!</p> --}}
+                        <a href="{{ route('login') }}" class="auth-link">Login</a>
+                        <a href="{{ route('register') }}" class="auth-link">Register</a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -138,42 +147,42 @@
                     </div>
 
                     <div class="nav-overlay">
-                        
+
                     </div>
                 </div>
 
                 <div class="search-header">
                     <div class="icon-media">
-                    <div class="mode">
-                        {{-- <div class="night-mode">
+                        <div class="mode">
+                            {{-- <div class="night-mode">
                         <span class="moon">
                             <i class="fa-regular fa-moon"></i>
                         </span>
                     </div> --}}
 
-                        <div class="day-mode">
-                            <span class="sun">
-                                <i class="fa-regular fa-sun"></i>
+                            <div class="day-mode">
+                                <span class="sun">
+                                    <i class="fa-regular fa-sun"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="act-cart">
+                            <span class="cart">
+                                <i class="fa-solid fa-bag-shopping"></i>
                             </span>
                         </div>
-                    </div>
 
-                    <div class="act-cart">
-                        <span class="cart">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                        </span>
-                    </div>
-
-                    <div class="act-search">
-                        <form action="{{ route('search-form') }}" id="form-search" method="POST">
-                            {{ csrf_field() }}
-                            <input type="text" id="search-text" name="keyword" placeholder="Bạn muốn tìm kiếm gì?"
-                                required>
-                            <button type="submit" id="search-btn" name="search-btn">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </form>
-                    </div>
+                        <div class="act-search">
+                            <form action="{{ route('search-form') }}" id="form-search" method="POST">
+                                {{ csrf_field() }}
+                                <input type="text" id="search-text" name="keyword"
+                                    placeholder="Bạn muốn tìm kiếm gì?" required>
+                                <button type="submit" id="search-btn" name="search-btn">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                        </div>
 
                     </div>
                     <label for="nav-mb-input" class="act-bars">
@@ -184,7 +193,7 @@
 
                     <input type="checkbox" hidden class="nav-input" id="nav-mb-input">
 
-                    <label  for="nav-mb-input"  class="nav-overlay">    
+                    <label for="nav-mb-input" class="nav-overlay">
                     </label>
 
                     <div class="menu-link-mb">
@@ -193,7 +202,7 @@
                             <label for="nav-mb-input">
                                 <i class="fa-regular fa-circle-xmark"></i>
                             </label>
-            
+
                             <div class="act-search">
                                 <form action="{{ route('search-form') }}" id="form-search" method="POST">
                                     {{ csrf_field() }}
@@ -201,11 +210,11 @@
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
 
-                                    <input type="text" id="search-text" name="keyword" placeholder="Bạn muốn tìm kiếm gì?"
-                                        required>
+                                    <input type="text" id="search-text" name="keyword"
+                                        placeholder="Bạn muốn tìm kiếm gì?" required>
                                 </form>
                             </div>
-            
+
                             <ul>
                                 <li>
                                     <a href="{{ route('homePage') }}" class="link-mobile">Home</a>
@@ -227,10 +236,10 @@
                                 </li>
                             </ul>
                         </div>
-                
+
                     </div>
                 </div>
-                
+
             </div>
         </div>
 

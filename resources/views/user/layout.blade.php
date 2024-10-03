@@ -91,50 +91,39 @@
         $(document).ready(function() {
             var start = 6; //biến để lưu giá trị vị trí bắt đầu load
 
-            $('.load-more-post').click(function() {
+            $('.load-more-post').click(function() { // Gán sự kiện click cho class 'load-more-post'
                 var categoryId = $(this).data('category_id'); //Lấy dữ liệu category_id từ 'load-more-post'
-                var postId = $(this).data('post_id');
-
-                console.log({
-                    start: start,
-                    categoryId: categoryId,
-                    postId: postId
-                });
+                var postId = $(this).data('post_id'); // lấy dữ liệu post_id từ 'load-more-post'
 
                 $.ajax({
-                    url: "{{ route('load.more') }}",
-                    method: "GET",
-                    data: {
+                    url: "{{ route('load.more') }}", // Đường dẫn mà yêu cầu Ajax gửi đến
+                    method: "GET", //Phương thức yêu cầu sử dụng
+                    data: { // Tất cả các dữ liệu cần gửi đi 
                         start: start,
                         categoryId: categoryId,
                         postId: postId
                     },
 
-                    dataType: "json",
+                    dataType: "json", // Kiểu dữ liệu muốn trả về
 
-                    beforeSend: function() {
-                        $('#load-more-post' + categoryId).html('Loading...');
-                        $('#load-more-post' + categoryId).attr('disabled', true);
+                    beforeSend: function() { //hàm chạy trước khi yêu cầu được gửi đi 
+                        $('#load-more-post' + categoryId).html('Loading...'); //Thay đổi trạng thái button trong quá trình xử lý dữ liệu
+                        $('#load-more-post' + categoryId).attr('disabled', true); // Vô hiệu hóa button trong suốt quá trình xử lý dữ liệu
                     },
 
-                    success: function(response) {
+                    success: function(response) { //Hàm chạy nếu yêu cầu được gửi đi thành công
                         console.log("Dữ liệu đã được gửi thành công", response.data);
 
-                        console.log({
-                            start: start,
-                            categoryId: categoryId,
-                            postId: postId
-                        });
+                        if (response.data.length > 0) { // Kiểm tra dữ liệu, nếu độ dài của mảng response.data >0 sẽ thực hiện in ra
+                            var html = ''; // Khai báo biến html rỗng để nối chuỗi
+                            for (var i = 0; i < response.data.length; i++) { // Duyệt qua từng phần tử trong mảng response.data 
+                                
+                                var imageUrl = '/storage/' + response.data[i].image; // Ghép nối chuỗi URL với hình ảnh của đối tượng response.data[i]
+                                var categoryUrl = '/category/' + response.data[i].cate_id; //Tạo đường dẫn đến danh mục tương ứng 
+                                var cate = response.data[i].category.name; // Lấy tên danh mục của đối tượng response.data[i] liên kết với bảng category
+                                var postUrl = '/detailpost/' + response.data[i].id; // Tạo đường dẫn đến trang chi tiết của bài viết
 
-                        if (response.data.length > 0) {
-                            var html = '';
-                            for (var i = 0; i < response.data.length; i++) {
-                                var imageUrl = '/storage/' + response.data[i].image;
-                                var categoryUrl = '/category/' + response.data[i].cate_id;
-                                var cate = response.data[i].category.name;
-
-                                var postUrl = '/detailpost/' + response.data[i].id;
-
+                                // Tiến hành nối chuỗi html 
                                 html += `
                               <div class="box2">
                                 <div class="picture">
@@ -163,22 +152,25 @@
                             </div>  
                             `;
                             }
-                            $('#content' + categoryId).append(html);
-                            $('#load-more-post' + categoryId).html('Load More');
-                            $('#load-more-post' + categoryId).attr('disabled', false);
+                            $('#content' + categoryId).append(html); // Gắn nội dung html vào phần tử có ID 'content' 
+                            $('#load-more-post' + categoryId).html('Load More'); // Chuyển trạng thái button sau khi in ra dữ liệu
+                            $('#load-more-post' + categoryId).attr('disabled', false); // Chuyển trạng thái button về false, để có thể tiếp tục kích hoạt
 
-                            postId = response.data[response.data.length - 1].id;
-                            $('#load-more-post' + categoryId).data('post_id', postId);
+                            postId = response.data[response.data.length - 1].id; // Lấy giá trị Id của đối tượng cuối cùng trong mảng response.data để tiếp tục gửi yêu cầu đi nếu click
+                            $('#load-more-post' + categoryId).data('post_id', postId); // Gán giá trị Id cuối cùng của mảng cho data-post_id để thực hiện yêu cầu tiếp theo nếu có
                             
-                        } else {
-                            $('#load-more-post' + categoryId).html('No More Data Available');
-                            $('#load-more-post' + categoryId).attr('disabled', true);
+                        } else { 
+                            $('#load-more-post' + categoryId).html('No More Data Available'); // Cập nhật nội dung button khi không còn dữ liệu để tải thêm
+                            $('#load-more-post' + categoryId).attr('disabled', true); // Vô hiệu hóa button trong trạng thái không còn dữ liệu để tải thêm
                         }
 
-                        start = response.next;
+                        start = response.next; // Cập nhật giá trị start để lần yêu cầu tiếp theo sẽ bắt đầu từ vị trí mới
                     },
                     error: function(xhr, status, error) {
-                        console.log("Lỗi: ", error);
+                        // xhr: Đối tượng XMLHttpRequest đại diện cho yêu cầu AJAX. 
+                        // status: Trạng thái của yêu cầu
+                        // error: Chuỗi mô tả lỗi  
+                        console.log("Lỗi: ", error); // In ra thông báo lỗi
                     }
                 });
             });

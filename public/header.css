@@ -5,15 +5,8 @@
     padding: 0;
     box-sizing: border-box;
     margin-bottom: 50px;
-    overflow-x: hidden;
 
     .header {
-        /* position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin-bottom: 200px; */
-
         .preview-header {
             background-color: #262626;
             display: flex;
@@ -72,12 +65,13 @@
                     flex-wrap: wrap;
                     gap: 10px;
                     color: #fff;
+                    align-items: center;
                     text-align: center;
-
+/* 
                     span {
                         line-height: 55px;
 
-                    }
+                    } */
 
                     .social-icon {
                         padding: 0;
@@ -97,6 +91,15 @@
                             }
                         }
                     }
+                    .auth-link{
+                        color: #fff;
+                    }
+                    
+                    .auth-link:hover{
+                        color:darkkhaki;
+                    }
+
+                
                 }
             }
         }

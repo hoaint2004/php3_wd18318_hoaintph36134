@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -41,21 +43,25 @@ class PostController extends Controller
 
     public function load_more_post(Request $request)
     {
-        $start = $request->input('start');
-        $categoryId = $request->input('categoryId');
-        $postId = $request->input('postId');
+        $start = $request->input('start'); // Nhận dữ liệu start từ yêu cầu gửi đến.
+        $categoryId = $request->input('categoryId'); // Nhận dữ liệu categoryId từ yêu cầu.
+        $postId = $request->input('postId'); // Nhận dữ liệu postId từ yêu cầu gửi đến.
 
-        $data = Post::where('id', '<', $postId)
-            ->where('cate_id', $categoryId )
-            ->orderBy('id', 'DESC')
-            ->limit(3)
-            ->with('category')
-            ->get();
+        // Trong đó: + $start: chỉ số bắt đầu cho việc tải thêm bài viết (giúp xác định số lượng bài đã được tải).
+                 //  + $categoryId: ID của danh mục để lọc bài viết.   
+                 //  + $postId: ID của bài viết mới nhất đã được tải trước đó.
+        
+        $data = Post::where('id', '<', $postId) // Lọc tất cả các bài viết có Id nhỏ hơn Id của bài viết mới được.
+            ->where('cate_id', $categoryId) // Lọc tất cả các bìa viết cso cate_id cùng danh mục với các bài viết trước đó.
+            ->orderBy('id', 'DESC') // Nhóm các bài viết đã lọc theo thứ tự Id giảm dần.
+            ->limit(3) // Lấy số lượng bản ghi giới hạn: 3.
+            ->with('category') // liên kết với bảng category để lấy ra tên danh mục.
+            ->get(); // in dữ liệu.
 
-            return response()->json([
-            'message' => 'Đã nhận được dữ liệu!',
-            'data' => $data,
-            'next' => $start + 3,
+            return response()->json([ // Trả dữ liệu về dưới dạng json.
+            'message' => 'Đã nhận được dữ liệu!', // Trả về thông báo sau khi nhận được dữ liệu trả về.
+            'data' => $data, // Trả về mảng dữ liệu data dưới dạng json
+            'next' => $start + 3, // Tăng chỉ số start thêm 3 để thực hiện lần tải thêm tiếp theo.
         ]);
     }
 
@@ -86,13 +92,15 @@ class PostController extends Controller
             $category->setRelation('posts', $category->posts()->take(1)->get());
         });
 
-        return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther'));
+        $comments = Comment::where('post_id', $id)->orderBy('id', 'DESC')->get();
+
+
+        return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther', 'comments'));
     }
 
 
     public function search_form(Request $request)
     {
-
         // Lấy từ khóa tìm kiếm từ form
         $keyw = $request->input('keyword');
         $date = $request->input('time');
@@ -205,4 +213,8 @@ class PostController extends Controller
         }
         return redirect()->back()->with('message', 'Cập nhật dữ liệu thành công!');
     }
+
+
+
+
 }
