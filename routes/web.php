@@ -21,18 +21,23 @@ use Illuminate\Support\Facades\Route;
 */
 Route::middleware(['web'])->group(function () {
 
-// Route::middleware(AdminMiddleware::class)->group(function () {
+    // Page
     Route::get('/', [PostController::class, 'indexHome'])->name('homePage');
     Route::get('/load-more-post', [PostController::class, 'load_more_post'])->name('load.more');
     Route::get('/detailpost/{id}', [PostController::class, 'detailPost'])->name('post.detail');
     Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
     Route::post('/search', [PostController::class, 'search_form'])->name('search-form');
-    // Route::post('/comment', [CommentController::class, 'store'])->name('comment');
 
+    // Comment Post
     Route::post('/comment/{post_id}', [CommentController::class, 'comment'])->name('comment_post');
+    Route::get('/comment/edit/{id}', [CommentController::class, 'edit'])->name('comment.edit');
+    Route::put('/comment/edit{id}', [CommentController::class, 'update'])->name('comment.update');
+    Route::delete('/comment/delete/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
 });
 
 Route::middleware(AdminMiddleware::class)->group(function () {
+
+    // CRUD Post
     Route::get('/posts', [PostController::class, 'index'])->name('post.index');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
@@ -41,8 +46,8 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::delete('/post/delete/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 });
 
-// Login/ register //Logout
 
+// Login/ register //Logout
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'postLogin'])->name('postLogin');
 Route::get('/register', [LoginController::class, 'register'])->name('register');

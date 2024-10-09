@@ -19,9 +19,7 @@ class AdminMiddleware
         if (Auth::check() && Auth::user()->role == 'admin'){
             return $next($request);
         }
-        // elseif (Auth::user()->role === 'user') {
-        //     return redirect()->route('homePage');
-        // }
-            return redirect()->route('homePage');
+    
+        return redirect('/')->with('Bạn không có quyền truy cập trang này!');
     }
 }

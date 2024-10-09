@@ -22,13 +22,29 @@ class LoginController extends Controller
     {
         $data = $request->only('email', 'password');
 
-        //Kiểm tra tài khoản có trong CSDL không
-        if (Auth::attempt($data)) {
-            // Kiểm tra URL đã lưu và redirect đến URL đó
-            return redirect()->intended(route('post.index'));
+        $user = User::where('email', $request->email)->first();
+        $password = User::where('password', $request->password)->first();
+        if ($user) {
+            // Kiểm tra email và mật khẩu có đúng không
+            if (Auth::attempt($data)) {
+               // Kiểm tra quyền của người dùng sau khi đăng nhập thành công
+            if (Auth::user()->role == 'admin') {
+                // Nếu là admin, chuyển hướng đến trang quản trị
+                return redirect()->intended(route('post.index'));
+            } elseif (Auth::user()->role == 'user') {
+                // Nếu là user, chuyển hướng đến trang chủ
+                return redirect()->intended(route('homePage'));
+            }
+            } else {
+                // Nếu mật khẩu không chính xác
+                return redirect()->route('login')->with('errorLogin', 'Mật khẩu không chính xác.');
+            }
         } else {
-            return redirect()->route('homePage')->with('errorLogin', 'Email hoặc Password không chính xác');
+            // Nếu email không tồn tại trong cơ sở dữ liệu
+            return redirect()->route('login')->with('errorLogin', 'Email không tồn tại.');
         }
+        //Nếu đúng sẽ chuyển hướng về trang chủ
+        return redirect()->route('homePage');
     }
     public function register()
     {

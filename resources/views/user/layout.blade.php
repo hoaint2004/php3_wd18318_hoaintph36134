@@ -32,12 +32,10 @@
             body {
                 max-width: 100vw;
                 /* Đảm bảo không vượt quá chiều rộng của viewport */
-
             }
 
             article {
                 margin: 40px;
-
             }
 
         }
@@ -107,21 +105,32 @@
                     dataType: "json", // Kiểu dữ liệu muốn trả về
 
                     beforeSend: function() { //hàm chạy trước khi yêu cầu được gửi đi 
-                        $('#load-more-post' + categoryId).html('Loading...'); //Thay đổi trạng thái button trong quá trình xử lý dữ liệu
-                        $('#load-more-post' + categoryId).attr('disabled', true); // Vô hiệu hóa button trong suốt quá trình xử lý dữ liệu
+                        $('#load-more-post' + categoryId).html(
+                            'Loading...'
+                        ); //Thay đổi trạng thái button trong quá trình xử lý dữ liệu
+                        $('#load-more-post' + categoryId).attr('disabled',
+                            true); // Vô hiệu hóa button trong suốt quá trình xử lý dữ liệu
                     },
 
                     success: function(response) { //Hàm chạy nếu yêu cầu được gửi đi thành công
                         console.log("Dữ liệu đã được gửi thành công", response.data);
 
-                        if (response.data.length > 0) { // Kiểm tra dữ liệu, nếu độ dài của mảng response.data >0 sẽ thực hiện in ra
+                        if (response.data.length >
+                            0
+                        ) { // Kiểm tra dữ liệu, nếu độ dài của mảng response.data >0 sẽ thực hiện in ra
                             var html = ''; // Khai báo biến html rỗng để nối chuỗi
-                            for (var i = 0; i < response.data.length; i++) { // Duyệt qua từng phần tử trong mảng response.data 
-                                
-                                var imageUrl = '/storage/' + response.data[i].image; // Ghép nối chuỗi URL với hình ảnh của đối tượng response.data[i]
-                                var categoryUrl = '/category/' + response.data[i].cate_id; //Tạo đường dẫn đến danh mục tương ứng 
-                                var cate = response.data[i].category.name; // Lấy tên danh mục của đối tượng response.data[i] liên kết với bảng category
-                                var postUrl = '/detailpost/' + response.data[i].id; // Tạo đường dẫn đến trang chi tiết của bài viết
+                            for (var i = 0; i < response.data
+                                .length; i++
+                            ) { // Duyệt qua từng phần tử trong mảng response.data 
+
+                                var imageUrl = '/storage/' + response.data[i]
+                                    .image; // Ghép nối chuỗi URL với hình ảnh của đối tượng response.data[i]
+                                var categoryUrl = '/category/' + response.data[i]
+                                    .cate_id; //Tạo đường dẫn đến danh mục tương ứng 
+                                var cate = response.data[i].category
+                                    .name; // Lấy tên danh mục của đối tượng response.data[i] liên kết với bảng category
+                                var postUrl = '/detailpost/' + response.data[i]
+                                    .id; // Tạo đường dẫn đến trang chi tiết của bài viết
 
                                 // Tiến hành nối chuỗi html 
                                 html += `
@@ -152,19 +161,31 @@
                             </div>  
                             `;
                             }
-                            $('#content' + categoryId).append(html); // Gắn nội dung html vào phần tử có ID 'content' 
-                            $('#load-more-post' + categoryId).html('Load More'); // Chuyển trạng thái button sau khi in ra dữ liệu
-                            $('#load-more-post' + categoryId).attr('disabled', false); // Chuyển trạng thái button về false, để có thể tiếp tục kích hoạt
+                            $('#content' + categoryId).append(
+                                html); // Gắn nội dung html vào phần tử có ID 'content' 
+                            $('#load-more-post' + categoryId).html(
+                                'Load More'); // Chuyển trạng thái button sau khi in ra dữ liệu
+                            $('#load-more-post' + categoryId).attr('disabled',
+                                false
+                            ); // Chuyển trạng thái button về false, để có thể tiếp tục kích hoạt
 
-                            postId = response.data[response.data.length - 1].id; // Lấy giá trị Id của đối tượng cuối cùng trong mảng response.data để tiếp tục gửi yêu cầu đi nếu click
-                            $('#load-more-post' + categoryId).data('post_id', postId); // Gán giá trị Id cuối cùng của mảng cho data-post_id để thực hiện yêu cầu tiếp theo nếu có
-                            
-                        } else { 
-                            $('#load-more-post' + categoryId).html('No More Data Available'); // Cập nhật nội dung button khi không còn dữ liệu để tải thêm
-                            $('#load-more-post' + categoryId).attr('disabled', true); // Vô hiệu hóa button trong trạng thái không còn dữ liệu để tải thêm
+                            postId = response.data[response.data.length - 1]
+                                .id; // Lấy giá trị Id của đối tượng cuối cùng trong mảng response.data để tiếp tục gửi yêu cầu đi nếu click
+                            $('#load-more-post' + categoryId).data('post_id',
+                                postId
+                            ); // Gán giá trị Id cuối cùng của mảng cho data-post_id để thực hiện yêu cầu tiếp theo nếu có
+
+                        } else {
+                            $('#load-more-post' + categoryId).html(
+                                'No More Data Available'
+                            ); // Cập nhật nội dung button khi không còn dữ liệu để tải thêm
+                            $('#load-more-post' + categoryId).attr('disabled',
+                                true
+                            ); // Vô hiệu hóa button trong trạng thái không còn dữ liệu để tải thêm
                         }
 
-                        start = response.next; // Cập nhật giá trị start để lần yêu cầu tiếp theo sẽ bắt đầu từ vị trí mới
+                        start = response
+                            .next; // Cập nhật giá trị start để lần yêu cầu tiếp theo sẽ bắt đầu từ vị trí mới
                     },
                     error: function(xhr, status, error) {
                         // xhr: Đối tượng XMLHttpRequest đại diện cho yêu cầu AJAX. 
@@ -174,6 +195,242 @@
                     }
                 });
             });
+        });
+
+        var _csrf = '{{ csrf_token() }}';
+        var commentUrl = '{{ route('comment_post', $post->id) }}';
+
+        // Hiển thị comment parent
+        $('#btnsave').click(function(event) {
+            event.preventDefault();
+            var content = $('#content').val();
+            // $('.media-comment').prepend('aaaaaaaa');
+            // return false;
+            $.ajax({
+                url: commentUrl,
+                method: 'POST',
+                data: {
+                    content: content,
+                    _token: _csrf
+                },
+
+                dataType: "json",
+
+                success: function(response) {
+                    if (response.error) {
+                        console.error("Có lỗi xảy ra:", error);
+                    } else {
+                        var commentDestroy = '/comment/destroy' + response.data.id;
+                        var cmt = response.data.comment;
+                        var htmlComment = `
+                            <div class="comment-parent" id="comment-parent-` + response.data.comment.id + `">
+                                    <a href="" class="pull-left">
+                                        <img src="{{ url('/storage/images/8TQiZiKflGgyajQYuVjVANgMjH2vBAvxZTNn2vGX.jpg') }}"
+                                            alt="" class="avatar" width="60px">
+                                    </a>
+
+                                    <div class="media-comment-body">
+                                        <h4 name="fullname"> ` + response.data.user.fullname + `
+                                            <small class="created_at" style="color: #5555558f">
+                                               ` + response.data.comment.created_at + `
+                                            </small>
+                                        </h4>
+                                        <p name="content" id="content-{{ `+ response.data.comment.id+` }}">
+                                           ` + response.data.comment.content + `
+                                        </p>
+
+                                        <div class="text-right">
+                                                <form action="` + commentDestroy + `"
+                                                    method="post" class="delete-comment">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button 
+                                                        type="submit" class="btn-delete" data-comment_id="` + response
+                            .data.comment.id + `">Delete</button>
+                                                </form>
+                                            <a class="btn-reply" href=""
+                                                data-id_comment="` + response.data.comment.id + `">Reply
+                                            </a>
+                                        </div>
+                                        <form action="" method="POST" style="display:none"
+                                            class="formReply form-reply-` + response.data.comment.id + `">
+                                            @csrf
+                                            @method('POST')
+                                            <textarea name="content-reply" id="" cols="70" rows="6" placeholder="Enter content (*)"
+                                                class="text-note-` + response.data.comment.id + `" required="required"></textarea>
+
+                                            <button class="btnsave-reply" type="submit"
+                                                data-id_comment="` + response.data.comment.id + `"> Send reply content</button>
+                                        </form>
+                                    </div>
+                                </div>
+                        `;
+
+                        // prepend : in ra ngay ở vị trí đầu tiên
+                        $('.media-comment').prepend(htmlComment);
+
+                        // Xóa nội dung trong form sau khi gửi dữ liệu
+                        $('#content').val('');
+
+                        // Ẩn form sau khi gửi 
+                        // $('#form-post-comment').hide();
+
+                    }
+                },
+
+                error: function(xhr, status, error) {
+                    console.error("Có lỗi xảy ra:", xhr.responseText);
+                }
+            });
+        });
+
+        $(document).on('click', '.btn-reply', function(ev) {
+            ev.preventDefault();
+            var id = $(this).data('id_comment');
+            var comment_reply_id = '.text-note-' + id;
+            var contentReply = $(comment_reply_id).val();
+            var form_reply = '.form-reply-' + id;
+
+            $('.formReply').slideUp();
+            $(form_reply).slideDown();
+        });
+
+        $(document).on('click', '.btnsave-reply', function(ev) {
+            ev.preventDefault();
+            var id = $(this).data('id_comment');
+            var comment_reply_id = '.text-note-' + id;
+            var contentReply = $(comment_reply_id).val();
+            var form_reply = '.form-reply-' + id;
+
+            $('.formReply').slideUp();
+
+            $.ajax({
+                url: commentUrl,
+                method: 'POST',
+                data: {
+                    content: contentReply,
+                    parent_id: id,
+                    _token: _csrf
+                },
+
+                dataType: "json",
+
+                success: function(response) {
+                    if (response.error) {
+                        console.error("Có lỗi xảy ra:", error);
+                    } else {
+                        var commentDestroy = '/comment/destroy' + response.data.id;
+                        var htmlComment = `
+                                <div class="comment-parent">
+                                    <a href="" class="pull-left">
+                                        <img src="{{ url('/storage/images/8TQiZiKflGgyajQYuVjVANgMjH2vBAvxZTNn2vGX.jpg') }}"
+                                            alt="" class="avatar" width="60px">
+                                    </a>
+
+                                <div class="media-comment-body">
+                                    <h4 name="fullname">` + response.data.user.fullname + ` <small class="created_at" style="color: #5555558f">
+                                            ` + response.data.comment.created_at + `
+                                        </small>
+                                    </h4>
+                                    <p name="content">
+                                        ` + response.data.comment.content + `
+                                    </p>
+
+                                    <div class="text-right">
+                                        <form action="` + commentDestroy + `" method="post" class="delete-comment">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button 
+                                                type="submit" class="btn-delete-reply" data-comment_id="` + response
+                            .data.comment.id + `">Delete
+                                            </button>
+                                        </form>
+                                        <a class="btn-reply" href=""
+                                            data-id_comment="` + response.data.comment.id + `">Reply
+                                        </a>
+                                    </div>
+
+                                     <form action="" method="POST" style="display:none"
+                                            class="formReply form-reply-` + response.data.comment.id + `">
+                                        @csrf
+                                        @method('POST')
+                                        <texta name="content-reply" id="" cols="70" rows="6" placeholder="Enter content (*)"
+                                            class="text-note-` + response.data.comment.id + `" required="required"></texta
+                                        <button class="btnsave-reply" type="submit"
+                                            data-id_comment="` + response.data.comment.id + `"> Send reply
+                                            content</button>
+                                    </form>
+                                </div>
+                            </div>
+                        `;
+
+                        // $('.comment-parent').append(htmlComment);
+                        // prepend : in ra ngay ở vị trí đầu tiên
+                        $('.comment-child').prepend(htmlComment);
+
+
+                        // Xóa nội dung trong form sau khi gửi dữ liệu
+                        $('#content-reply').val('');
+
+                        // Ẩn form sau khi gửi 
+                        // $(form_reply).hide();
+                    }
+                },
+
+                error: function(xhr, status, error) {
+                    console.error("Có lỗi xảy ra:", xhr.responseText);
+                }
+            });
+        });
+
+        $(document).on('click', '.btn-delete', function(ev) {
+            ev.preventDefault();
+            var comment_id = $(this).data('comment_id');
+
+            if (confirm('Do you want to delete?')) {
+                $.ajax({
+                    url: '/comment/delete/' + comment_id,
+                    type: 'DELETE',
+                    data: {
+                        _token: _csrf
+                    },
+
+                    success: function(response) {
+                        $('#comment-parent-' + comment_id).fadeOut(300, function() {
+                            $(this).remove(); // Sau khi ẩn dần thì xóa comment khỏi DOM
+                        });
+                        // alert(response.message); // Hiển thị thông báo sau khi xóa thành công
+                    },
+                    error: function(xhr) {
+                        alert('Something went wrong!');
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', '.btn-delete-reply', function(ev) {
+            ev.preventDefault();
+            var comment_id = $(this).data('comment_id');
+
+            if (confirm('Do you want to delete?')) {
+                $.ajax({
+                    url: '/comment/delete/' + comment_id,
+                    type: 'DELETE',
+                    data: {
+                        _token: _csrf
+                    },
+
+                    success: function(response) {
+                        $('#comment-child-' + comment_id).fadeOut(300, function() {
+                            $(this).remove(); // Sau khi ẩn dần thì xóa comment khỏi DOM
+                        });
+                        alert(response.message);
+                    },
+                    error: function(xhr) {
+                        alert('Something went wrong!');
+                    }
+                });
+            }
         });
     </script>
 </body>

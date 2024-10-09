@@ -28,6 +28,15 @@ class Comment extends Model
         return $this->hasMany(Comment::class, 'parent_id');
     }
 
+    public function totalComments(){
+        $count = Comment::count();
+        foreach ($this->replies as $reply) {
+            $count += $reply->totalComments(); // Đệ quy đếm bình luận con
+        }
+    
+        return $count;
+    }
+
     // Quan hệ với bài viết
     public function post()
     {

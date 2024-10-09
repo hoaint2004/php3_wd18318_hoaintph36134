@@ -385,7 +385,9 @@ body {
 
     }
 
-    .btnsave {
+    .btnsave,
+    .btnsave-reply,
+    .btnsave-reply-p2 {
         width: 150px;
         height: 50px;
         line-height: 50px;
@@ -393,10 +395,11 @@ body {
         color: #fff;
         border-radius: 8px;
         margin: 10px 0;
+        font-size: 15px;
     }
 
     .comment {
-        .error-comment{
+        .error-comment {
             height: 50px;
             line-height: 50px;
             background-color: black;
@@ -422,19 +425,62 @@ body {
                 }
 
                 .media-comment-body {
-                    .btn-reply {
-                        width: 70px;
-                        height: 30px;
-                        line-height: 30px;
-                        background-color: black;
-                        border-radius: 8px;
-                        margin: 10px 0;
-                        text-align: center;
 
-                        a {
+                    .text-right {
+                        display: flex;
+                        gap: 10px;
+                        margin-bottom: 10px;
+
+                        .btn-reply {
+                            width: 50px;
+                            height: 25px;
+                            line-height: 25px;
+                            background-color: black;
+                            border-radius: 8px;
+                            margin: 10px 0;
+                            text-align: center;
                             color: #fff;
+                            padding: 3px;
+                            font-size: 15px;
+
+                        }
+
+                        .btn-edit {
+                            width: 50px;
+                            height: 25px;
+                            line-height: 25px;
+                            background-color: blue;
+                            border-radius: 8px;
+                            margin: 10px 0;
+                            text-align: center;
+                            color: #fff;
+                            padding: 3px;
+                            font-size: 15px;
+                        }
+
+                        .delete-comment {
+
+                            .btn-delete,
+                            .btn-delete-reply {
+                                width: 50px;
+                                height: 31px;
+                                line-height: 25px;
+                                background-color: red;
+                                border-radius: 8px;
+                                margin: 10px 0;
+                                text-align: center;
+                                color: #fff;
+                                padding: 3px;
+                                font-size: 15px;
+                            }
+                        }
+
+                        .btnsave,
+                        .btnsave-reply {
+                            font-size: 15px;
                         }
                     }
+
                 }
             }
 

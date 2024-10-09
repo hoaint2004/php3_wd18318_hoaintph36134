@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
-
     public function index()
     {
         // Số lượng bản ghi muốn hiển thị trong 1 trang
@@ -35,7 +34,6 @@ class PostController extends Controller
         $categories->each(function ($category) {
             $category->setRelation('posts', $category->posts()->take(6)->orderBy('id', 'DESC')->get());
         });
-
 
         $postNews = Post::query()->orderBy('created_at', 'desc')->limit(4)->get();
         return view('user.home', compact('postNew', 'postUpdate', 'categories', 'postNews'));
@@ -92,8 +90,7 @@ class PostController extends Controller
             $category->setRelation('posts', $category->posts()->take(1)->get());
         });
 
-        $comments = Comment::where('post_id', $id)->orderBy('id', 'DESC')->get();
-
+        $comments = Comment::where('post_id', $id)->orderBy('id', 'DESC')->where('parent_id', 0)->get();
 
         return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther', 'comments'));
     }
@@ -179,7 +176,6 @@ class PostController extends Controller
         return redirect()->route('post.index')->with('message', 'Xóa dữ liệu thành công!');
     }
 
-
     // Hiển thị form edit
     public function edit(Post $post)
     {
@@ -188,7 +184,7 @@ class PostController extends Controller
     }
 
     // Cập nhật dữ liệu
-    // request-lấy dữ liệu từ form
+    // request - lấy dữ liệu từ form
     public function update(Request $request, Post $post)
     {
         $data = $request->except('image');
@@ -213,8 +209,4 @@ class PostController extends Controller
         }
         return redirect()->back()->with('message', 'Cập nhật dữ liệu thành công!');
     }
-
-
-
-
 }
