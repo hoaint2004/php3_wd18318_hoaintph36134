@@ -90,7 +90,7 @@ class PostController extends Controller
             $category->setRelation('posts', $category->posts()->take(1)->get());
         });
 
-        $comments = Comment::where('post_id', $id)->orderBy('id', 'DESC')->where('parent_id', 0)->get();
+        $comments = Comment::where('post_id', $id)->where('parent_id', 0)->orderBy('id', 'DESC')->get();
 
         return view('user.detailpost', compact('post', 'categories', 'category', 'cateOther', 'comments'));
     }

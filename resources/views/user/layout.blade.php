@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> --}}
     <link rel="stylesheet" href="{{ asset('header.css') }}">
@@ -240,6 +241,7 @@
                                         </p>
 
                                         <div class="text-right">
+                                            <a href="" class="btn-edit">Edit</a>
                                                 <form action="` + commentDestroy + `"
                                                     method="post" class="delete-comment">
                                                     @csrf
@@ -274,7 +276,6 @@
 
                         // Ẩn form sau khi gửi 
                         // $('#form-post-comment').hide();
-
                     }
                 },
 
@@ -284,17 +285,26 @@
             });
         });
 
+        // Hiển thị comment child
         $(document).on('click', '.btn-reply', function(ev) {
             ev.preventDefault();
             var id = $(this).data('id_comment');
             var comment_reply_id = '.text-note-' + id;
             var contentReply = $(comment_reply_id).val();
             var form_reply = '.form-reply-' + id;
+            var form_edit = '.form-edit-' + id;
 
             $('.formReply').slideUp();
             $(form_reply).slideDown();
+            $(form_edit).slideUp();
+
+            $('.formReply button').removeClass('btnsave-update-reply');
+
+            $('.formReply button').addClass('btnsave-reply');
+            $('#content-reply').val('');
         });
 
+        // Xử lý dữ liệu btnsave-reply
         $(document).on('click', '.btnsave-reply', function(ev) {
             ev.preventDefault();
             var id = $(this).data('id_comment');
@@ -321,7 +331,7 @@
                     } else {
                         var commentDestroy = '/comment/destroy' + response.data.id;
                         var htmlComment = `
-                                <div class="comment-parent">
+                                <div class="comment-child">
                                     <a href="" class="pull-left">
                                         <img src="{{ url('/storage/images/8TQiZiKflGgyajQYuVjVANgMjH2vBAvxZTNn2vGX.jpg') }}"
                                             alt="" class="avatar" width="60px">
@@ -337,6 +347,7 @@
                                     </p>
 
                                     <div class="text-right">
+                                        <a href="" class="btn-edit">Edit</a>
                                         <form action="` + commentDestroy + `" method="post" class="delete-comment">
                                             @csrf
                                             @method('DELETE')
@@ -366,7 +377,7 @@
 
                         // $('.comment-parent').append(htmlComment);
                         // prepend : in ra ngay ở vị trí đầu tiên
-                        $('.comment-child').prepend(htmlComment);
+                        $('.list-comment-child').prepend(htmlComment);
 
 
                         // Xóa nội dung trong form sau khi gửi dữ liệu
@@ -382,6 +393,123 @@
                 }
             });
         });
+
+        // Sửa comment "btnsave-update" parent
+        $('.btn-edit').click(function(ev) {
+            ev.preventDefault(); // Ngăn không reload lại trang
+            var id_comment = $(this).data('id_comment');
+            var content = $(this).data('content');
+            var form_reply = '.form-reply-' + id_comment;
+            var form_edit = '.form-edit-' + id_comment;
+
+            $(form_reply).slideUp();
+            $(form_edit).slideDown();
+
+            $('.form-edit-' + id_comment).show().val(content);
+            $('.form-edit-' + id_comment).find('#text-edit-' + id_comment).val(
+                content); // Gán nội dung vào textarea
+
+            // $('.formReply button').removeClass('btnsave-reply');
+            // $('.formReply button').addClass('btnsave-update-reply');
+ 
+        });
+        
+        $('.btnsave-update').click(function(ev) {
+            ev.preventDefault(); // Ngăn không reload lại trang
+            var id_comment = $(this).data('id_comment');
+            var form_edit = '.form-edit-' + id_comment;
+            var content_update = $(form_edit).find('#text-edit-' + id_comment)
+                .val(); // Lấy nội dung từ textarea
+
+            $('#content' + id_comment).text(content_update);
+            $.ajax({
+                url: '/comment/edit/' + id_comment,
+                type: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+
+                data: {
+                    _method     : 'PUT',
+                    id_comment  : id_comment,
+                    content     : content_update
+                },
+
+                success: function(response) {
+                    // console.log("ok1234567")
+                    // console.log(response.data);
+                    // $('#text-edit-274').val('Some Message here');
+                    // $('#text-edit-274').text('Some Message here');
+                    //     console.log($('#text-edit-274').val());
+                     $(form_edit).hide();
+
+                    $('#content-' + id_comment).html(response.data.content);
+            
+                    $('.form-edit-' + id_comment).find('#content-edit-' + id_comment).val(
+                            response.data.content); // Gán nội dung vừa cập nhật vào textarea
+
+                },
+                error: function(xhr, status, error) {
+                    console.error('Có lỗi xảy ra: ' + error);
+                }
+            });
+
+        });
+
+
+
+        // Sửa comment "btnsave-update" child
+        // $('.btn-edit-child').click(function(ev) {
+        //     ev.preventDefault(); // Ngăn không reload lại trang
+        //     var id_comment = $(this).data('id_comment');
+        //     var content = $(this).data('content');
+        //     var form_reply = '.form-reply-' + id_comment;
+        //     var form_edit = '.form-edit-' + id_comment;
+
+
+        //     $(form_reply).slideUp();
+        //     $(form_edit).slideDown();
+
+        //     $('.form-edit-' + id_comment).show().val(content);
+        //     $('.form-edit-' + id_comment).find('.text-edit-' + id_comment).val(
+        //         content); // Gán nội dung vào textarea
+
+        // });
+
+        // $('.btnsave-update').click(function(ev) {
+        //     ev.preventDefault(); // Ngăn không reload lại trang
+        //     var id_comment = $(this).data('id_comment');
+        //     var form_edit = '.form-edit-' + id_comment;
+        //     var content_update = $(form_edit).find('.text-edit-' + id_comment)
+        //         .val(); // Lấy nội dung từ textarea
+
+        //     $('#content' + id_comment).text(content_update);
+        //     $.ajax({
+        //         url: '/comment/edit/' + id_comment,
+        //         type: 'PUT',
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         },
+
+        //         data: {
+        //             _method: 'PUT',
+        //             id_comment: id_comment,
+        //             content: content_update
+        //         },
+
+        //         success: function(response) {
+        //             // alert(response.data.content);
+
+        //             $(form_edit).hide();
+        //             $('#content-' + id_comment).html(response.data.content);
+
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error('Có lỗi xảy ra: ' + error);
+        //         }
+        //     });
+
+        // });
 
         $(document).on('click', '.btn-delete', function(ev) {
             ev.preventDefault();
@@ -411,7 +539,7 @@
         $(document).on('click', '.btn-delete-reply', function(ev) {
             ev.preventDefault();
             var comment_id = $(this).data('comment_id');
-
+            var parent_id = $(this).data('parent_id')
             if (confirm('Do you want to delete?')) {
                 $.ajax({
                     url: '/comment/delete/' + comment_id,
@@ -421,10 +549,11 @@
                     },
 
                     success: function(response) {
-                        $('#comment-child-' + comment_id).fadeOut(300, function() {
+
+                        console.log(comment_id);
+                        $('.comment-child-' + comment_id).fadeOut(300, function() {
                             $(this).remove(); // Sau khi ẩn dần thì xóa comment khỏi DOM
                         });
-                        alert(response.message);
                     },
                     error: function(xhr) {
                         alert('Something went wrong!');

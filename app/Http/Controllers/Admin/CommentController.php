@@ -49,12 +49,15 @@ class CommentController extends Controller
         // return redirect()->back()->with('message', 'Comment deleted successfully!');
     }
 
-    public function edit(){
-
-    }
-
-    public function update(){
-
+    public function update(Request $request){
+        $data = $request->all();
+        // dd($data);
+        $comment = Comment::find($request->id_comment);
+        $comment->update($data);
+        return response()->json([
+            'message' => 'Comment Updated Successfully!',
+            'data' => $data
+        ]);
     }
 
 }

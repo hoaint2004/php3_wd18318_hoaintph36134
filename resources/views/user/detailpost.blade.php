@@ -162,7 +162,8 @@
 
                                         <div class="text-right">
                                             @can('my-comment', $cmt)
-                                                {{-- <a href="" class="btn-edit">Edit</a> --}}
+                                                <a href="" class="btn-edit" data-id_comment="{{ $cmt->id }}"
+                                                    data-content="{{ $cmt->content }}">Edit</a>
                                                 <form action="{{ route('comment.destroy', $cmt->id) }}" method="post"
                                                     class="delete-comment">
                                                     @csrf
@@ -170,13 +171,28 @@
                                                     <button type="submit" class="btn-delete"
                                                         data-comment_id="{{ $cmt->id }}">Delete</button>
                                                 </form>
+                                                <a class="btn-reply" href=""
+                                                    data-id_comment="{{ $cmt->id }}">Reply
+                                                </a>
                                             @endcan
-                                            <a class="btn-reply" href=""
-                                                data-id_comment="{{ $cmt->id }}">Reply
-                                            </a>
                                         </div>
+                                        {{-- Form edit --}}
                                         <form action="" method="POST" style="display:none"
-                                            class="formReply form-reply-{{ $cmt->id }}" id="form-post-comment-child">
+                                            class="formEdit form-edit-{{ $cmt->id }}" id="form-edit-comment-parent">
+                                            @csrf
+                                            @method('PUT')
+                                            <textarea name="content-edit" id="text-edit-{{$cmt->id}}" cols="70" rows="6" placeholder="Enter content (*)"
+                                                class="content-edit" required="required">
+                                            </textarea>
+
+                                            <button class="btnsave-update" type="submit"
+                                                data-id_comment="{{ $cmt->id }}">Update Content</button>
+                                        </form>
+
+                                        {{-- Form reply --}}
+                                        <form action="" method="POST" style="display:none"
+                                            class="formReply form-reply-{{ $cmt->id }}"
+                                            id="form-post-comment-child">
                                             @csrf
                                             @method('POST')
                                             <input type="button" value="{{ $post->id }}" hidden name="post_id">
@@ -188,10 +204,9 @@
                                         </form>
 
                                         {{-- Các bình luận con --}}
-                                            <div class="comment-child" id="comment-child-{{ $cmt->parent_id }}">
-                                                @foreach ($cmt->replies as $child)
-
-                                                <div class="comment-parent">
+                                        <div class="list-comment-child" id="list-comment-child-{{ $cmt->parent_id }}">
+                                            @foreach ($cmt->replies as $child)
+                                                <div class="comment-child comment-child-{{$child->id}}">
                                                     <a href="" class="pull-left">
                                                         <img src="{{ url('/storage/images/8TQiZiKflGgyajQYuVjVANgMjH2vBAvxZTNn2vGX.jpg') }}"
                                                             alt="" class="avatar" width="60px">
@@ -203,14 +218,15 @@
                                                                 {{ $child->created_at->format('d/m/Y') }}
                                                             </small>
                                                         </h4>
-                                                        <p name="content">
+                                                        <p name="content" id="content-{{ $child->id }}">
                                                             {{ $child->content }}
                                                         </p>
+                
 
                                                         <div class="text-right">
                                                             @can('my-comment', $child)
-                                                                {{-- <a href="" class="btn-edit">Edit</a> --}}
-                                                                <form action="{{ route('comment.destroy', $child->id) }}"
+                                                            <a href="" class="btn-edit-child" data-id_comment="{{ $child->id }}"
+                                                                data-content="{{ $child->content }}">Edit</a>                                                                <form action="{{ route('comment.destroy', $child->id) }}"
                                                                     method="post" class="delete-comment">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -218,18 +234,33 @@
                                                                         data-comment_id="{{ $child->id }}">Delete
                                                                     </button>
                                                                 </form>
+                                                                <a class="btn-reply" href=""
+                                                                    data-id_comment="{{ $child->id }}">Reply
+                                                                </a>
                                                             @endcan
-                                                            <a class="btn-reply" href=""
-                                                                data-id_comment="{{ $child->id }}">Reply
-                                                            </a>
                                                         </div>
-
+                                                        {{-- Form edit --}}
                                                         <form action="" method="POST" style="display:none"
-                                                            class="formReply form-reply-{{ $child->id }}" id="form-post-comment-grandchildren">
+                                                            class="formEdit form-edit-{{ $child->id }}"
+                                                            id="form-edit-comment-parent">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <textarea name="content-edit" id="content-edit" cols="70" rows="6" placeholder="Enter content (*)"
+                                                                class="text-edit-{{ $child->id }}" required="required"></textarea>
+
+                                                            <button class="btnsave-update" type="submit"
+                                                                data-id_comment="{{ $child->id }}">Update
+                                                                Content</button>
+                                                        </form>
+
+                                                        {{-- Form reply --}}
+                                                        <form action="" method="POST" style="display:none"
+                                                            class="formReply form-reply-{{ $child->id }}"
+                                                            id="form-post-comment-grandchildren">
                                                             @csrf
                                                             @method('POST')
                                                             <textarea name="content-reply" id="content-reply-p2" cols="70" rows="6" placeholder="Enter content (*)"
-                                                                class="text-note-{{ $child->id }}" required="required" ></textarea>
+                                                                class="text-note-{{ $child->id }}" required="required"></textarea>
 
                                                             <button class="btnsave-reply-p2" type="submit"
                                                                 data-id_comment="{{ $child->id }}"> Send reply
@@ -237,8 +268,8 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                @endforeach
-                                            </div>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

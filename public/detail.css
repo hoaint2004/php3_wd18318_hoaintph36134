@@ -356,7 +356,7 @@ body {
         margin: 0;
     }
 
-    .text-note {
+    .text-note, .content-edit {
         border: 1px solid #dfdfdf;
         border-radius: 10px;
         font-size: 16px;
@@ -382,12 +382,14 @@ body {
         border-radius: 5px;
         padding: 10px;
         border: 1px solid #777;
-
     }
 
     .btnsave,
     .btnsave-reply,
-    .btnsave-reply-p2 {
+    .btnsave-reply-p2,
+    .btnsave-update-reply,
+    /* .content-edit, */
+    .btnsave-update {
         width: 150px;
         height: 50px;
         line-height: 50px;
@@ -414,7 +416,7 @@ body {
         display: flex;
 
         .media-comment {
-            .comment-parent {
+            .comment-parent, .comment-child{
                 display: flex;
                 gap: 10px;
 
@@ -445,7 +447,7 @@ body {
 
                         }
 
-                        .btn-edit {
+                        .btn-edit, .btn-edit-child {
                             width: 50px;
                             height: 25px;
                             line-height: 25px;
@@ -476,7 +478,7 @@ body {
                         }
 
                         .btnsave,
-                        .btnsave-reply {
+                        .btnsave-reply, .btnsave-update {
                             font-size: 15px;
                         }
                     }

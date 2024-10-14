@@ -30,9 +30,9 @@ Route::middleware(['web'])->group(function () {
 
     // Comment Post
     Route::post('/comment/{post_id}', [CommentController::class, 'comment'])->name('comment_post');
-    Route::get('/comment/edit/{id}', [CommentController::class, 'edit'])->name('comment.edit');
-    Route::put('/comment/edit{id}', [CommentController::class, 'update'])->name('comment.update');
+    Route::put('/comment/edit/{id}', [CommentController::class, 'update'])->name('comment.update');
     Route::delete('/comment/delete/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
+
 });
 
 Route::middleware(AdminMiddleware::class)->group(function () {
