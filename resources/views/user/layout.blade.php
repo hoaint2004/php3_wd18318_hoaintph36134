@@ -254,8 +254,8 @@
                                                 data-id_comment="` + response.data.comment.id + `">Reply
                                             </a>
                                         </div>
-                                        <form action="" method="POST" style="display:none"
-                                            class="formReply form-reply-` + response.data.comment.id + `">
+                                        <form action="" method="POST" style="display:none" class="form-post-comment-child"
+                                            id="form-reply-` + response.data.comment.id + `">
                                             @csrf
                                             @method('POST')
                                             <textarea name="content-reply" id="" cols="70" rows="6" placeholder="Enter content (*)"
@@ -291,16 +291,16 @@
             var id = $(this).data('id_comment');
             var comment_reply_id = '.text-note-' + id;
             var contentReply = $(comment_reply_id).val();
-            var form_reply = '.form-reply-' + id;
-            var form_edit = '.form-edit-' + id;
+            var form_reply = '#form-reply-' + id;
+            var form_edit = '#form-edit-' + id;
 
-            $('.formReply').slideUp();
+            $('#form-reply').slideUp();
             $(form_reply).slideDown();
             $(form_edit).slideUp();
 
-            $('.formReply button').removeClass('btnsave-update-reply');
+            $('#form-reply button').removeClass('btnsave-update-reply');
 
-            $('.formReply button').addClass('btnsave-reply');
+            $('#form-reply button').addClass('btnsave-reply');
             $('#content-reply').val('');
         });
 
@@ -310,9 +310,9 @@
             var id = $(this).data('id_comment');
             var comment_reply_id = '.text-note-' + id;
             var contentReply = $(comment_reply_id).val();
-            var form_reply = '.form-reply-' + id;
+            var form_reply = '#form-reply-' + id;
 
-            $('.formReply').slideUp();
+            $('#form-reply' + id).slideUp();
 
             $.ajax({
                 url: commentUrl,
@@ -398,26 +398,78 @@
         $('.btn-edit').click(function(ev) {
             ev.preventDefault(); // Ngăn không reload lại trang
             var id_comment = $(this).data('id_comment');
-            var content = $(this).data('content');
-            var form_reply = '.form-reply-' + id_comment;
-            var form_edit = '.form-edit-' + id_comment;
+            var content = $(this).attr('data-content');
+            var form_reply = '#form-reply-' + id_comment;
+            var form_edit = '#form-edit-' + id_comment;
 
             $(form_reply).slideUp();
             $(form_edit).slideDown();
 
-            $('.form-edit-' + id_comment).show().val(content);
-            $('.form-edit-' + id_comment).find('#text-edit-' + id_comment).val(
+            // console.log(content);
+            $('#form-edit-' + id_comment).show().val(content);
+            $('#form-edit-' + id_comment).find('#text-edit-' + id_comment).val(
+                content); // Gán nội dung vào textarea
+            });
+            
+            $('.btnsave-update').click(function(ev) {
+                ev.preventDefault(); // Ngăn không reload lại trang
+                var id_comment = $(this).data('id_comment');
+                var form_edit = '#form-edit-' + id_comment;
+                var content_update = $(form_edit).find('#text-edit-' + id_comment)
+                    .val(); // Lấy nội dung từ textarea
+                   
+                $.ajax({
+                    url: '/comment/edit/' + id_comment,
+                    type: 'PUT',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+    
+                    data: {
+                        _method     : 'PUT',
+                        id_comment  : id_comment,
+                        content     : content_update
+                    },
+    
+                    success: function(response) {
+
+                        $(form_edit).hide();
+                        $('#content-' + id_comment).html(response.data.content);
+                        content_updated = response.data.content;
+                        $('#btn-edit-' + id_comment).attr('data-content', content_updated);
+                        $('#form-edit-' + id_comment).find('#text-edit-' +id_comment).val(content_updated).show();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Có lỗi xảy ra: ' + error);
+                    }
+                });
+    
+            });
+
+
+
+        // Sửa comment "btnsave-update" child
+        $('.btn-edit-child').click(function(ev) {
+            ev.preventDefault(); // Ngăn không reload lại trang
+            var id_comment = $(this).data('id_comment');
+            var content = $(this).attr('data-content');
+            var form_reply = '#form-reply-' + id_comment;
+            var form_edit = '#form-edit-' + id_comment;
+
+
+            $(form_reply).slideUp();
+            $(form_edit).slideDown();
+
+            $('#form-edit-' + id_comment).show().val(content);
+            $('#form-edit-' + id_comment).find('#text-edit-' + id_comment).val(
                 content); // Gán nội dung vào textarea
 
-            // $('.formReply button').removeClass('btnsave-reply');
-            // $('.formReply button').addClass('btnsave-update-reply');
- 
         });
-        
+
         $('.btnsave-update').click(function(ev) {
             ev.preventDefault(); // Ngăn không reload lại trang
             var id_comment = $(this).data('id_comment');
-            var form_edit = '.form-edit-' + id_comment;
+            var form_edit = '#form-edit-' + id_comment;
             var content_update = $(form_edit).find('#text-edit-' + id_comment)
                 .val(); // Lấy nội dung từ textarea
 
@@ -430,24 +482,18 @@
                 },
 
                 data: {
-                    _method     : 'PUT',
-                    id_comment  : id_comment,
-                    content     : content_update
+                    _method: 'PUT',
+                    id_comment: id_comment,
+                    content: content_update
                 },
 
                 success: function(response) {
-                    // console.log("ok1234567")
-                    // console.log(response.data);
-                    // $('#text-edit-274').val('Some Message here');
-                    // $('#text-edit-274').text('Some Message here');
-                    //     console.log($('#text-edit-274').val());
-                     $(form_edit).hide();
-
-                    $('#content-' + id_comment).html(response.data.content);
-            
-                    $('.form-edit-' + id_comment).find('#content-edit-' + id_comment).val(
-                            response.data.content); // Gán nội dung vừa cập nhật vào textarea
-
+                    console.log(response.data);
+                    $(form_edit).hide();
+                        $('#content-' + id_comment).html(response.data.content);
+                        content_updated = response.data.content;
+                        $('#btn-edit-child-' + id_comment).attr('data-content', content_updated);
+                        $('#form-edit-' + id_comment).find('#text-edit-' + id_comment).val(content_updated).show();
                 },
                 error: function(xhr, status, error) {
                     console.error('Có lỗi xảy ra: ' + error);
@@ -455,61 +501,6 @@
             });
 
         });
-
-
-
-        // Sửa comment "btnsave-update" child
-        // $('.btn-edit-child').click(function(ev) {
-        //     ev.preventDefault(); // Ngăn không reload lại trang
-        //     var id_comment = $(this).data('id_comment');
-        //     var content = $(this).data('content');
-        //     var form_reply = '.form-reply-' + id_comment;
-        //     var form_edit = '.form-edit-' + id_comment;
-
-
-        //     $(form_reply).slideUp();
-        //     $(form_edit).slideDown();
-
-        //     $('.form-edit-' + id_comment).show().val(content);
-        //     $('.form-edit-' + id_comment).find('.text-edit-' + id_comment).val(
-        //         content); // Gán nội dung vào textarea
-
-        // });
-
-        // $('.btnsave-update').click(function(ev) {
-        //     ev.preventDefault(); // Ngăn không reload lại trang
-        //     var id_comment = $(this).data('id_comment');
-        //     var form_edit = '.form-edit-' + id_comment;
-        //     var content_update = $(form_edit).find('.text-edit-' + id_comment)
-        //         .val(); // Lấy nội dung từ textarea
-
-        //     $('#content' + id_comment).text(content_update);
-        //     $.ajax({
-        //         url: '/comment/edit/' + id_comment,
-        //         type: 'PUT',
-        //         headers: {
-        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //         },
-
-        //         data: {
-        //             _method: 'PUT',
-        //             id_comment: id_comment,
-        //             content: content_update
-        //         },
-
-        //         success: function(response) {
-        //             // alert(response.data.content);
-
-        //             $(form_edit).hide();
-        //             $('#content-' + id_comment).html(response.data.content);
-
-        //         },
-        //         error: function(xhr, status, error) {
-        //             console.error('Có lỗi xảy ra: ' + error);
-        //         }
-        //     });
-
-        // });
 
         $(document).on('click', '.btn-delete', function(ev) {
             ev.preventDefault();
