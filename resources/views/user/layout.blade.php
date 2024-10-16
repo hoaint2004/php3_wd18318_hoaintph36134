@@ -405,7 +405,6 @@
             $(form_reply).slideUp();
             $(form_edit).slideDown();
 
-            // console.log(content);
             $('#form-edit-' + id_comment).show().val(content);
             $('#form-edit-' + id_comment).find('#text-edit-' + id_comment).val(
                 content); // Gán nội dung vào textarea

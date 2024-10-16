@@ -150,7 +150,7 @@
                                             alt="" class="avatar" width="60px">
                                     </a>
 
-                                    <div class="media-comment-body">
+                                    <div class="media-comment-body" id="media-comment-body-{{$cmt->id}}">
                                         <h4 name="fullname"> {{ $cmt->user->fullname }}
                                             <small class="created_at" style="color: #5555558f">
                                                 {{ $cmt->created_at->format('d/m/Y') }}
@@ -203,7 +203,8 @@
                                         </form>
 
                                         {{-- Các bình luận con --}}
-                                        <div class="list-comment-child" id="list-comment-child-{{ $cmt->parent_id }}">
+                                        {{-- id="list-comment-child-{{ $cmt->parent_id }}" --}}
+                                        <div class="list-comment-child" id="list-comment-child-{{$cmt->id}}">
                                             @foreach ($cmt->replies as $child)
                                                 <div class="comment-child comment-child-{{$child->id}}">
                                                     <a href="" class="pull-left">
@@ -224,7 +225,8 @@
                                                         <div class="text-right">
                                                             @can('my-comment', $child)
                                                             <a href="" class="btn-edit-child" id="btn-edit-child-{{ $child->id}}" data-id_comment="{{ $child->id }}"
-                                                                data-content="{{ $child->content }}">Edit</a>                                                                <form action="{{ route('comment.destroy', $child->id) }}"
+                                                                data-content="{{ $child->content }}">Edit</a>                                                                
+                                                                <form action="{{ route('comment.destroy', $child->id) }}"
                                                                     method="post" class="delete-comment">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -232,7 +234,7 @@
                                                                         data-comment_id="{{ $child->id }}">Delete
                                                                     </button>
                                                                 </form>
-                                                                <a class="btn-reply" href=""
+                                                                <a class="btn-reply-p2" href=""
                                                                     data-id_comment="{{ $child->id }}">Reply
                                                                 </a>
                                                             @endcan
