@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Send Mail</title>
 </head>
 <body>
-    <h1>Chúc mừng bạn đã gửi Email thành công!</h1>
+    <h2>Xin Chào, {{ $name }}!</h2>
+    <p>Đây là Email thông báo bạn đã đặt hàng thành công!</p>
 </body>
 </html>

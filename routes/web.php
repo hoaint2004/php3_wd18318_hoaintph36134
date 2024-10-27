@@ -1,14 +1,19 @@
 <?php
 
+use App\Events\SendMailSuccess;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Providers\AppServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
+use function Laravel\Prompts\alert;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,3 +58,10 @@ Route::post('/login', [LoginController::class, 'postLogin'])->name('postLogin');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'postRegister'])->name('postRegister');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/mail', function(){
+    // event(new SendMailSuccess());
+    SendMailSuccess::dispatch();
+    alert('Chúc mừng bạn đã gửi thông tin thành công!');
+    return view('welcome');
+});
