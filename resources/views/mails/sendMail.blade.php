@@ -8,6 +8,6 @@
 </head>
 <body>
     <h2>Xin Chào, {{ $name }}!</h2>
-    <p>Đây là Email thông báo bạn đã đặt hàng thành công!</p>
+    <p>Đây là Email thông báo bạn đã gửi Mail thành công!</p>
 </body>
 </html>

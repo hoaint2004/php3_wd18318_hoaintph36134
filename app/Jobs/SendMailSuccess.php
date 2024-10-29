@@ -1,28 +1,36 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Jobs;
 
-use App\Events\SendMailSuccess;
-use App\Events\SendMailSucess;
+use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Mail\Message;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class SendMailSuccessNotification 
+class SendMailSuccess implements ShouldQueue
 {
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     /**
-     * Create the event listener.
+     * Create a new job instance.
      */
-    public function __construct()
+
+    protected $data;
+    
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
-     * Handle the event.
+     * Execute the job.
      */
-    public function handle(SendMailSuccess $event): void
+
+     
+    public function handle(): void
     {
         $data = array('name' => "Nguyễn Thị Hoài");
         Mail::send('mails.sendMail', $data, function(Message $message) use ($data){
@@ -30,6 +38,5 @@ class SendMailSuccessNotification
             $message->to('hoaintph36134@fpt.edu.vn', $data['name']);
             $message->subject('Đã gửi thông báo thành công!');
         });
-
     }
 }

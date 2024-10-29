@@ -1,13 +1,17 @@
 <?php
   
 namespace App\Console;
-  
+
+use App\Console\Commands\SendMails;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Task;
+use App\Models\Task;
+use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Log as FacadesLog;
-use Log;
-  
+use Illuminate\Support\Facades\Mail;
+// use Log;
+use Illuminate\Support\Facades\Log;
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -15,30 +19,23 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [
-        'App\Console\Commands\DatabaseBackUp'
-    ];
-  
+    
     /**
      * Define the application's command schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+
+     protected $commands = [
+        \App\Console\Commands\SendMails::class,
+    ];
+
+    
     protected function schedule(Schedule $schedule)
     {
         /* Get all tasks from the database */
-        $tasks = Task::all();
-  
-        foreach ($tasks as $task) {
-  
-            $frequency = $task->frequency;
-  
-            $schedule->call(function() use($task) {
-                /*  Run your task here */
-                FacadesLog::info($task->title.' '.\Carbon\Carbon::now());
-            })->$frequency();
-        }
+        $schedule->command('send-mails')->everyMinute();
     }
   
     /**

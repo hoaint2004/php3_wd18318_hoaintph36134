@@ -20,21 +20,6 @@ class CreateTask extends Seeder
                 'title' => 'It will run every minute',
                 'type' => 'everyMinute',
                 'frequency' => 'everyMinute'
-            ],
-            [
-                'title' => 'It will run every five minute',
-                'type' => 'everyFiveMinutes',
-                'frequency' => 'everyFiveMinutes'
-            ],
-            [
-                'title' => 'It will run daily',
-                'type' => 'daily',
-                'frequency' => 'daily'
-            ],
-            [
-                'title' => 'It will run every month',
-                'type' => 'monthly',
-                'frequency' => 'monthly'
             ]);
     }
 }               
