@@ -8,15 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    {{-- <link rel="stylesheet" href="{{ asset('header.css') }}">
-    <link rel="stylesheet" href="{{ asset('footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('search.css') }}">
-    @vite(['resources/scss/home.scss', 'resources/scss/detail.scss',]) --}}
-        {{-- <link href="{{ asset('\css\all.css') }}" rel="stylesheet"> --}}
-        {{-- <link href="{{ asset('\js\all.js') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('\scss\all.scss') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('css/all.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('/scss/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('/scss/footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('/scss/header.css') }}" rel="stylesheet">
+
     {{-- @vite(['resources/scss/home.scss', 'resources/scss/detail.scss', 'resources/scss/header.scss', 'resources/scss/footer.scss',]) --}}
     <title>@yield('title')</title>
 

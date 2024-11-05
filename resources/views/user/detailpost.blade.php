@@ -1,8 +1,5 @@
 @extends('user.layout')
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> --}}
-
-{{-- <link rel="stylesheet" href="{{ asset('detail.css') }}"> --}}
+<link rel="stylesheet" href="{{ asset('scss/detail.css') }}">
 @section('content')
     <div class="container">
         <div class="detail">
@@ -199,7 +196,7 @@
                                                 class="text-note-{{ $cmt->id }}" required="required" id="content-reply"></textarea>
 
                                             <button class="btnsave-reply" type="submit"
-                                                data-id_comment="{{ $cmt->id }}"> Send reply content</button>
+                                                data-id_comment="{{ $cmt->id }}" data-comment="{{ $post->id}}"> Send reply content</button>
                                         </form>
 
                                         {{-- Các bình luận con --}}

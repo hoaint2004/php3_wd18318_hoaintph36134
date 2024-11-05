@@ -1,5 +1,7 @@
 {
-    "/scss/home.css": "/scss/home.css",
-    "/js/home.js": "/js/home.js",
-    "/css/all.css": "/css/all.css"
+    "/js/index.js": "/js/index.js",
+    "/scss/detail.css": "/scss/detail.css",
+    "/scss/footer.css": "/scss/footer.css",
+    "/scss/header.css": "/scss/header.css",
+    "/scss/home.css": "/scss/home.css"
 }
