@@ -9,11 +9,11 @@
                     <img src="{{ url('storage/' . $postNew->image) }}" alt="{{ $postNew->image }}">
                     <div class="descript">
                         <button style="background-color:#eba845" class="btn">{{ $postNew->category->name }}</button>
-                        <h1 style="color: #fff;"><a href="{{ route('post.detail', $postNew->id) }}">
+                        <h1><a href="{{ route('post.detail', $postNew->id) }}">
                                 {{ $postNew->title }}
                             </a>
                         </h1>
-                        <div class="note1" style="color: #fff">
+                        <div class="note1">
                             <p class="icon1"><i class="fa fa-user"></i>{{ $postNew->view }}</p>
                             <p> <i class="fa-solid fa-pen"></i>{{ $postNew->created_at }}</p>
                             <p><i class="fa-regular fa-clock"></i>{{ $postNew->update_at }}</p>

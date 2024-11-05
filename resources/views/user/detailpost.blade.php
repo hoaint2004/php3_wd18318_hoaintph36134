@@ -1,8 +1,8 @@
 @extends('user.layout')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> --}}
 
-<link rel="stylesheet" href="{{ asset('detail.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('detail.css') }}"> --}}
 @section('content')
     <div class="container">
         <div class="detail">
@@ -133,7 +133,7 @@
                                 <span style="color:red">{{ $message }}</span>
                             @enderror
                             <br>
-                            <button class="btnsave" id="btnsave" type="submit">Post Comment</button>
+                            <button class="btnsave" id="btnsave" data-comment="{{ $post->id}}" type="submit">Post Comment</button>
                         </form>
                     @else
                         <a href="{{ route('login') }}" class="error-comment">Log in to comment click to login</a>

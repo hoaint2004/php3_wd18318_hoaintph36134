@@ -1,8 +1,26 @@
+@mixin pm {
+    padding: 0;
+    margin: 0;
+}
+
+@mixin textd-color {
+    text-decoration: none;
+    color: black;
+}
+
+@mixin position-fixed {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
 .container {
     /* white-space: nowrap;  */
     /* Ngăn chặn việc văn bản tràn ra ngoài */
-    margin: 0;
-    padding: 0;
+    @include pm;
     box-sizing: border-box;
     margin-bottom: 50px;
 
@@ -86,14 +104,14 @@
                             }
                         }
                     }
-                    .auth-link{
+
+                    .auth-link {
                         color: #fff;
                     }
-                    
-                    .auth-link:hover{
-                        color:darkkhaki;
-                    }
 
+                    .auth-link:hover {
+                        color: darkkhaki;
+                    }
                 }
             }
         }
@@ -102,7 +120,6 @@
             padding: 20px 50px;
             height: auto;
             border: 1px solid #555;
-
 
             .menu-main {
                 line-height: 30px;
@@ -122,8 +139,7 @@
                 .menu-link {
                     .nav-pc {
                         ul {
-                            padding: 0;
-                            margin: 0;
+                            @include pm;
                             display: flex;
                             flex-wrap: wrap;
                             gap: 20px;
@@ -132,8 +148,7 @@
                                 list-style: none;
 
                                 a {
-                                    text-decoration: none;
-                                    color: black;
+                                    @include textd-color;
                                 }
 
                                 .sub-menu {
@@ -165,7 +180,6 @@
                             border-radius: 20px;
                             background-color: #555;
                             justify-content: center;
-                            /* border: 1px solid #555; */
 
                             .day-mode {
                                 background-color: #fff;
@@ -230,6 +244,8 @@
                 }
             }
         }
+
+
     }
 }
 
@@ -237,8 +253,7 @@
     .container {
         /* white-space: nowrap;  */
         /* Ngăn chặn việc văn bản tràn ra ngoài */
-        margin: 0;
-        padding: 0;
+        @include pm;
         box-sizing: border-box;
         margin-bottom: 50px;
 
@@ -269,26 +284,16 @@
                         }
 
                         .nav-input:checked~.nav-overlay {
-                            display: block;
-                            position: fixed;
-                            top: 0;
-                            bottom: 0;
+                            @include position-fixed;
                             left: 0;
-                            right: 0;
                             background-color: rgba(0, 0, 0, 0.3);
-                            z-index: 2;
                         }
 
                         .nav-input:checked~.menu-link-mb {
                             .nav-mb {
-                                display: block;
-                                position: fixed;
-                                top: 0;
-                                right: 0;
-                                bottom: 0;
+                                @include position-fixed;
                                 width: 320px;
                                 max-width: 100%;
-                                z-index: 2;
                                 background-color: #fff;
 
                                 label {
@@ -303,7 +308,7 @@
                                         margin: 10px;
 
                                         input {
-                                            width: 100%;
+                                            width: 200px;
                                             padding: 10px;
                                             border-radius: 5px;
                                         }
@@ -318,37 +323,32 @@
                                             }
                                         }
                                     }
-                                    #form-search:hover #search-text, #form-search #search-text:valid {
+
+                                    #form-search:hover #search-text,
+                                    #form-search #search-text:valid {
                                         width: 240px;
+                                    }
                                 }
+
                             }
 
-                        }
+                            ul {
+                                li {
+                                    list-style: none;
+                                    margin: 20px;
 
-                        ul {
-                            li {
-                                list-style: none;
-                                margin: 20px;
-
-                                a {
-                                    text-decoration: none;
-                                    color: black;
-                                    font-size: 20px;
+                                    a {
+                                        @include textd-color;
+                                        font-size: 20px;
+                                    }
                                 }
                             }
                         }
+
                     }
-
                 }
             }
         }
+
     }
-
 }
-}
-
-
-
-@media (max-width: 768px) {}
-
-@media (max-width: 576px) {}

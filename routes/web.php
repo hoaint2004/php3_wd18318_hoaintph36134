@@ -24,6 +24,9 @@ use function Laravel\Prompts\alert;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/test', [PostController::class, 'testaccount']);
+
 Route::middleware(['web'])->group(function () {
 
     // Page

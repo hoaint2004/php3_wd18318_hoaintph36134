@@ -9,10 +9,16 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
-{
+{   
+    public function testaccount(){
+        $request = Auth::user(); 
+        dd($request);  
+    }
+
     public function index()
     {
         // Số lượng bản ghi muốn hiển thị trong 1 trang

@@ -1,99 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    {{-- <link rel="stylesheet" href="{{ asset('header.css') }}">
-    <link rel="stylesheet" href="{{ asset('footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('search.css') }}">
-    @vite(['resources/scss/home.scss', 'resources/scss/detail.scss',]) --}}
-        {{-- <link href="{{ asset('\css\all.css') }}" rel="stylesheet"> --}}
-        {{-- <link href="{{ asset('\js\all.js') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('\scss\all.scss') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('css/all.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('/scss/home.css') }}" rel="stylesheet">
-    {{-- @vite(['resources/scss/home.scss', 'resources/scss/detail.scss', 'resources/scss/header.scss', 'resources/scss/footer.scss',]) --}}
-    <title>@yield('title')</title>
-
-    <style>
-        body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            overflow-x: hidden;
-
-        }
-
-        article {
-            margin: 50px;
-        }
-
-
-        @media (max-width: 1200px) {
-            body {
-                max-width: 100vw;
-                /* Đảm bảo không vượt quá chiều rộng của viewport */
-            }
-
-            article {
-                margin: 40px;
-            }
-
-        }
-
-        @media (max-width: 992px) {
-            body {
-                max-width: 100vw;
-                /* Đảm bảo không vượt quá chiều rộng của viewport */
-
-            }
-
-            article {
-                margin: 30px;
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            article {
-                margin: 20px;
-            }
-
-        }
-
-        @media (max-width: 576px) {
-            article {
-                margin: 15px;
-            }
-
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        @include('user.header')
-    </header>
-
-    <article>
-        @yield('content')
-    </article>
-
-    <footer>
-        @include('user.footer')
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-
-        <script src="{{ asset('js/home.js') }}"></script> <!-- Liên kết đến file JS đã biên dịch -->
-        {{-- <script>
         $(document).ready(function() {
             var start = 6; //biến để lưu giá trị vị trí bắt đầu load
 
@@ -206,7 +110,7 @@
         });
 
         var _csrf = '{{ csrf_token() }}';
-        var commentUrl = '{{ route('comment_post', $post->id) }}';
+        var commentUrl = '{{ route('/comment_post/' $post->id) }}';
 
         // Hiển thị comment parent
         $('#btnsave').click(function(event) {
@@ -558,7 +462,3 @@
                 });
             }
         });
-    </script> --}}
-</body>
-
-</html>

@@ -1,5 +1,27 @@
+@mixin icon {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 40px;
+}
 
+@mixin textd-color{
+    text-decoration: none;
+    color: black;
+}
 
+@mixin wh{
+    width: 100%;
+    height: 100%;
+}
+
+@mixin position_icon{
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
 
 body {
     line-height: 1.5;
@@ -76,8 +98,7 @@ body {
     }
 
     a {
-        text-decoration: none;
-        color: black;
+        @include textd-color;
     }
 
     .section1 {
@@ -95,17 +116,12 @@ body {
     }
 
     .icon-media-facebook,
-    .icon-media-twitter,
     .icon-media-pinterest,
     .icon-media-linkedin,
     .icon-media-heart,
+    .icon-media-twitter,
     .icon-media-eye {
-        width: 40px;
-        height: 40px;
-        margin: 10px 0;
-        border-radius: 30px;
-        text-align: center;
-        line-height: 40px;
+        @include icon;
 
         i {
             line-height: 2.5;
@@ -134,7 +150,7 @@ body {
         border: 1px solid black;
     }
 
-    .icon-media-heart {
+    .icon-media-heart,.icon-media-eye  {
         position: relative;
     }
 
@@ -151,9 +167,9 @@ body {
         color: white;
     }
 
-    .icon-media-eye {
-        position: relative;
-    }
+    // .icon-media-eye {
+    //     position: relative;
+    // }
 
     .icon-media-eye .badge {
         width: 30px;
@@ -174,32 +190,24 @@ body {
     }
 
     #facebook {
+        @include position_icon;
         background-color: #45629f;
-        border-radius: 5px;
-        padding-left: 10px;
         margin-top: 30px;
-        margin-bottom: 10px;
     }
 
     #youtube {
+        @include position_icon;
         background-color: #c61d23;
-        border-radius: 5px;
-        padding-left: 10px;
-        margin-bottom: 10px;
     }
 
     #vimeo {
+        @include position_icon;
         background-color: #1ab7ea;
-        border-radius: 5px;
-        padding-left: 10px;
-        margin-bottom: 10px;
     }
 
     #pinterest {
+        @include position_icon;
         background-color: #e60023;
-        border-radius: 5px;
-        padding-left: 10px;
-        margin-bottom: 10px;
     }
 
     #icon-sidebar {
@@ -304,7 +312,6 @@ body {
         grid-template-columns: 20% 80%;
         gap: 10px;
         padding: 10px;
-        /* align-items: center; */
     }
 
     .image-cus>img {
@@ -321,11 +328,9 @@ body {
         gap: 30px;
     }
 
-
     .picture,
     .content-blog {
-        width: 100%;
-        height: 100%;
+        @include wh;
     }
 
     .blog {
@@ -349,9 +354,9 @@ body {
 
     .content-blog>h2>a {
         text-decoration: none;
-        color: black;
         font-size: 16px;
         line-height: 2.5;
+        color: black;
     }
 
     .content-blog>p {
@@ -390,7 +395,6 @@ body {
     .btnsave-reply,
     .btnsave-reply-p2,
     .btnsave-update-reply,
-    /* .content-edit, */
     .btnsave-update {
         width: 150px;
         height: 50px;
@@ -487,9 +491,6 @@ body {
 
                 }
             }
-
-
-
         }
     }
 
@@ -665,11 +666,7 @@ body {
             .media1 {
                 padding: 10px 0;
             }
-
-            /* .contact>input {
-                height: 20px;
-            } */
-        }
+       }
     }
 }
 
@@ -796,7 +793,7 @@ body {
             border-radius: 30px;
             text-align: center;
             line-height: 40px;
-            font-size: 20px;
+            font-size: 20px;    
         }
 
         .text {
