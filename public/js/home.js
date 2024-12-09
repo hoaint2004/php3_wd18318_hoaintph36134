@@ -65,6 +65,7 @@ $(document).ready(function () {
         });
     });
 
+    // comment
     $('#btnsave').on('click', function (event) {
         event.preventDefault();
         var content = $('#content').val();
@@ -132,9 +133,6 @@ $(document).ready(function () {
         $('.form-post-comment-child').slideUp();
         $(form_reply).slideDown();
     });
-});
-
-
         // Xử lý dữ liệu btnsave-reply
         $(document).on('click', '.btnsave-reply', function(ev) {
             ev.preventDefault();
@@ -284,8 +282,6 @@ $(document).ready(function () {
     
             });
 
-
-
         // Sửa comment "btnsave-update" child
         $('.btn-edit-child').click(function(ev) {
             ev.preventDefault(); // Ngăn không reload lại trang
@@ -390,3 +386,4 @@ $(document).ready(function () {
                 });
             }
         });
+    });

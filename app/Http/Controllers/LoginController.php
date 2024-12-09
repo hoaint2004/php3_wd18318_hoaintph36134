@@ -20,31 +20,36 @@ class LoginController extends Controller
     //Login
     public function postLogin(Request $request)
     {
-        $data = $request->only('email', 'password');
+       $data = $request->only('email', 'password');
 
-        $user = User::where('email', $request->email)->first();
-        $password = User::where('password', $request->password)->first();
-        if ($user) {
-            // Kiểm tra email và mật khẩu có đúng không
-            if (Auth::attempt($data)) {
-               // Kiểm tra quyền của người dùng sau khi đăng nhập thành công
-            if (Auth::user()->role == 'admin') {
-                // Nếu là admin, chuyển hướng đến trang quản trị
-                return redirect()->intended(route('post.index'));
-            } elseif (Auth::user()->role == 'user') {
-                // Nếu là user, chuyển hướng đến trang chủ
-                return redirect()->intended(route('homePage'));
-            }
-            } else {
-                // Nếu mật khẩu không chính xác
-                return redirect()->route('login')->with('errorLogin', 'Mật khẩu không chính xác.');
-            }
-        } else {
-            // Nếu email không tồn tại trong cơ sở dữ liệu
-            return redirect()->route('login')->with('errorLogin', 'Email không tồn tại.');
+$user = User::where('email', $request->email)->first();
+
+if ($user) {
+    // Kiểm tra mật khẩu có khớp với mật khẩu đã mã hóa trong cơ sở dữ liệu hay không
+    if (Hash::check($request->password, $user->password)) {
+        // Đăng nhập thành công
+        Auth::login($user);
+
+        // Kiểm tra quyền của người dùng sau khi đăng nhập thành công
+        if (Auth::user()->role == 'admin') {
+            // Nếu là admin, chuyển hướng đến trang quản trị
+            return redirect()->intended(route('post.index'));
+        } elseif (Auth::user()->role == 'user') {
+            // Nếu là user, chuyển hướng đến trang chủ
+            return redirect()->intended(route('homePage'));
         }
-        //Nếu đúng sẽ chuyển hướng về trang chủ
-        return redirect()->route('homePage');
+    } else {
+        // Nếu mật khẩu không chính xác
+        return redirect()->route('login')->with('errorLogin', 'Mật khẩu không chính xác.');
+    }
+} else {
+    // Nếu email không tồn tại trong cơ sở dữ liệu
+    return redirect()->route('login')->with('errorLogin', 'Email không tồn tại.');
+}
+
+// Nếu đúng sẽ chuyển hướng về trang chủ
+return redirect()->route('homePage');
+
     }
     public function register()
     {

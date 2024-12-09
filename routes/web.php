@@ -61,10 +61,3 @@ Route::post('/login', [LoginController::class, 'postLogin'])->name('postLogin');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'postRegister'])->name('postRegister');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// Route::get('/mail', function(){
-//     // event(new SendMailSuccess());
-//     SendMailSuccess::dispatch();
-//     // alert('Chúc mừng bạn đã gửi thông tin thành công!');
-//     return view('welcome');
-// });
